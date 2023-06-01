@@ -1,6 +1,6 @@
 import { useRef } from "react"
 import { Canvas } from "@react-three/fiber"
-import { OrthographicCamera, PerspectiveCamera, FirstPersonControls, PointerLockControls, Hud } from "@react-three/drei"
+import { OrthographicCamera, OrbitControls, PointerLockControls, Hud, RoundedBox } from "@react-three/drei"
 import { DepthOfField, EffectComposer, Noise } from "@react-three/postprocessing"
 
 import { Bench } from "./components/Bench.jsx"
@@ -9,29 +9,26 @@ import { Starfield } from "./components/Starfield.jsx"
 import { Moon } from "./components/Moon.jsx"
 import { Painting } from "./components/Painting.jsx"
 import { Button } from "./components/Button.jsx"
+import { Wallet } from "./components/Wallet.jsx"
 
 export default function App() {
   const view = useRef()
 
+  const wallet = (
+    <RoundedBox args={[300, 300, 300]} radius={20} smoothness={4}>
+      <meshStandardMaterial color='blue' transparent='true' opacity={0.2} />
+    </RoundedBox>
+  )
+
   return (
     <>
-      <div
-        ref={view}
-        style={{
-          position: "absolute",
-          height: "100%",
-          width: "100%",
-          userSelect: "none",
-        }}
-      />
-
-      <Canvas eventSource={window.root} frameloop='demand' shadows>
+      <Canvas shadows>
         <Hud renderPriority={2}>
+          <OrbitControls />
           <ambientLight intensity={1} />
-          <OrthographicCamera makeDefault position={[0, 0, 100]} />
-          <Button text='wallet' position={[800, 400, 0]} size={50} />
-          <Button text='inventory' position={[800, 300, 0]} size={50} />
-          <Button text='create' position={[800, 200, 0]} size={50} />
+          <OrthographicCamera makeDefault position={[0, 0, 200]} />
+          <Button text='Connect' position={[750, 400, 0]} size={50} />
+          <Button text='Inventory' position={[-750, 400, 0]} size={50} />
         </Hud>
 
         <color attach='background' args={["black"]} />

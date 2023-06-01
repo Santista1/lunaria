@@ -1,25 +1,25 @@
 import { useState } from "react"
 import { Text } from "@react-three/drei"
 
-export function Button({ position = [0, 0, 0], model, route, onClick, text = "button", size = 0.2 }) {
+export function Button({ position = [0, 0, 0], model, route, onClick, text, size = 0.2 }) {
   const [hovered, setHover] = useState(false)
   const [width, setWidth] = useState(0)
 
   return (
     <>
       <Text
-        position={[position[0], position[1], position[2] + 0.01]}
-        font={"./FuturaStdBook.otf"}
+        position={position}
+        font={"./JuraBook.ttf"}
         fontSize={size}
         color='yellow'
         onSync={(text) => setWidth(text.geometry.boundingBox.max.x * 2)}
       >
         {text}
       </Text>
-      {model && model}
+      {model}
 
       <mesh
-        position={position}
+        position={[position[0], position[1], position[2]]}
         onClick={() => onClick && onClick()}
         onPointerOver={() => setHover(true)}
         onPointerOut={() => setHover(false)}
