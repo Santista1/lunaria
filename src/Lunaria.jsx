@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber"
-import { OrthographicCamera, OrbitControls, PointerLockControls, Hud, KeyboardControls } from "@react-three/drei"
-import { DepthOfField, EffectComposer, Noise } from "@react-three/postprocessing"
+import { OrthographicCamera, PointerLockControls, Hud, KeyboardControls } from "@react-three/drei"
+import { DepthOfField, EffectComposer } from "@react-three/postprocessing"
 import { Physics } from "@react-three/rapier"
 
 import { Player } from "./Player"
@@ -18,7 +18,6 @@ export default function Lunaria() {
           { name: "backward", keys: ["ArrowDown", "s", "S"] },
           { name: "left", keys: ["ArrowLeft", "a", "A"] },
           { name: "right", keys: ["ArrowRight", "d", "D"] },
-          { name: "jump", keys: ["Space"] },
         ]}
       >
         <Canvas shadows>
@@ -39,9 +38,9 @@ export default function Lunaria() {
           <Moon scale={5} position={[40, 100, -160]} />
           <pointLight distance={100} position={[90, 110, -165]} intensity={5} />
           <Room scale={[6, 3, 60]} />
-          <Physics gravity={[0, 0, 0]}>
-            <Player />
+          <Physics gravity={[0, -20, 0]}>
             <Ground />
+            <Player />
           </Physics>
           <Bench position={[2.5, -1, 0]} />
 

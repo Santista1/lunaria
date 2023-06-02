@@ -17,7 +17,7 @@ export function Player() {
     const { forward, backward, left, right } = get()
     const translation = ref.current.translation()
     const velocity = ref.current.linvel()
-    state.camera.position.set(translation.x, translation.y + 1, translation.z)
+    state.camera.position.set(translation.x, translation.y, translation.z)
     frontVector.set(0, 0, backward - forward)
     sideVector.set(left - right, 0, 0)
     direction.subVectors(frontVector, sideVector).normalize().multiplyScalar(SPEED).applyEuler(state.camera.rotation)
@@ -29,10 +29,10 @@ export function Player() {
       colliders={false}
       mass={1}
       type='dynamic'
-      position={[0, 0, 0]}
+      position={[0, 1, 0]}
       enabledRotations={[false, false, false]}
     >
-      <CapsuleCollider args={[0.75, 0.5]} />
+      <CapsuleCollider args={[0.75, 1]} />
     </RigidBody>
   )
 }
