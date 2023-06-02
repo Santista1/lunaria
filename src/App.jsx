@@ -40,7 +40,8 @@ export default function App() {
         <PointerLockControls />
 
         <Starfield factor={3} />
-        <Moon scale={2} position={[10, 20, -100]} />
+        <Moon scale={5} position={[0, 100, -140]} />
+        <pointLight distance={100} position={[50, 110, -150]} intensity={5} />
 
         <Room scale={[6, 3, 60]} />
         <Bench position={[2.5, -1, 0]} />

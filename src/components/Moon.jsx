@@ -19,18 +19,16 @@ export const Moon = ({ route = "/", ...props }) => {
   })
 
   return (
-    <>
-      <mesh
-        ref={mesh}
-        onUpdate={() => (gl.autoClear = false)}
-        onClick={() => {}}
-        onPointerOver={() => hover(true)}
-        onPointerOut={() => hover(false)}
-        {...props}
-      >
-        <sphereGeometry args={[1, 50, 50]} />
-        <meshStandardMaterial {...texture} bumpScale={0.03} color={hovered ? "hotpink" : "yellow"} />
-      </mesh>
-    </>
+    <mesh
+      ref={mesh}
+      onUpdate={() => (gl.autoClear = false)}
+      onClick={() => {}}
+      onPointerOver={() => hover(true)}
+      onPointerOut={() => hover(false)}
+      {...props}
+    >
+      <sphereGeometry args={[1, 50, 50]} />
+      <meshStandardMaterial {...texture} bumpScale={0.03} color={hovered ? "hotpink" : "white"} />
+    </mesh>
   )
 }
