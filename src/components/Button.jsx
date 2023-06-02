@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Text } from "@react-three/drei"
 
-export function Button({ position = [0, 0, 0], route, onClick, text, size = 0.2, rotation = [0, 0, 0] }) {
+export function Button({ position = [0, 0, 0], onClick, text, size = 0.2, rotation = [0, 0, 0] }) {
   const [hovered, setHover] = useState(false)
   const [width, setWidth] = useState(0)
 
@@ -17,7 +17,6 @@ export function Button({ position = [0, 0, 0], route, onClick, text, size = 0.2,
       >
         {text}
       </Text>
-
       <mesh
         position={[position[0], position[1], position[2]]}
         onClick={() => onClick && onClick()}

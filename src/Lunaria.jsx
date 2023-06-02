@@ -33,16 +33,20 @@ export default function Lunaria() {
           <EffectComposer>
             <DepthOfField focusDistance={0} focalLength={10} bokehScale={5} height={200} />
           </EffectComposer>
-          <PointerLockControls />
+
+          <PointerLockControls makeDefault />
+
           <Starfield factor={3} />
           <Moon scale={5} position={[40, 100, -160]} />
           <pointLight distance={100} position={[90, 110, -165]} intensity={5} />
+
           <Room scale={[6, 3, 60]} />
+          <Bench position={[2.5, -1, 0]} />
+
           <Physics gravity={[0, -20, 0]}>
             <Ground />
             <Player />
           </Physics>
-          <Bench position={[2.5, -1, 0]} />
 
           <pointLight castShadow distance={15} color='blue' position={[0, 0, -30]} intensity={0.4} />
           <pointLight castShadow distance={15} position={[0, 0, -15]} intensity={0.4} />

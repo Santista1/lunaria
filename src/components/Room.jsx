@@ -73,6 +73,7 @@ function Panel({ id, position, width, height, depth, window, windows }) {
         for (let i = 0; i < windows; i++) {
           windowArray.push(
             <Subtraction
+              key={i}
               position={[
                 0,
                 0,
@@ -89,6 +90,7 @@ function Panel({ id, position, width, height, depth, window, windows }) {
         for (let i = 0; i < windows; i++) {
           windowArray.push(
             <Subtraction
+              key={i}
               position={[
                 0,
                 0,
@@ -104,7 +106,7 @@ function Panel({ id, position, width, height, depth, window, windows }) {
       case "back":
         for (let i = 0; i < windows; i++) {
           windowArray.push(
-            <Subtraction position={[0, 0, 0]}>
+            <Subtraction key={i} position={[0, 0, 0]}>
               <boxGeometry args={[width / 2, height / 2, depth]} />
             </Subtraction>
           )
