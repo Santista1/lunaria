@@ -15,11 +15,8 @@ export function Player() {
 
   useFrame((state) => {
     const { forward, backward, left, right } = get()
-
     const velocity = ref.current.linvel()
-    // update camera
     state.camera.position.set(ref.current.translation().x, ref.current.translation().y + 1, ref.current.translation().z)
-    // movement
     frontVector.set(0, 0, backward - forward)
     sideVector.set(left - right, 0, 0)
     direction.subVectors(frontVector, sideVector).normalize().multiplyScalar(SPEED).applyEuler(state.camera.rotation)

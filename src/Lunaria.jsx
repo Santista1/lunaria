@@ -22,20 +22,19 @@ export default function Lunaria() {
         ]}
       >
         <Canvas shadows>
-          {/* <Hud renderPriority={2}>
-            <OrbitControls />
+          <Hud renderPriority={2}>
             <ambientLight intensity={1} />
             <OrthographicCamera makeDefault position={[0, 0, 200]} />
             <Button text='Connect' position={[780, 430, 0]} size={40} />
             <Button text='Inventory' position={[-780, 430, 0]} size={40} />
-          </Hud> */}
+          </Hud>
 
           <color attach='background' args={["black"]} />
 
           <EffectComposer>
             <DepthOfField focusDistance={0} focalLength={10} bokehScale={5} height={200} />
           </EffectComposer>
-
+          <PointerLockControls />
           <Starfield factor={3} />
           <Moon scale={5} position={[40, 100, -160]} />
           <pointLight distance={100} position={[90, 110, -165]} intensity={5} />
@@ -106,7 +105,6 @@ export default function Lunaria() {
               position={[-2.95, 0, -3]}
             />
           </group>
-          <PointerLockControls />
         </Canvas>
       </KeyboardControls>
     </>
