@@ -10,7 +10,7 @@ import { Moon } from "./components/Moon.jsx"
 import { Painting } from "./components/Painting.jsx"
 import { Button } from "./components/Button.jsx"
 
-export default function App() {
+export default function Lunaria() {
   const view = useRef()
 
   const wallet = (
@@ -40,8 +40,8 @@ export default function App() {
         <PointerLockControls />
 
         <Starfield factor={3} />
-        <Moon scale={5} position={[0, 100, -140]} />
-        <pointLight distance={100} position={[50, 110, -150]} intensity={5} />
+        <Moon scale={5} position={[40, 100, -160]} />
+        <pointLight distance={100} position={[90, 110, -165]} intensity={5} />
 
         <Room scale={[6, 3, 60]} />
         <Bench position={[2.5, -1, 0]} />

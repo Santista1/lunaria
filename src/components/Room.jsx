@@ -1,4 +1,4 @@
-import { Geometry, Base, Subtraction } from '@react-three/csg'
+import { Geometry, Base, Subtraction } from "@react-three/csg"
 
 export function Room({
   position = [0, 0, 0],
@@ -67,8 +67,8 @@ function Panel({ id, position, width, height, depth, window, windows }) {
   const windowArray = []
   if (window) {
     switch (id) {
-      case 'floor':
-      case 'roof':
+      case "floor":
+      case "roof":
         for (let i = 0; i < windows; i++) {
           windowArray.push(
             <Subtraction
@@ -79,12 +79,12 @@ function Panel({ id, position, width, height, depth, window, windows }) {
               ]}
             >
               <boxGeometry args={[width / 2, height, depth / (windows * 2)]} />
-            </Subtraction>,
+            </Subtraction>
           )
         }
         break
-      case 'left':
-      case 'right':
+      case "left":
+      case "right":
         for (let i = 0; i < windows; i++) {
           windowArray.push(
             <Subtraction
@@ -95,17 +95,17 @@ function Panel({ id, position, width, height, depth, window, windows }) {
               ]}
             >
               <boxGeometry args={[width, height / 2, depth / (windows * 2)]} />
-            </Subtraction>,
+            </Subtraction>
           )
         }
         break
-      case 'front':
-      case 'back':
+      case "front":
+      case "back":
         for (let i = 0; i < windows; i++) {
           windowArray.push(
             <Subtraction position={[0, 0, 0]}>
               <boxGeometry args={[width / 2, height / 2, depth]} />
-            </Subtraction>,
+            </Subtraction>
           )
         }
         break
