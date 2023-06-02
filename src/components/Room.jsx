@@ -1,4 +1,5 @@
 import { Geometry, Base, Subtraction } from "@react-three/csg"
+import { RigidBody } from "@react-three/rapier"
 
 export function Room({
   position = [0, 0, 0],
