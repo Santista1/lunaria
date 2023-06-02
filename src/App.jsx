@@ -27,8 +27,8 @@ export default function App() {
           <OrbitControls />
           <ambientLight intensity={1} />
           <OrthographicCamera makeDefault position={[0, 0, 200]} />
-          <Button text='Connect' position={[750, 400, 0]} size={50} />
-          <Button text='Inventory' position={[-750, 400, 0]} size={50} />
+          <Button text='Connect' position={[780, 430, 0]} size={40} />
+          <Button text='Inventory' position={[-780, 430, 0]} size={40} />
         </Hud>
 
         <color attach='background' args={["black"]} />
@@ -61,21 +61,25 @@ export default function App() {
             color='hotpink'
             position={[-2.95, 0, 3]}
             map='https://res.cloudinary.com/dexin8o58/image/upload/v1676239383/5B758959-5682-4A83-AA20-A429C53AF854_exp9da.jpg'
+            owner='OG'
           />
           <Painting
             color='hotpink'
             map='https://res.cloudinary.com/dexin8o58/image/upload/v1676239388/IMG_5638_vqwa7h.jpg'
             position={[-2.95, 0, 1]}
+            owner='OG'
           />
           <Painting
             color='hotpink'
             map='https://res.cloudinary.com/dexin8o58/image/upload/v1676239389/IMG_5667_fhvrbt.jpg'
             position={[-2.95, 0, -1]}
+            owner='OG'
           />
           <Painting
             color='hotpink'
             map='https://res.cloudinary.com/dexin8o58/image/upload/v1676239388/AACABEAC-F96C-46D9-8AC5-83C5994C7F4E_grnioz.jpg'
             position={[-2.95, 0, -3]}
+            owner='OG'
           />
         </group>
 
