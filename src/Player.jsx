@@ -14,19 +14,6 @@ export function Player() {
   const ref = useRef()
   const [, get] = useKeyboardControls()
 
-  // useFrame((state) => {
-  //   const { forward, backward, left, right } = get()
-  //   frontVector.set(0, 0, backward - forward)
-  //   sideVector.set(left - right, 0, 0)
-  //   direction.subVectors(frontVector, sideVector).normalize().multiplyScalar(speed).applyEuler(state.camera.rotation)
-  //   const velocity = ref.current.linvel()
-  //   ref.current.setLinvel({ x: direction.x, y: velocity.y, z: direction.z })
-  //   const translation = ref.current.translation()
-  //   state.camera.position.set(translation.x, translation.y, translation.z)
-
-  //   console.log(ref.current.translation())
-  // })
-
   useFrame((state) => {
     const { forward, backward, left, right } = get()
 
@@ -36,8 +23,6 @@ export function Player() {
     frontVector.set(0, 0, backward - forward)
     sideVector.set(left - right, 0, 0)
     direction.subVectors(frontVector, sideVector).normalize().applyEuler(state.camera.rotation)
-
-    console.log(velocity)
 
     if (forward && velocity.z > -max && velocity.z < max && velocity.x > -max && velocity.x < max) {
       impulse.z += direction.z * speed
@@ -63,16 +48,6 @@ export function Player() {
   })
 
   return (
-    // <RigidBody
-    //   ref={ref}
-    //   colliders={false}
-    //   mass={1}
-    //   type='dynamic'
-    //   position={[0, 10, 0]}
-    //   enabledRotations={[false, false, false]}
-    // >
-    //   <CapsuleCollider args={[0.75, 1]} />
-    // </RigidBody>
     <RigidBody ref={ref} colliders={false} type='dynamic' position-y={10} enabledRotations={[false, false, false]}>
       <CapsuleCollider args={[0.75, 1]} />
     </RigidBody>
