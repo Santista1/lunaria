@@ -63,6 +63,10 @@ export default function Lunaria() {
           />
         </Html>
 
+        <Html scale={[0.12, 0.12, 1]} transform rotation-y={90 * (Math.PI / 180)} position={[-2.95, 0, 6]}>
+          <iframe width={"500px"} height={"500px"} style={{ border: "0px" }} src='https://www.luncacademy.com/' />
+        </Html>
+
         <group position={[0, 0, 0]}>
           <pointLight distance={0.95} position={[-2.5, 0, 3]} intensity={5} />
           <pointLight distance={0.95} position={[-2.5, 0, 1]} intensity={5} />
