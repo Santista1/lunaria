@@ -54,17 +54,27 @@ export default function Lunaria() {
         <pointLight castShadow distance={15} position={[0, 0, 15]} intensity={0.4} />
         <pointLight castShadow distance={15} color='blue' position={[0, 0, 30]} intensity={0.4} />
 
-        <Html scale={[0.12, 0.12, 1]} transform rotation-y={90 * (Math.PI / 180)} position={[-2.95, 0, 10]}>
+        <Html
+          zIndexRange={[0, 0]}
+          scale={[0.12, 0.12, 1]}
+          transform
+          rotation-y={90 * (Math.PI / 180)}
+          position={[-2.99, 0, 10]}
+        >
           <iframe
-            width={"500px"}
-            height={"500px"}
-            style={{ border: "0px" }}
+            style={{ width: "500px", height: "500px", border: "0px" }}
             src='https://www.youtube.com/embed/lTHWPvVka4M?rel=0?autoplay=1'
           />
         </Html>
 
-        <Html scale={[0.12, 0.12, 1]} transform rotation-y={90 * (Math.PI / 180)} position={[-2.95, 0, 6]}>
-          <iframe width={"500px"} height={"500px"} style={{ border: "0px" }} src='https://www.luncacademy.com/' />
+        <Html
+          zIndexRange={[0, 0]}
+          scale={[0.12, 0.12, 1]}
+          transform
+          rotation-y={90 * (Math.PI / 180)}
+          position={[-2.99, 0, 8]}
+        >
+          <iframe style={{ width: "500px", height: "500px", border: "0px" }} src='https://www.luncacademy.com/' />
         </Html>
 
         <group position={[0, 0, 0]}>
