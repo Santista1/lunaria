@@ -3,7 +3,7 @@ import { useTexture, Box } from "@react-three/drei"
 import { Button } from "./Button.jsx"
 import { Text } from "@react-three/drei"
 
-export function Painting({
+export function Poster({
   position = [0, 0, 0],
   scale = [5, 3, 15],
   color = "white",
