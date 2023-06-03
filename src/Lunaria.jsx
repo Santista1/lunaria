@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber"
-import { OrthographicCamera, PointerLockControls, Hud, KeyboardControls } from "@react-three/drei"
+import { OrthographicCamera, PointerLockControls, Hud, KeyboardControls, Html } from "@react-three/drei"
 import { DepthOfField, EffectComposer } from "@react-three/postprocessing"
 import { Physics } from "@react-three/rapier"
 import { Perf } from "r3f-perf"
@@ -41,7 +41,7 @@ export default function Lunaria() {
         <pointLight distance={100} position={[30, 80, -130]} intensity={5} />
 
         <Bench position={[2.5, -1, 0]} />
-        <Cactus scale={0.5} position={[2.5  , -1.5, -16]} />
+        <Cactus scale={0.5} position={[2.5, -1.5, -16]} />
 
         <Physics gravity={[0, -3, 0]}>
           <Room scale={[6, 3, 60]} />
@@ -53,6 +53,15 @@ export default function Lunaria() {
         <pointLight castShadow distance={15} color='blue' position={[0, 0, 0]} intensity={0.4} />
         <pointLight castShadow distance={15} position={[0, 0, 15]} intensity={0.4} />
         <pointLight castShadow distance={15} color='blue' position={[0, 0, 30]} intensity={0.4} />
+
+        <Html scale={[0.12, 0.12, 1]} transform rotation-y={90 * (Math.PI / 180)} position={[-2.95, 0, 10]}>
+          <iframe
+            width={"500px"}
+            height={"500px"}
+            style={{ border: "0px" }}
+            src='https://www.youtube.com/embed/lTHWPvVka4M?rel=0?autoplay=1'
+          />
+        </Html>
 
         <group position={[0, 0, 0]}>
           <pointLight distance={0.95} position={[-2.5, 0, 3]} intensity={5} />
