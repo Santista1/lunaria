@@ -39,7 +39,7 @@ export default function Lunaria() {
           <PointerLockControls makeDefault />
 
           <Starfield count={4000} factor={2} />
-          <Moon scale={6} position={[40, 100, -160]} />
+          <Moon scale={5} position={[40, 100, -160]} />
           <pointLight distance={100} position={[30, 80, -130]} intensity={5} />
 
           <Bench position={[2.5, -1, 0]} />
