@@ -5,6 +5,7 @@ import { Physics } from "@react-three/rapier"
 import { Perf } from "r3f-perf"
 
 import { Player } from "./Player"
+import { Ground } from "./Ground"
 
 import { Bench, Room, Starfield, Moon, Poster, Button, Cactus } from "./components"
 
@@ -43,12 +44,12 @@ function World() {
       <Moon scale={5} position={[40, 100, -160]} />
       <pointLight distance={100} position={[30, 80, -130]} intensity={5} />
       <Bench position={[2.5, -1, 0]} />
-      <Cactus scale={0.5} position={[2.5, -1.5, -16]} />
 
       <Physics gravity={[0, -3, 0]}>
         <Room scale={[6, 3, 60]} />
         <Room scale={[6, 3, 60]} position={[0, 0, 60]} />
         <Player />
+        <Ground />
       </Physics>
       <pointLight castShadow distance={15} color='blue' position={[0, 0, 60]} intensity={0.4} />
 
@@ -59,11 +60,12 @@ function World() {
       <pointLight castShadow distance={15} color='blue' position={[0, 0, 30]} intensity={0.4} />
 
       <Html
+        occlude
         zIndexRange={[0, 0]}
         scale={[0.12, 0.12, 1]}
         transform
         rotation-y={90 * (Math.PI / 180)}
-        position={[-2.99, 0, 10]}
+        position={[-2.9, 0, 10]}
       >
         <iframe
           style={{ width: "500px", height: "500px", border: "0px" }}
@@ -71,11 +73,12 @@ function World() {
         />
       </Html>
       <Html
+        occlude
         zIndexRange={[0, 0]}
         scale={[0.12, 0.12, 1]}
         transform
         rotation-y={90 * (Math.PI / 180)}
-        position={[-2.99, 0, 8]}
+        position={[-2.9, 0, 8]}
       >
         <iframe style={{ width: "500px", height: "500px", border: "0px" }} src='https://www.luncacademy.com/' />
       </Html>
