@@ -116,20 +116,24 @@ function Panel({ id, position, width, height, depth, window, windows }) {
   }
 
   return window ? (
-    <mesh receiveShadow position={position}>
-      <Geometry>
-        <Base>
-          <boxGeometry args={[width, height, depth]} />
-        </Base>
-        {windowArray}
-      </Geometry>
-      <meshStandardMaterial color='hotpink' />
-    </mesh>
+    <RigidBody colliders='trimesh' type='fixed'>
+      <mesh receiveShadow position={position}>
+        <Geometry>
+          <Base>
+            <boxGeometry args={[width, height, depth]} />
+          </Base>
+          {windowArray}
+        </Geometry>
+        <meshStandardMaterial color='hotpink' />
+      </mesh>
+    </RigidBody>
   ) : (
-    <mesh receiveShadow position={position}>
-      <boxGeometry args={[width, height, depth]} />
-      <meshStandardMaterial color='hotpink' />
-    </mesh>
+    <RigidBody colliders='cuboid' type='fixed' friction={2}>
+      <mesh receiveShadow position={position}>
+        <boxGeometry args={[width, height, depth]} />
+        <meshStandardMaterial color='hotpink' />
+      </mesh>
+    </RigidBody>
   )
 }
 

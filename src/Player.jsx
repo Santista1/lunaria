@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber"
 import { useKeyboardControls } from "@react-three/drei"
 import { CapsuleCollider, RigidBody } from "@react-three/rapier"
 
-const max = 4
+const max = 3
 const speed = 5
 const direction = new THREE.Vector3()
 const frontVector = new THREE.Vector3()
@@ -48,8 +48,8 @@ export function Player() {
   })
 
   return (
-    <RigidBody ref={ref} colliders={false} type='dynamic' position-y={10} enabledRotations={[false, false, false]}>
-      <CapsuleCollider args={[0.75, 1]} />
+    <RigidBody ref={ref} position-y={10} colliders={false} type='dynamic' enabledRotations={[false, false, false]}>
+      <CapsuleCollider args={[0.75, 0.5]} />
     </RigidBody>
   )
 }

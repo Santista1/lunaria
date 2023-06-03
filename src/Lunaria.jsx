@@ -20,7 +20,7 @@ export default function Lunaria() {
           { name: "right", keys: ["ArrowRight", "d", "D"] },
         ]}
       >
-        <Canvas shadows>
+        <Canvas frameloop='demand' shadows>
           <Hud renderPriority={2}>
             <ambientLight intensity={1} />
             <OrthographicCamera makeDefault position={[0, 0, 200]} />
@@ -40,11 +40,11 @@ export default function Lunaria() {
           <Moon scale={5} position={[40, 100, -160]} />
           <pointLight distance={100} position={[90, 110, -165]} intensity={5} />
 
-          <Room scale={[6, 3, 60]} />
           <Bench position={[2.5, -1, 0]} />
 
           <Physics gravity={[0, -20, 0]}>
-            <Ground />
+            <Room scale={[6, 3, 60]} />
+            {/* <Ground /> */}
             <Player />
           </Physics>
 
@@ -94,18 +94,22 @@ export default function Lunaria() {
             <Painting
               position={[-2.95, 0, 3]}
               map='https://res.cloudinary.com/dexin8o58/image/upload/v1685218397/FjLR2_eXEAAbI2J_os2zlu.jpg'
+              owner='Santista'
             />
             <Painting
               map='https://res.cloudinary.com/dexin8o58/image/upload/v1685218541/FgKEctFWIAAyFFc_fudqvi.jpg'
               position={[-2.95, 0, 1]}
+              owner='Santista'
             />
             <Painting
               map='https://res.cloudinary.com/dexin8o58/image/upload/v1685221244/782ed0d298ebfffca45a5d6a91a4a167_tnmbyn.png'
               position={[-2.95, 0, -1]}
+              owner='Santista'
             />
             <Painting
               map='https://res.cloudinary.com/dexin8o58/image/upload/v1685221048/three_j414x5.gif'
               position={[-2.95, 0, -3]}
+              owner='Santista'
             />
           </group>
         </Canvas>
