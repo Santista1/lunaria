@@ -27,7 +27,7 @@ export default function Lunaria() {
 function World() {
   return (
     <Canvas frameloop='demand' shadows>
-      {/* {process.env.NODE_ENV === "development" && <Perf position='bottom-right' deepAnalyze={true} />} */}
+      {process.env.NODE_ENV === "development" && <Perf position='bottom-right' deepAnalyze={true} />}
       <Hud renderPriority={2}>
         <ambientLight intensity={1} />
         <OrthographicCamera makeDefault position={[0, 0, 200]} />
@@ -70,7 +70,7 @@ function World() {
           src='https://www.youtube.com/embed/lTHWPvVka4M?rel=0?autoplay=1'
         />
       </Html>
-      {/* <Html
+      <Html
         zIndexRange={[0, 0]}
         scale={[0.12, 0.12, 1]}
         transform
@@ -78,7 +78,7 @@ function World() {
         position={[-2.99, 0, 8]}
       >
         <iframe style={{ width: "500px", height: "500px", border: "0px" }} src='https://www.luncacademy.com/' />
-      </Html> */}
+      </Html>
       <group position={[0, 0, 0]}>
         <pointLight distance={0.95} position={[-2.5, 0, 3]} intensity={5} />
         <pointLight distance={0.95} position={[-2.5, 0, 1]} intensity={5} />
