@@ -27,7 +27,7 @@ export const Moon = ({ route = "/", ...props }) => {
       onPointerOut={() => hover(false)}
       {...props}
     >
-      <sphereGeometry args={[1, 50, 50]} />
+      <sphereGeometry args={[1, 32, 16]} />
       <meshStandardMaterial {...texture} bumpScale={0.03} color={hovered ? "hotpink" : "white"} />
     </mesh>
   )
