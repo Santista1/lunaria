@@ -1,11 +1,10 @@
 import { useState } from "react"
 import { useTexture, Box } from "@react-three/drei"
-import { Button } from "./Button.jsx"
 import { Text } from "@react-three/drei"
 
 export function Poster({
   position = [0, 0, 0],
-  scale = [5, 3, 15],
+  scale = [0.01, 1.5, 1.5],
   color = "white",
   thickness = 0.01,
   map = "https://res.cloudinary.com/dexin8o58/image/upload/v1676239383/5B758959-5682-4A83-AA20-A429C53AF854_exp9da.jpg",
@@ -28,12 +27,7 @@ export function Poster({
         {"owner: " + owner}
       </Text>
 
-      <Box
-        args={[thickness, 1.5, 1.5]}
-        onPointerOver={() => setHover(true)}
-        onPointerOut={() => setHover(false)}
-        position={position}
-      >
+      <Box args={scale} onPointerOver={() => setHover(true)} onPointerOut={() => setHover(false)} position={position}>
         <meshStandardMaterial {...texture} color={color} />
       </Box>
     </>

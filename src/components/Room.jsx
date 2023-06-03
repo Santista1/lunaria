@@ -116,7 +116,7 @@ function Panel({ id, position, width, height, depth, window, windows }) {
   }
 
   return window ? (
-    <RigidBody colliders='trimesh' type='fixed'>
+    <RigidBody colliders='cuboid' type='fixed'>
       <mesh receiveShadow position={position}>
         <Geometry>
           <Base>
