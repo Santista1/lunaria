@@ -21,7 +21,7 @@ export default function Lunaria() {
         ]}
       >
         <Canvas frameloop='demand' shadows>
-          <Perf position='bottom-right' />
+          <Perf position='bottom-right' deepAnalyze={true} />
           <Hud renderPriority={2}>
             <ambientLight intensity={1} />
             <OrthographicCamera makeDefault position={[0, 0, 200]} />
