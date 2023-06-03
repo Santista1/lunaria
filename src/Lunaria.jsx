@@ -2,9 +2,9 @@ import { Canvas } from "@react-three/fiber"
 import { OrthographicCamera, PointerLockControls, Hud, KeyboardControls } from "@react-three/drei"
 import { DepthOfField, EffectComposer } from "@react-three/postprocessing"
 import { Physics } from "@react-three/rapier"
+import { Perf } from "r3f-perf"
 
 import { Player } from "./Player"
-import { Ground } from "./Ground"
 
 import { Bench, Room, Starfield, Moon, Painting, Button } from "./components"
 
@@ -21,6 +21,7 @@ export default function Lunaria() {
         ]}
       >
         <Canvas frameloop='demand' shadows>
+          <Perf position='bottom-right' />
           <Hud renderPriority={2}>
             <ambientLight intensity={1} />
             <OrthographicCamera makeDefault position={[0, 0, 200]} />
@@ -28,11 +29,11 @@ export default function Lunaria() {
             <Button text='Inventory' position={[-780, 430, 0]} size={40} />
           </Hud>
 
-          <color attach='background' args={["black"]} />
-
           <EffectComposer>
             <DepthOfField focusDistance={0} focalLength={10} bokehScale={5} height={200} />
           </EffectComposer>
+
+          <color attach='background' args={["black"]} />
 
           <PointerLockControls makeDefault />
 
@@ -44,7 +45,6 @@ export default function Lunaria() {
 
           <Physics gravity={[0, -20, 0]}>
             <Room scale={[6, 3, 60]} />
-            {/* <Ground /> */}
             <Player />
           </Physics>
 
