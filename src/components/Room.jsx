@@ -128,7 +128,7 @@ function Panel({ id, position, width, height, depth, window, windows }) {
       </mesh>
     </RigidBody>
   ) : (
-    <RigidBody colliders='cuboid' type='fixed' friction={2}>
+    <RigidBody colliders='cuboid' type='fixed' friction={20}>
       <mesh receiveShadow position={position}>
         <boxGeometry args={[width, height, depth]} />
         <meshStandardMaterial color='hotpink' />

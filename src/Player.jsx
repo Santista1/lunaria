@@ -24,19 +24,19 @@ export function Player() {
     sideVector.set(left - right, 0, 0)
     direction.subVectors(frontVector, sideVector).normalize().applyEuler(state.camera.rotation)
 
-    if (forward && velocity.z > -max && velocity.z < max && velocity.x > -max && velocity.x < max) {
+    if (forward && Math.abs(velocity.z) < max && Math.abs(velocity.x) < max) {
       impulse.z += direction.z * speed
       impulse.x += direction.x * speed
     }
-    if (backward && velocity.z > -max && velocity.z < max && velocity.x > -max && velocity.x < max) {
+    if (backward && Math.abs(velocity.z) < max && Math.abs(velocity.x) < max) {
       impulse.z += direction.z * speed
       impulse.x += direction.x * speed
     }
-    if (left && velocity.z > -max && velocity.z < max && velocity.x > -max && velocity.x < max) {
+    if (left && Math.abs(velocity.z) < max && Math.abs(velocity.x) < max) {
       impulse.z += direction.z * speed
       impulse.x += direction.x * speed
     }
-    if (right && velocity.z > -max && velocity.z < max && velocity.x > -max && velocity.x < max) {
+    if (right && Math.abs(velocity.z) < max && Math.abs(velocity.x) < max) {
       impulse.z += direction.z * speed
       impulse.x += direction.x * speed
     }
@@ -48,7 +48,7 @@ export function Player() {
   })
 
   return (
-    <RigidBody ref={ref} position-y={10} colliders={false} type='dynamic' enabledRotations={[false, false, false]}>
+    <RigidBody ref={ref}  colliders={false} type='dynamic' enabledRotations={[false, false, false]}>
       <CapsuleCollider args={[0.75, 0.5]} />
     </RigidBody>
   )

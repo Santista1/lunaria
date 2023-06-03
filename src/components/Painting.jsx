@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useTexture, Box } from "@react-three/drei"
 import { Button } from "./Button.jsx"
+import { Text } from "@react-three/drei"
 
 export function Painting({
   position = [0, 0, 0],
@@ -16,14 +17,16 @@ export function Painting({
   })
   return (
     <>
-      {hovered && (
-        <Button
-          position={[position[0] + 0.01, position[1] - 0.9, position[2]]}
-          text={"Owner: " + owner}
-          size={0.1}
-          rotation={[0, 90 * (Math.PI / 180), 0]}
-        />
-      )}
+      <Text
+        rotation={[0, 90 * (Math.PI / 180), 0]}
+        position={[position[0] + 0.01, position[1] - 0.9, position[2]]}
+        font={"./JuraBook.ttf"}
+        fontSize={0.1}
+        color='yellow'
+        visible={hovered}
+      >
+        {"owner: " + owner}
+      </Text>
 
       <Box
         args={[thickness, 1.5, 1.5]}

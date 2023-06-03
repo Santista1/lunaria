@@ -21,7 +21,7 @@ export default function Lunaria() {
         ]}
       >
         <Canvas frameloop='demand' shadows>
-          {process.env.NODE_ENV === "development" && <Perf position='bottom-right' deepAnalyze={true} />}
+          {/* {process.env.NODE_ENV === "development" && <Perf position='bottom-right' deepAnalyze={true} />} */}
 
           <Hud renderPriority={2}>
             <ambientLight intensity={1} />
@@ -38,13 +38,13 @@ export default function Lunaria() {
 
           <PointerLockControls makeDefault />
 
-          <Starfield factor={3} />
-          <Moon scale={5} position={[40, 100, -160]} />
-          <pointLight distance={100} position={[90, 110, -165]} intensity={5} />
+          <Starfield count={4000} factor={2} />
+          <Moon scale={6} position={[40, 100, -160]} />
+          <pointLight distance={100} position={[30, 80, -130]} intensity={5} />
 
           <Bench position={[2.5, -1, 0]} />
 
-          <Physics gravity={[0, -20, 0]}>
+          <Physics gravity={[0, -3, 0]}>
             <Room scale={[6, 3, 60]} />
             <Player />
           </Physics>
