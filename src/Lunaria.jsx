@@ -7,7 +7,7 @@ import { Perf } from "r3f-perf"
 import { Player } from "./Player"
 import { Ground } from "./Ground"
 
-import { Bench, Room, Starfield, Moon, Poster, Button, Cactus } from "./components"
+import { Bench, Room, Starfield, Moon, Poster, Button, Section } from "./components"
 
 export default function Lunaria() {
   return (
@@ -43,35 +43,27 @@ function World() {
       <Starfield count={4000} factor={2} />
       <Moon scale={5} position={[40, 100, -160]} />
       <pointLight distance={100} position={[30, 80, -130]} intensity={5} />
-      <Bench position={[2.5, -1, 0]} />
 
       <Physics gravity={[0, -3, 0]}>
-        <Room scale={[6, 3, 60]} />
-        <Room scale={[6, 3, 60]} position={[0, 0, 60]} />
+        {/* <Room scale={[6, 3, 60]} /> */}
+        <Section position={[0, 0, 0]} scale={[6, 3, 15]} color='blue' />
+        <Section position={[0, 0, -15]} scale={[6, 3, 15]} color='hotpink' />
+        <Section position={[0, 0, -30]} scale={[6, 3, 15]} color='blue' />
+        <Section position={[0, 0, -45]} scale={[6, 3, 15]} color='hotpink' />
+        <Section position={[0, 0, -60]} scale={[6, 3, 15]} color='blue' />
+        <Section position={[0, 0, -75]} scale={[6, 3, 15]} color='hotpink' />
+        <Section position={[0, 0, -90]} scale={[6, 3, 15]} color='blue' />
         <Player />
         <Ground />
       </Physics>
-      <pointLight castShadow distance={15} color='blue' position={[0, 0, 60]} intensity={0.4} />
 
+      {/* <pointLight castShadow distance={15} color='blue' position={[0, 0, 60]} intensity={0.4} />
       <pointLight castShadow distance={15} color='blue' position={[0, 0, -30]} intensity={0.4} />
       <pointLight castShadow distance={15} position={[0, 0, -15]} intensity={0.4} />
       <pointLight castShadow distance={15} color='blue' position={[0, 0, 0]} intensity={0.4} />
       <pointLight castShadow distance={15} position={[0, 0, 15]} intensity={0.4} />
-      <pointLight castShadow distance={15} color='blue' position={[0, 0, 30]} intensity={0.4} />
+      <pointLight castShadow distance={15} color='blue' position={[0, 0, 30]} intensity={0.4} /> */}
 
-      <Html
-        occlude
-        zIndexRange={[0, 0]}
-        scale={[0.12, 0.12, 1]}
-        transform
-        rotation-y={90 * (Math.PI / 180)}
-        position={[-2.9, 0, 10]}
-      >
-        <iframe
-          style={{ width: "500px", height: "500px", border: "0px" }}
-          src='https://www.youtube.com/embed/lTHWPvVka4M?rel=0?autoplay=1'
-        />
-      </Html>
       <Html
         occlude
         zIndexRange={[0, 0]}
@@ -80,8 +72,21 @@ function World() {
         rotation-y={90 * (Math.PI / 180)}
         position={[-2.9, 0, 8]}
       >
-        <iframe style={{ width: "500px", height: "500px", border: "0px" }} src='https://www.luncacademy.com/' />
+        <iframe
+          style={{ width: "500px", height: "500px", border: "0px" }}
+          src='https://www.youtube.com/embed/lTHWPvVka4M?rel=0?autoplay=1'
+        />
       </Html>
+      {/* <Html
+        occlude
+        zIndexRange={[0, 0]}
+        scale={[0.12, 0.12, 1]}
+        transform
+        rotation-y={90 * (Math.PI / 180)}
+        position={[-2.9, 0, 8]}
+      >
+        <iframe style={{ width: "500px", height: "500px", border: "0px" }} src='https://www.luncacademy.com/' />
+      </Html> */}
       <group position={[0, 0, 0]}>
         <pointLight distance={0.95} position={[-2.5, 0, 3]} intensity={5} />
         <pointLight distance={0.95} position={[-2.5, 0, 1]} intensity={5} />

@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { useTexture, Box } from "@react-three/drei"
-import { Text } from "@react-three/drei"
+import { useTexture, Box, Text } from "@react-three/drei"
+import { useThree } from "@react-three/fiber"
 
 export function Poster({
   position = [0, 0, 0],
@@ -14,6 +14,8 @@ export function Poster({
   const texture = useTexture({
     map: map,
   })
+  const { camera } = useThree()
+
   return (
     <>
       <Text
@@ -27,7 +29,15 @@ export function Poster({
         {"owner: " + owner}
       </Text>
 
-      <Box args={scale} onPointerOver={() => setHover(true)} onPointerOut={() => setHover(false)} position={position}>
+      <Box
+        onClick={() => {
+          camera.position.set(0, 0, 0)
+        }}
+        args={scale}
+        onPointerOver={() => setHover(true)}
+        onPointerOut={() => setHover(false)}
+        position={position}
+      >
         <meshStandardMaterial {...texture} color={color} />
       </Box>
     </>
