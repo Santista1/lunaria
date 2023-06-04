@@ -5,9 +5,8 @@ import { Physics } from "@react-three/rapier"
 import { Perf } from "r3f-perf"
 
 import { Player } from "./Player"
-import { Ground } from "./Ground"
 
-import { Bench, Room, Starfield, Moon, Poster, Button, Section } from "./components"
+import { Starfield, Moon, Poster, Button, Section, Sphere } from "./components"
 
 export default function Lunaria() {
   return (
@@ -56,12 +55,7 @@ function World() {
         <Player />
       </Physics>
 
-      {/* <pointLight castShadow distance={15} color='blue' position={[0, 0, 60]} intensity={0.4} />
-      <pointLight castShadow distance={15} color='blue' position={[0, 0, -30]} intensity={0.4} />
-      <pointLight castShadow distance={15} position={[0, 0, -15]} intensity={0.4} />
-      <pointLight castShadow distance={15} color='blue' position={[0, 0, 0]} intensity={0.4} />
-      <pointLight castShadow distance={15} position={[0, 0, 15]} intensity={0.4} />
-      <pointLight castShadow distance={15} color='blue' position={[0, 0, 30]} intensity={0.4} /> */}
+      <Sphere args={[50]} position={[0, 0, -140]} />
 
       <Html
         occlude

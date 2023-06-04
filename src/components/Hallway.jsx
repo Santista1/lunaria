@@ -76,8 +76,15 @@ export function Section({ position = [0, 0, 0], scale = [10, 10, 10], thickness 
       <pointLight castShadow distance={15} color={color} position={position} intensity={0.4} />
 
       <RigidBody colliders='cuboid' type='fixed'>
-        <mesh castShadow position={[position[0] + 2.9, position[1] - 1, position[2]]}>
-          <boxGeometry args={[0.4, thickness, 15]} />
+        <mesh castShadow position={[position[0] + 2.9, position[1] - 1, position[2] - 6]}>
+          <boxGeometry args={[0.4, thickness, 3]} />
+          <meshStandardMaterial color='hotpink' />
+        </mesh>
+      </RigidBody>
+
+      <RigidBody colliders='cuboid' type='fixed'>
+        <mesh castShadow position={[position[0] + 2.9, position[1] - 1, position[2] + 6]}>
+          <boxGeometry args={[0.4, thickness, 3]} />
           <meshStandardMaterial color='hotpink' />
         </mesh>
       </RigidBody>
