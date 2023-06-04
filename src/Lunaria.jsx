@@ -70,7 +70,7 @@ function World() {
         scale={[0.12, 0.12, 1]}
         transform
         rotation-y={90 * (Math.PI / 180)}
-        position={[-2.9, 0, 8]}
+        position={[2.9, 0, 3]}
       >
         <iframe
           style={{ width: "500px", height: "500px", border: "0px" }}
