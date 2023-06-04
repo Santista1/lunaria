@@ -54,7 +54,6 @@ function World() {
         <Section position={[0, 0, -75]} scale={[6, 3, 15]} color='hotpink' />
         <Section position={[0, 0, -90]} scale={[6, 3, 15]} color='blue' />
         <Player />
-        <Ground />
       </Physics>
 
       {/* <pointLight castShadow distance={15} color='blue' position={[0, 0, 60]} intensity={0.4} />
