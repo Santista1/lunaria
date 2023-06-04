@@ -55,7 +55,10 @@ function World() {
         <Player />
       </Physics>
 
-      <Sphere args={[50, 64, 32]} position={[0, 0, -140]} />
+      <Sphere args={[50, 32, 16, 0, Math.PI * 2, 0, 0.5]} position={[0, 0, -140]} />
+      <Sphere args={[50, 32, 16, 0, Math.PI * 2, 1, 0.5]} position={[0, 0, -140]} />
+      <Sphere args={[50, 32, 16, 0, Math.PI * 2, 2, 0.5]} position={[0, 0, -140]} />
+      <pointLight distance={60} position={[0, 0, -140]} intensity={2} />
 
       <Html
         occlude
