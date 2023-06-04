@@ -55,7 +55,7 @@ function World() {
         <Player />
       </Physics>
 
-      <Sphere args={[50]} position={[0, 0, -140]} />
+      <Sphere args={[50, 64, 32]} position={[0, 0, -140]} />
 
       <Html
         occlude
