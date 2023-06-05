@@ -27,7 +27,7 @@ export default function Lunaria() {
 function World() {
   return (
     <Canvas frameloop='demand' shadows>
-      {process.env.NODE_ENV === "development" && <Perf position='bottom-right' />}
+      {process.env.NODE_ENV === "development" && <Perf position='bottom-right' deepAnalyze={false} />}
       <Hud renderPriority={2}>
         <ambientLight intensity={1} />
         <OrthographicCamera makeDefault position={[0, 0, 200]} />

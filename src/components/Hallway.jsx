@@ -69,11 +69,13 @@ function Rail() {
   return (
     <>
       <RigidBody colliders={false} type='fixed'>
-        <CuboidCollider args={[0.5, 0.1, 52.5]} position={[3.2, -1, -45]} />
-        <CuboidCollider args={[0.5, 0.1, 52.5]} position={[-3.2, -1, -45]} />
+        <CuboidCollider position={[3.2, -1, -45]} args={[0.5, 0.1, 52.5]} />
+        <CuboidCollider position={[-3.2, -1, -45]} args={[0.5, 0.1, 52.5]} />
+        <CuboidCollider position={[0, -1, 7.5]} args={[6.5, 0.1, 0.3]} />
       </RigidBody>
       <Instance position={[3.2, -1, -45]} scale={[0.3, 0.1, 105]} />
       <Instance position={[-3.2, -1, -45]} scale={[0.3, 0.1, 105]} />
+      <Instance position={[0, -1, 7.5]} scale={[6.5, 0.1, 0.3]} />
     </>
   )
 }
