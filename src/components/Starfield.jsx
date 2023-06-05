@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber"
 
 export const Starfield = ({ ...props }) => {
   const stars = useRef()
-  useFrame((state, delta) => (stars.current.rotation.z -= delta * 0.01))
+  useFrame((state, delta) => (stars.current.rotation.z -= delta * 0.02))
 
   return <Stars ref={stars} {...props} />
 }
