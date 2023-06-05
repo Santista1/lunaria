@@ -123,7 +123,7 @@ function World() {
           owner='Santista'
         />
       </group>
-      <group position={[0, 0, -30]}>
+      <group position={[0, 0, -45]}>
         <pointLight castShadow distance={1} position={[-2.5, 0, 3]} intensity={2} />
         <pointLight castShadow distance={1} position={[-2.5, 0, 1]} intensity={2} />
         <pointLight castShadow distance={1} position={[-2.5, 0, -1]} intensity={2} />
