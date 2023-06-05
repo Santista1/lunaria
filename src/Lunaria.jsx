@@ -49,9 +49,9 @@ function World() {
         <Player />
       </Physics>
 
-      <Sphere position={[0, 0, -147.5]} />
+      <Sphere position={[0, 0, -120]} />
 
-      <pointLight distance={60} position={[0, 0, -140]} intensity={2} />
+      <pointLight distance={30} position={[0, 0, -120]} intensity={10} />
 
       <Html
         occlude

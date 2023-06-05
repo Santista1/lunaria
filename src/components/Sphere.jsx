@@ -8,11 +8,11 @@ export function Sphere({ position, color = 0xffd83d }) {
           <meshPhongMaterial side={2} color={color} />
         </mesh> */}
         <mesh castShadow rotation={[0, 0, 0]}>
-          <sphereGeometry args={[50, 32, 3, 0, Math.PI * 2, Math.PI * 0.34, Math.PI * 0.15]} />
+          <sphereGeometry args={[25, 32, 3, 0, Math.PI * 2, Math.PI * 0.33, Math.PI * 0.15]} />
           <meshPhongMaterial side={2} color={color} />
         </mesh>
         <mesh castShadow rotation={[0, 0, 0]}>
-          <sphereGeometry args={[50, 32, 3, 0, Math.PI * 2, Math.PI * 0.51, Math.PI * 0.2]} />
+          <sphereGeometry args={[25, 32, 3, 0, Math.PI * 2, Math.PI * 0.52, Math.PI * 0.2]} />
           <meshPhongMaterial side={2} color={color} />
         </mesh>
         {/* <mesh castShadow>
