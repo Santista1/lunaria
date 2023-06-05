@@ -6,7 +6,7 @@ import { Perf } from "r3f-perf"
 
 import { Player } from "./Player"
 
-import { Starfield, Moon, Poster, Button, Section, Sphere } from "./components"
+import { Starfield, Moon, Poster, Button, Sphere, Hallway } from "./components"
 
 export default function Lunaria() {
   return (
@@ -41,23 +41,16 @@ function World() {
       <PointerLockControls makeDefault />
       <Starfield count={4000} factor={2} />
       <Moon scale={5} position={[40, 100, -160]} />
-      <pointLight distance={100} position={[30, 80, -130]} intensity={5} />
+      <pointLight distance={40} position={[30, 80, -140]} intensity={10} />
 
       <Physics gravity={[0, -3, 0]}>
-        {/* <Room scale={[6, 3, 60]} /> */}
-        <Section position={[0, 0, 0]} scale={[6, 3, 15]} color='blue' />
-        <Section position={[0, 0, -15]} scale={[6, 3, 15]} color='hotpink' />
-        <Section position={[0, 0, -30]} scale={[6, 3, 15]} color='blue' />
-        <Section position={[0, 0, -45]} scale={[6, 3, 15]} color='hotpink' />
-        <Section position={[0, 0, -60]} scale={[6, 3, 15]} color='blue' />
-        <Section position={[0, 0, -75]} scale={[6, 3, 15]} color='hotpink' />
-        <Section position={[0, 0, -90]} scale={[6, 3, 15]} color='blue' />
+        <Hallway />
+
         <Player />
       </Physics>
 
-      <Sphere args={[50, 32, 16, 0, Math.PI * 2, 0, 0.5]} position={[0, 0, -140]} />
-      <Sphere args={[50, 32, 16, 0, Math.PI * 2, 1, 0.5]} position={[0, 0, -140]} />
-      <Sphere args={[50, 32, 16, 0, Math.PI * 2, 2, 0.5]} position={[0, 0, -140]} />
+      <Sphere position={[0, 0, -147.5]} />
+
       <pointLight distance={60} position={[0, 0, -140]} intensity={2} />
 
       <Html
@@ -65,24 +58,15 @@ function World() {
         zIndexRange={[0, 0]}
         scale={[0.12, 0.12, 1]}
         transform
-        rotation-y={90 * (Math.PI / 180)}
-        position={[2.9, 0, 3]}
+        rotation-y={-90 * (Math.PI / 180)}
+        position={[2.89, 0, 3]}
       >
         <iframe
           style={{ width: "500px", height: "500px", border: "0px" }}
           src='https://www.youtube.com/embed/lTHWPvVka4M?rel=0?autoplay=1'
         />
       </Html>
-      {/* <Html
-        occlude
-        zIndexRange={[0, 0]}
-        scale={[0.12, 0.12, 1]}
-        transform
-        rotation-y={90 * (Math.PI / 180)}
-        position={[-2.9, 0, 8]}
-      >
-        <iframe style={{ width: "500px", height: "500px", border: "0px" }} src='https://www.luncacademy.com/' />
-      </Html> */}
+
       <group position={[0, 0, 0]}>
         <pointLight distance={0.95} position={[-2.5, 0, 3]} intensity={5} />
         <pointLight distance={0.95} position={[-2.5, 0, 1]} intensity={5} />
@@ -91,26 +75,26 @@ function World() {
 
         <Poster
           color='hotpink'
-          position={[-2.95, 0, 3]}
+          position={[-2.89, 0, 3]}
           map='https://res.cloudinary.com/dexin8o58/image/upload/v1676239383/5B758959-5682-4A83-AA20-A429C53AF854_exp9da.jpg'
           owner='OG'
         />
         <Poster
           color='hotpink'
           map='https://res.cloudinary.com/dexin8o58/image/upload/v1676239388/IMG_5638_vqwa7h.jpg'
-          position={[-2.95, 0, 1]}
+          position={[-2.89, 0, 1]}
           owner='OG'
         />
         <Poster
           color='hotpink'
           map='https://res.cloudinary.com/dexin8o58/image/upload/v1676239389/IMG_5667_fhvrbt.jpg'
-          position={[-2.95, 0, -1]}
+          position={[-2.89, 0, -1]}
           owner='OG'
         />
         <Poster
           color='hotpink'
           map='https://res.cloudinary.com/dexin8o58/image/upload/v1676239388/AACABEAC-F96C-46D9-8AC5-83C5994C7F4E_grnioz.jpg'
-          position={[-2.95, 0, -3]}
+          position={[-2.89, 0, -3]}
           owner='OG'
         />
       </group>
@@ -120,23 +104,23 @@ function World() {
         <pointLight castShadow distance={1} position={[-2.5, 0, -1]} intensity={2} />
         <pointLight castShadow distance={1} position={[-2.5, 0, -3]} intensity={2} />
         <Poster
-          position={[-2.95, 0, 3]}
+          position={[-2.89, 0, 3]}
           map='https://res.cloudinary.com/dexin8o58/image/upload/v1685218397/FjLR2_eXEAAbI2J_os2zlu.jpg'
           owner='Santista'
         />
         <Poster
           map='https://res.cloudinary.com/dexin8o58/image/upload/v1685218541/FgKEctFWIAAyFFc_fudqvi.jpg'
-          position={[-2.95, 0, 1]}
+          position={[-2.89, 0, 1]}
           owner='Santista'
         />
         <Poster
           map='https://res.cloudinary.com/dexin8o58/image/upload/v1685221244/782ed0d298ebfffca45a5d6a91a4a167_tnmbyn.png'
-          position={[-2.95, 0, -1]}
+          position={[-2.89, 0, -1]}
           owner='Santista'
         />
         <Poster
           map='https://res.cloudinary.com/dexin8o58/image/upload/v1685221048/three_j414x5.gif'
-          position={[-2.95, 0, -3]}
+          position={[-2.89, 0, -3]}
           owner='Santista'
         />
       </group>

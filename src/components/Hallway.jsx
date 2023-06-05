@@ -1,230 +1,109 @@
-import { Geometry, Base, Subtraction } from "@react-three/csg"
-import { RigidBody } from "@react-three/rapier"
-import { Merged } from "@react-three/drei"
+import { RigidBody, CuboidCollider } from "@react-three/rapier"
+import { Instances, Instance } from "@react-three/drei"
 
-function Hallway() {
-  return (
-    <Merged castShadow receiveShadow meshes={meshes}>
-      {(models) => <Room2 models={models} />}
-    </Merged>
-  )
-}
-
-export function Section({ position = [0, 0, 0], scale = [10, 10, 10], thickness = 0.1, color }) {
-  const width = scale[0]
-  const height = scale[1]
-  const depth = scale[2]
-
-  const floor = (
-    <RigidBody colliders='cuboid' type='fixed' friction={20}>
-      <mesh receiveShadow position={[position[0], position[1] - height / 2, position[2]]}>
-        <boxGeometry args={[width + thickness, thickness, depth]} />
-        <meshStandardMaterial color='white' />
-      </mesh>
-    </RigidBody>
-  )
-
-  const roof = (
-    <RigidBody colliders='cuboid' type='fixed' friction={20}>
-      <mesh receiveShadow position={[position[0], position[1] + height / 2, position[2]]}>
-        <Geometry>
-          <Base>
-            <boxGeometry args={[width + thickness, thickness, depth]} />
-          </Base>
-          <Subtraction position={[0, 0, 0]}>
-            <boxGeometry args={[width * 0.7, thickness, depth * 0.9]} />
-          </Subtraction>
-        </Geometry>
-        <meshStandardMaterial color='white' />
-      </mesh>
-    </RigidBody>
-  )
-
-  const left = (
-    <RigidBody colliders='cuboid' type='fixed' friction={20}>
-      <mesh receiveShadow position={[position[0] - width / 2, position[1], position[2]]}>
-        <boxGeometry args={[thickness, height / 1.6 + thickness, depth / 1.75]} />
-        <meshStandardMaterial color='white' />
-      </mesh>
-    </RigidBody>
-  )
-
-  const column = ({ position }) => (
-    <mesh receiveShadow position={position}>
-      <cylinderGeometry args={[0.2, 0.2, 3]} />
-      <meshStandardMaterial color='white' />
-    </mesh>
-  )
-
+export function Hallway() {
   return (
     <>
-      {floor}
-      {roof}
-      {left}
+      <pointLight castShadow distance={15} color='blue' position={[0, 0, 0]} intensity={0.4} />
+      <pointLight castShadow distance={15} color='hotpink' position={[0, 0, -15]} intensity={0.4} />
+      <pointLight castShadow distance={15} color='blue' position={[0, 0, -30]} intensity={0.4} />
+      <pointLight castShadow distance={15} color='hotpink' position={[0, 0, -45]} intensity={0.4} />
+      <pointLight castShadow distance={15} color='blue' position={[0, 0, -60]} intensity={0.4} />
+      <pointLight castShadow distance={15} color='hotpink' position={[0, 0, -75]} intensity={0.4} />
+      <pointLight castShadow distance={15} color='blue' position={[0, 0, -90]} intensity={0.4} />
 
-      <RigidBody colliders='cuboid' type='fixed' friction={20}>
-        <mesh receiveShadow position={[position[0] + width / 2, position[1], position[2]]}>
-          <boxGeometry args={[thickness, height / 2 + thickness, depth / 1.75]} />
-          <meshStandardMaterial color='white' />
-        </mesh>
-      </RigidBody>
-
-      {column({ position: [position[0] + 2.9, position[1], position[2] - 4.5] })}
-      {column({ position: [position[0] - 2.9, position[1], position[2] - 4.5] })}
-      {column({ position: [position[0] + 2.9, position[1], position[2] + 4.5] })}
-      {column({ position: [position[0] - 2.9, position[1], position[2] + 4.5] })}
-      <pointLight castShadow distance={15} color={color} position={position} intensity={0.4} />
-
-      <RigidBody colliders='cuboid' type='fixed'>
-        <mesh castShadow position={[position[0] + 2.9, position[1] - 1, position[2] - 6]}>
-          <boxGeometry args={[0.4, thickness, 3]} />
-          <meshStandardMaterial color='hotpink' />
-        </mesh>
-      </RigidBody>
-
-      <RigidBody colliders='cuboid' type='fixed'>
-        <mesh castShadow position={[position[0] + 2.9, position[1] - 1, position[2] + 6]}>
-          <boxGeometry args={[0.4, thickness, 3]} />
-          <meshStandardMaterial color='hotpink' />
-        </mesh>
-      </RigidBody>
-
-      <RigidBody colliders='cuboid' type='fixed'>
-        <mesh castShadow position={[position[0] - 2.9, position[1] - 1, position[2] - 6]}>
-          <boxGeometry args={[0.4, thickness, 3]} />
-          <meshStandardMaterial color='hotpink' />
-        </mesh>
-      </RigidBody>
-
-      <RigidBody colliders='cuboid' type='fixed'>
-        <mesh castShadow position={[position[0] - 2.9, position[1] - 1, position[2] + 6]}>
-          <boxGeometry args={[0.4, thickness, 3]} />
-          <meshStandardMaterial color='hotpink' />
-        </mesh>
-      </RigidBody>
-
-      {/* <Merged castShadow receiveShadow meshes={meshes}>
-        {(models) => (
-
-        )}
-      </Merged> */}
-
-      {/* <Panel
-        id='right'
-        position={[position[0] + width / 2, position[1], position[2]]}
-        width={thickness}
-        height={height + thickness}
-        depth={depth}
-        window={window[3]}
-        windows={windows[3]}
-      /> */}
+      <Instances>
+        <boxGeometry />
+        <meshPhongMaterial shininess={0} />
+        <Floor />
+        <Columns position={[0, 0, 0]} />
+        <Columns position={[0, 0, -15]} />
+        <Columns position={[0, 0, -30]} />
+        <Columns position={[0, 0, -45]} />
+        <Columns position={[0, 0, -60]} />
+        <Columns position={[0, 0, -75]} />
+        <Columns position={[0, 0, -90]} />
+        <Walls position={[0, 0, 0]} />
+        <Walls position={[0, 0, -15]} />
+        <Walls position={[0, 0, -30]} />
+        <Walls position={[0, 0, -45]} />
+        <Walls position={[0, 0, -60]} />
+        <Walls position={[0, 0, -75]} />
+        <Walls position={[0, 0, -90]} />
+        <Roof />
+        <Rail />
+      </Instances>
     </>
   )
 }
 
-function Panel({ id, position, width, height, depth, window, windows }) {
-  const windowArray = []
-  if (window) {
-    switch (id) {
-      case "floor":
-      case "roof":
-        for (let i = 0; i < windows; i++) {
-          windowArray.push(
-            <Subtraction
-              key={i}
-              position={[
-                0,
-                0,
-                (depth / (windows * 2)) * i + depth / (windows * 4) - depth / 4 + 5 * i - (5 * (windows - 1)) / 2,
-              ]}
-            >
-              <boxGeometry args={[width / 2, height, depth / (windows * 2)]} />
-            </Subtraction>
-          )
-        }
-        break
-      case "left":
-      case "right":
-        for (let i = 0; i < windows; i++) {
-          windowArray.push(
-            <Subtraction
-              key={i}
-              position={[
-                0,
-                0,
-                (depth / (windows * 2)) * i + depth / (windows * 4) - depth / 4 + 5 * i - (5 * (windows - 1)) / 2,
-              ]}
-            >
-              <boxGeometry args={[width, height / 2, depth / (windows * 2)]} />
-            </Subtraction>
-          )
-        }
-        break
-      case "front":
-      case "back":
-        for (let i = 0; i < windows; i++) {
-          windowArray.push(
-            <Subtraction key={i} position={[0, 0, 0]}>
-              <boxGeometry args={[width / 2, height / 2, depth]} />
-            </Subtraction>
-          )
-        }
-        break
-    }
-  }
-
-  return window ? (
-    <RigidBody colliders='cuboid' type='fixed'>
-      <mesh receiveShadow position={position}>
-        <Geometry>
-          <Base>
-            <boxGeometry args={[width, height, depth]} />
-          </Base>
-          {windowArray}
-        </Geometry>
-        <meshStandardMaterial color='hotpink' />
-      </mesh>
-    </RigidBody>
-  ) : (
-    <RigidBody colliders='cuboid' type='fixed' friction={20}>
-      <mesh receiveShadow position={position}>
-        <boxGeometry args={[width, height, depth]} />
-        <meshStandardMaterial color='hotpink' />
-      </mesh>
-    </RigidBody>
+function Roof() {
+  return (
+    <>
+      <Instance position={[2.9, 1.5, -45]} scale={[1, 0.1, 105]} />
+      <Instance position={[-2.9, 1.5, -45]} scale={[1, 0.1, 105]} />
+      <Instance position={[0, 1.5, 6.5]} scale={[5, 0.1, 2]} />
+      <Instance position={[0, 1.5, -7.5]} scale={[5, 0.1, 6]} />
+      <Instance position={[0, 1.5, -22.5]} scale={[5, 0.1, 6]} />
+      <Instance position={[0, 1.5, -37.5]} scale={[5, 0.1, 6]} />
+      <Instance position={[0, 1.5, -52.5]} scale={[5, 0.1, 6]} />
+      <Instance position={[0, 1.5, -67.5]} scale={[5, 0.1, 6]} />
+      <Instance position={[0, 1.5, -82.5]} scale={[5, 0.1, 6]} />
+      <Instance position={[0, 1.5, -96.5]} scale={[5, 0.1, 2]} />
+    </>
   )
 }
 
-function RightWall({ position, width, height, depth, thickness }) {
+function Floor() {
   return (
-    <mesh receiveShadow position={[position[0] + width / 2, position[1], position[2]]}>
-      <Geometry>
-        <Base>
-          <boxGeometry args={[thickness, height + thickness, depth]} />
-        </Base>
-        <Subtraction>
-          <boxGeometry args={[thickness, height / 4, depth / 2]} />
-        </Subtraction>
-      </Geometry>
-      <meshStandardMaterial color='hotpink' />
-    </mesh>
+    <>
+      <RigidBody colliders={false} type='fixed' friction={20}>
+        <CuboidCollider args={[6, 0.1, 105]} position={[0, -1.5, -45]} />
+      </RigidBody>
+      <Instance position={[0, -1.5, -45]} scale={[6, 0.1, 105]} />
+    </>
   )
 }
 
-function FrontWall({ position, width, height, depth, thickness }) {
+function Rail() {
   return (
-    <mesh receiveShadow position={[position[0], position[1], position[2] - depth / 2]}>
-      <boxGeometry args={[width, height + thickness, thickness]} />
-      <meshStandardMaterial color='hotpink' />
-    </mesh>
+    <>
+      <RigidBody colliders={false} type='fixed'>
+        <CuboidCollider args={[0.5, 0.1, 105]} position={[2.9, -1, -45]} />
+        <CuboidCollider args={[0.5, 0.1, 105]} position={[-2.9, -1, -45]} />
+      </RigidBody>
+      <Instance position={[2.9, -1, -45]} scale={[0.5, 0.1, 105]} />
+      <Instance position={[-2.9, -1, -45]} scale={[0.3, 0.1, 105]} />
+    </>
   )
 }
 
-function BackWall({ position, width, height, depth, thickness }) {
+function Columns({ position }) {
   return (
-    <mesh receiveShadow position={[position[0], position[1], position[0] + depth / 2]}>
-      <boxGeometry args={[width, height + thickness, thickness]} />
-      <meshStandardMaterial color='hotpink' />
-    </mesh>
+    <>
+      <Instance position={[2.9, 0, position[2] + 4.5]} scale={[0.2, 3, 0.2]} />
+      <Instance position={[-2.9, 0, position[2] + 4.5]} scale={[0.2, 3, 0.2]} />
+      <Instance position={[2.9, 0, position[2] - 4.5]} scale={[0.2, 3, 0.2]} />
+      <Instance position={[-2.9, 0, position[2] - 4.5]} scale={[0.2, 3, 0.2]} />
+    </>
+  )
+}
+
+function Walls({ position, scale = [0.01, 2, 9] }) {
+  return (
+    <>
+      <Instance position={[-2.9, 0, position[2]]} scale={scale} />
+      <Instance position={[-2.9, 0, position[2]]} scale={scale} />
+      <Instance position={[2.9, 0, position[2]]} scale={scale} />
+      <Instance position={[-2.9, 0, position[2]]} scale={scale} />
+    </>
+  )
+}
+
+function Section({ Box, position = [0, 0, 0], scale = [10, 10, 10], thickness = 0.1, color }) {
+  return (
+    <>
+      <pointLight castShadow distance={15} color={color} position={position} intensity={0.4} />
+    </>
   )
 }
