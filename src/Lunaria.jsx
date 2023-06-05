@@ -123,6 +123,32 @@ function World() {
           owner='Santista'
         />
       </group>
+      <group position={[0, 0, -30]}>
+        <pointLight castShadow distance={1} position={[-2.5, 0, 3]} intensity={2} />
+        <pointLight castShadow distance={1} position={[-2.5, 0, 1]} intensity={2} />
+        <pointLight castShadow distance={1} position={[-2.5, 0, -1]} intensity={2} />
+        <pointLight castShadow distance={1} position={[-2.5, 0, -3]} intensity={2} />
+        <Poster
+          position={[-2.89, 0, 3]}
+          map='https://res.cloudinary.com/dexin8o58/image/upload/v1685998057/snake_gccjdp.png'
+          owner='Pholuna'
+        />
+        <Poster
+          map='https://res.cloudinary.com/dexin8o58/image/upload/v1685998056/got_lunc_oo6kot.png'
+          position={[-2.89, 0, 1]}
+          owner='Pholuna'
+        />
+        <Poster
+          map='https://res.cloudinary.com/dexin8o58/image/upload/v1685998057/Lunc_for_his_and_her_pleasure_Final_p5u5jd.png'
+          position={[-2.89, 0, -1]}
+          owner='Pholuna'
+        />
+        <Poster
+          map='https://res.cloudinary.com/dexin8o58/image/upload/v1685998056/got_lunc_2_puf4la.png'
+          position={[-2.89, 0, -3]}
+          owner='Pholuna'
+        />
+      </group>
     </Canvas>
   )
 }
