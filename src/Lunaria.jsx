@@ -1,33 +1,47 @@
-import { Canvas } from "@react-three/fiber"
-import { OrthographicCamera, PointerLockControls, Hud, KeyboardControls, Html } from "@react-three/drei"
+import { Canvas, useThree } from "@react-three/fiber"
+import { OrthographicCamera, PointerLockControls, Hud, KeyboardControls, Html, CameraControls } from "@react-three/drei"
 import { DepthOfField, EffectComposer } from "@react-three/postprocessing"
 import { Physics } from "@react-three/rapier"
 import { Perf } from "r3f-perf"
+import { useRef } from "react"
+import { useFrame } from "@react-three/fiber"
 
 import { Player } from "./Player"
-
 import { Starfield, Moon, Poster, Button, Sphere, Hallway } from "./components"
+
+const touch = "ontouchstart" in document.documentElement
+
+console.log(touch)
 
 export default function Lunaria() {
   return (
-    <KeyboardControls
-      map={[
-        { name: "forward", keys: ["ArrowUp", "w", "W"] },
-        { name: "backward", keys: ["ArrowDown", "s", "S"] },
-        { name: "left", keys: ["ArrowLeft", "a", "A"] },
-        { name: "right", keys: ["ArrowRight", "d", "D"] },
-        { name: "shift", keys: ["Shift"] },
-      ]}
-    >
-      <World />
-    </KeyboardControls>
+    <>
+      {touch && (
+        <>
+          <div className='joystick' />
+          <div className='joystick2' />
+        </>
+      )}
+      <div className='crosshair' />
+      <KeyboardControls
+        map={[
+          { name: "forward", keys: ["ArrowUp", "w", "W"] },
+          { name: "backward", keys: ["ArrowDown", "s", "S"] },
+          { name: "left", keys: ["ArrowLeft", "a", "A"] },
+          { name: "right", keys: ["ArrowRight", "d", "D"] },
+          { name: "shift", keys: ["Shift"] },
+        ]}
+      >
+        <World />
+      </KeyboardControls>
+    </>
   )
 }
 
 function World() {
   return (
     <Canvas frameloop='demand' shadows>
-      {process.env.NODE_ENV === "development" && <Perf position='bottom-right' deepAnalyze={true} />}
+      {/* {process.env.NODE_ENV === "development" && <Perf position='bottom-right' deepAnalyze={true} />} */}
       <Hud renderPriority={2}>
         <ambientLight intensity={1} />
         <OrthographicCamera makeDefault position={[0, 0, 200]} />
@@ -38,7 +52,8 @@ function World() {
         <DepthOfField focusDistance={0} focalLength={10} bokehScale={5} height={200} />
       </EffectComposer>
       <color attach='background' args={["black"]} />
-      <PointerLockControls makeDefault />
+
+      {touch ? <TouchControls /> : <Controls />}
 
       <Starfield count={4000} factor={2} />
       <Moon scale={5} position={[40, 100, -160]} />
@@ -151,4 +166,20 @@ function World() {
       </group>
     </Canvas>
   )
+}
+
+function Controls() {
+  return <PointerLockControls makeDefault />
+}
+
+function TouchControls() {
+  const ref = useRef()
+  const { camera, gl } = useThree()
+  useFrame((state, delta) => {
+    ref.current.azimuthAngle = -state.mouse.x
+    ref.current.polarAngle = Math.PI / 2 + state.mouse.y
+    ref.current.update(delta)
+  })
+
+  return <CameraControls ref={ref} args={[camera, gl.domElement]} />
 }
