@@ -1,16 +1,25 @@
 import { RigidBody, CuboidCollider } from "@react-three/rapier"
 import { Instances, Instance } from "@react-three/drei"
+import { useState } from "react"
 
 export function Hallway() {
+  const [on0, setOn0] = useState(true)
+  const [on1, setOn1] = useState(true)
+  const [on2, setOn2] = useState(true)
+  const [on3, setOn3] = useState(true)
+  const [on4, setOn4] = useState(true)
+  const [on5, setOn5] = useState(true)
+  const [on6, setOn6] = useState(true)
+
   return (
     <>
-      <pointLight castShadow distance={15} color='blue' position={[0, 0, 0]} intensity={0.4} />
-      <pointLight castShadow distance={15} color='hotpink' position={[0, 0, -15]} intensity={0.4} />
-      <pointLight castShadow distance={15} color='blue' position={[0, 0, -30]} intensity={0.4} />
-      <pointLight castShadow distance={15} color='hotpink' position={[0, 0, -45]} intensity={0.4} />
-      <pointLight castShadow distance={15} color='blue' position={[0, 0, -60]} intensity={0.4} />
-      <pointLight castShadow distance={15} color='hotpink' position={[0, 0, -75]} intensity={0.4} />
-      <pointLight castShadow distance={15} color='blue' position={[0, 0, -90]} intensity={0.4} />
+      <pointLight visible={on0} castShadow distance={10} color='blue' position={[0, 0, 0]} intensity={0.4} />
+      <pointLight visible={on1} castShadow distance={10} color='hotpink' position={[0, 0, -15]} intensity={0.4} />
+      <pointLight visible={on2} castShadow distance={10} color='blue' position={[0, 0, -30]} intensity={0.4} />
+      <pointLight visible={on3} castShadow distance={10} color='hotpink' position={[0, 0, -45]} intensity={0.4} />
+      <pointLight visible={on4} castShadow distance={10} color='blue' position={[0, 0, -60]} intensity={0.4} />
+      <pointLight visible={on5} castShadow distance={10} color='hotpink' position={[0, 0, -75]} intensity={0.4} />
+      <pointLight visible={on6} castShadow distance={10} color='blue' position={[0, 0, -90]} intensity={0.4} />
       <Instances>
         <boxGeometry />
         <meshPhongMaterial shininess={0} />
@@ -31,6 +40,59 @@ export function Hallway() {
         <Columns position={[0, 0, -60]} />
         <Columns position={[0, 0, -75]} />
         <Columns position={[0, 0, -90]} />
+      </Instances>
+      <Instances>
+        <boxGeometry />
+        <meshBasicMaterial shininess={0} />
+        <Instance
+          onClick={() => setOn0(!on0)}
+          color='red'
+          position={[on0 ? 2.9 : 2.92, 0, 4.3]}
+          scale={[0.1, 0.05, 0.05]}
+        />
+        <Instance onClick={() => setOn0(!on0)} color='white' position={[2.9, 0, 4.3]} scale={[0.05, 0.1, 0.1]} />
+        <Instance
+          onClick={() => setOn1(!on1)}
+          color='red'
+          position={[on1 ? 2.9 : 2.92, 0, 4.3 - 15]}
+          scale={[0.1, 0.05, 0.05]}
+        />
+        <Instance onClick={() => setOn1(!on1)} color='white' position={[2.9, 0, 4.3 - 15]} scale={[0.05, 0.1, 0.1]} />
+        <Instance
+          onClick={() => setOn2(!on2)}
+          color='red'
+          position={[on2 ? 2.9 : 2.92, 0, 4.3 - 30]}
+          scale={[0.1, 0.05, 0.05]}
+        />
+        <Instance onClick={() => setOn2(!on2)} color='white' position={[2.9, 0, 4.3 - 30]} scale={[0.05, 0.1, 0.1]} />
+        <Instance
+          onClick={() => setOn3(!on3)}
+          color='red'
+          position={[on3 ? 2.9 : 2.92, 0, 4.3 - 45]}
+          scale={[0.1, 0.05, 0.05]}
+        />
+        <Instance onClick={() => setOn3(!on3)} color='white' position={[2.9, 0, 4.3 - 45]} scale={[0.05, 0.1, 0.1]} />
+        <Instance
+          onClick={() => setOn4(!on4)}
+          color='red'
+          position={[on4 ? 2.9 : 2.92, 0, 4.3 - 60]}
+          scale={[0.1, 0.05, 0.05]}
+        />
+        <Instance onClick={() => setOn4(!on4)} color='white' position={[2.9, 0, 4.3 - 60]} scale={[0.05, 0.1, 0.1]} />
+        <Instance
+          onClick={() => setOn5(!on5)}
+          color='red'
+          position={[on5 ? 2.9 : 2.92, 0, 4.3 - 75]}
+          scale={[0.1, 0.05, 0.05]}
+        />
+        <Instance onClick={() => setOn5(!on5)} color='white' position={[2.9, 0, 4.3 - 75]} scale={[0.05, 0.1, 0.1]} />
+        <Instance
+          onClick={() => setOn6(!on6)}
+          color='red'
+          position={[on6 ? 2.9 : 2.92, 0, 4.3 - 90]}
+          scale={[0.1, 0.05, 0.05]}
+        />
+        <Instance onClick={() => setOn6(!on6)} color='white' position={[2.9, 0, 4.3 - 90]} scale={[0.05, 0.1, 0.1]} />
       </Instances>
     </>
   )
