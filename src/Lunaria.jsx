@@ -39,9 +39,10 @@ function World() {
       </EffectComposer>
       <color attach='background' args={["black"]} />
       <PointerLockControls makeDefault />
+
       <Starfield count={4000} factor={2} />
       <Moon scale={5} position={[40, 100, -160]} />
-      <pointLight distance={40} position={[30, 80, -140]} intensity={10} />
+      <pointLight distance={70} position={[30, 80, -140]} intensity={10} />
 
       <Physics gravity={[0, -3, 0]}>
         <Hallway />
@@ -49,7 +50,6 @@ function World() {
       </Physics>
 
       <Sphere position={[0, 0, -122]} />
-
       <pointLight distance={30} position={[0, 0, -122]} intensity={10} />
 
       <Html

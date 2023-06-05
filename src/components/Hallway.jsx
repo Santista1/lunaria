@@ -42,57 +42,57 @@ export function Hallway() {
         <Columns position={[0, 0, -90]} />
       </Instances>
       <Instances>
-        <boxGeometry />
+        <sphereGeometry args={[1, 10, 10]} />
         <meshBasicMaterial shininess={0} />
+        <Instance onClick={() => setOn0(!on0)} color='red' position={[2.9, 0, 4.3]} scale={[0.04, 0.04, 0.04]} />
         <Instance
           onClick={() => setOn0(!on0)}
-          color='red'
-          position={[on0 ? 2.9 : 2.92, 0, 4.3]}
-          scale={[0.1, 0.05, 0.05]}
+          color={on0 ? "white" : "black"}
+          position={[2.9, 0, 4.3]}
+          scale={[0.03, 0.065, 0.065]}
         />
-        <Instance onClick={() => setOn0(!on0)} color='white' position={[2.9, 0, 4.3]} scale={[0.05, 0.1, 0.1]} />
+        <Instance onClick={() => setOn1(!on1)} color='red' position={[2.9, 0, 4.3 - 15]} scale={[0.04, 0.04, 0.04]} />
         <Instance
           onClick={() => setOn1(!on1)}
-          color='red'
-          position={[on1 ? 2.9 : 2.92, 0, 4.3 - 15]}
-          scale={[0.1, 0.05, 0.05]}
+          color={on1 ? "white" : "black"}
+          position={[2.9, 0, 4.3 - 15]}
+          scale={[0.03, 0.065, 0.065]}
         />
-        <Instance onClick={() => setOn1(!on1)} color='white' position={[2.9, 0, 4.3 - 15]} scale={[0.05, 0.1, 0.1]} />
+        <Instance onClick={() => setOn2(!on2)} color='red' position={[2.9, 0, 4.3 - 30]} scale={[0.04, 0.04, 0.04]} />
         <Instance
           onClick={() => setOn2(!on2)}
-          color='red'
-          position={[on2 ? 2.9 : 2.92, 0, 4.3 - 30]}
-          scale={[0.1, 0.05, 0.05]}
+          color={on2 ? "white" : "black"}
+          position={[2.9, 0, 4.3 - 30]}
+          scale={[0.03, 0.065, 0.065]}
         />
-        <Instance onClick={() => setOn2(!on2)} color='white' position={[2.9, 0, 4.3 - 30]} scale={[0.05, 0.1, 0.1]} />
+        <Instance onClick={() => setOn3(!on3)} color='red' position={[2.9, 0, 4.3 - 45]} scale={[0.04, 0.04, 0.04]} />
         <Instance
           onClick={() => setOn3(!on3)}
-          color='red'
-          position={[on3 ? 2.9 : 2.92, 0, 4.3 - 45]}
-          scale={[0.1, 0.05, 0.05]}
+          color={on3 ? "white" : "black"}
+          position={[2.9, 0, 4.3 - 45]}
+          scale={[0.03, 0.065, 0.065]}
         />
-        <Instance onClick={() => setOn3(!on3)} color='white' position={[2.9, 0, 4.3 - 45]} scale={[0.05, 0.1, 0.1]} />
+        <Instance onClick={() => setOn4(!on4)} color='red' position={[2.9, 0, 4.3 - 60]} scale={[0.04, 0.04, 0.04]} />
         <Instance
           onClick={() => setOn4(!on4)}
-          color='red'
-          position={[on4 ? 2.9 : 2.92, 0, 4.3 - 60]}
-          scale={[0.1, 0.05, 0.05]}
+          color={on4 ? "white" : "black"}
+          position={[2.9, 0, 4.3 - 60]}
+          scale={[0.03, 0.065, 0.065]}
         />
-        <Instance onClick={() => setOn4(!on4)} color='white' position={[2.9, 0, 4.3 - 60]} scale={[0.05, 0.1, 0.1]} />
+        <Instance onClick={() => setOn5(!on5)} color='red' position={[2.9, 0, 4.3 - 75]} scale={[0.04, 0.04, 0.04]} />
         <Instance
           onClick={() => setOn5(!on5)}
-          color='red'
-          position={[on5 ? 2.9 : 2.92, 0, 4.3 - 75]}
-          scale={[0.1, 0.05, 0.05]}
+          color={on5 ? "white" : "black"}
+          position={[2.9, 0, 4.3 - 75]}
+          scale={[0.03, 0.065, 0.065]}
         />
-        <Instance onClick={() => setOn5(!on5)} color='white' position={[2.9, 0, 4.3 - 75]} scale={[0.05, 0.1, 0.1]} />
+        <Instance onClick={() => setOn6(!on6)} color='red' position={[2.9, 0, 4.3 - 90]} scale={[0.04, 0.04, 0.04]} />
         <Instance
           onClick={() => setOn6(!on6)}
-          color='red'
-          position={[on6 ? 2.9 : 2.92, 0, 4.3 - 90]}
-          scale={[0.1, 0.05, 0.05]}
+          color={on6 ? "white" : "black"}
+          position={[2.9, 0, 4.3 - 90]}
+          scale={[0.03, 0.065, 0.065]}
         />
-        <Instance onClick={() => setOn6(!on6)} color='white' position={[2.9, 0, 4.3 - 90]} scale={[0.05, 0.1, 0.1]} />
       </Instances>
     </>
   )
@@ -152,7 +152,7 @@ function Columns({ position }) {
   )
 }
 
-function Walls({ position, scale = [0.01, 3, 10] }) {
+function Walls({ position, scale = [0.01, 2, 10] }) {
   return (
     <>
       {/* <RigidBody colliders={false} type='fixed'>
