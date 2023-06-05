@@ -45,13 +45,12 @@ function World() {
 
       <Physics gravity={[0, -3, 0]}>
         <Hallway />
-
         <Player />
       </Physics>
 
-      <Sphere position={[0, 0, -120]} />
+      <Sphere position={[0, 0, -122]} />
 
-      <pointLight distance={30} position={[0, 0, -120]} intensity={10} />
+      <pointLight distance={30} position={[0, 0, -122]} intensity={10} />
 
       <Html
         occlude

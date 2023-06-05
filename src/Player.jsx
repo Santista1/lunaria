@@ -53,7 +53,7 @@ export function Player() {
   return (
     <RigidBody
       ref={ref}
-      position={[0, 0, 6]}
+      position={[0, 0, 6.5]}
       colliders={false}
       type='dynamic'
       enabledRotations={[false, false, false]}

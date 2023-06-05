@@ -20,7 +20,7 @@ export function Poster({
     <>
       <Text
         rotation={[0, 90 * (Math.PI / 180), 0]}
-        position={[position[0] + 0.01, position[1] - 0.85, position[2]]}
+        position={[position[0] + 0.01, position[1] - 0.87, position[2]]}
         font={"./JuraBook.ttf"}
         fontSize={0.1}
         color='yellow'
