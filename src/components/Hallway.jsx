@@ -24,10 +24,6 @@ export function Hallway() {
         <Walls position={[0, 0, -60]} />
         <Walls position={[0, 0, -75]} />
         <Walls position={[0, 0, -90]} />
-      </Instances>
-      <Instances>
-        <cylinderGeometry args={[1, 1, 1, 16]} />
-        <meshPhongMaterial shininess={0} />
         <Columns position={[0, 0, 0]} />
         <Columns position={[0, 0, -15]} />
         <Columns position={[0, 0, -30]} />
