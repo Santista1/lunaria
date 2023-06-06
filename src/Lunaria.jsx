@@ -174,12 +174,14 @@ function Controls() {
 
 function TouchControls() {
   const ref = useRef()
-  const { camera, gl } = useThree()
+
   useFrame((state, delta) => {
-    ref.current.azimuthAngle = -state.mouse.x
-    ref.current.polarAngle = Math.PI / 2 + state.mouse.y
+    var mouseX = state.mouse.x
+    var mouseY = state.mouse.y
+    ref.current.azimuthAngle = -mouseX
+    ref.current.polarAngle = Math.PI / 2 + mouseY
     ref.current.update(delta)
   })
 
-  return <CameraControls ref={ref} args={[camera, gl.domElement]} />
+  return <CameraControls ref={ref} />
 }
