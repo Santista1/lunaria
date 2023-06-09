@@ -13,13 +13,13 @@ export function Hallway() {
 
   return (
     <>
-      <pointLight visible={on0} castShadow distance={10} color='blue' position={[0, 0, 0]} intensity={0.4} />
-      <pointLight visible={on1} castShadow distance={10} color='hotpink' position={[0, 0, -15]} intensity={0.4} />
-      <pointLight visible={on2} castShadow distance={10} color='blue' position={[0, 0, -30]} intensity={0.4} />
-      <pointLight visible={on3} castShadow distance={10} color='hotpink' position={[0, 0, -45]} intensity={0.4} />
-      <pointLight visible={on4} castShadow distance={10} color='blue' position={[0, 0, -60]} intensity={0.4} />
-      <pointLight visible={on5} castShadow distance={10} color='hotpink' position={[0, 0, -75]} intensity={0.4} />
-      <pointLight visible={on6} castShadow distance={10} color='blue' position={[0, 0, -90]} intensity={0.4} />
+      <pointLight castShadow distance={10} color='blue' position={[0, 0, 0]} intensity={on0 ? 0.4 : 0} />
+      <pointLight castShadow distance={10} color='hotpink' position={[0, 0, -15]} intensity={on1 ? 0.4 : 0} />
+      <pointLight castShadow distance={10} color='blue' position={[0, 0, -30]} intensity={on2 ? 0.4 : 0} />
+      <pointLight castShadow distance={10} color='hotpink' position={[0, 0, -45]} intensity={on3 ? 0.4 : 0} />
+      <pointLight castShadow distance={10} color='blue' position={[0, 0, -60]} intensity={on4 ? 0.4 : 0} />
+      <pointLight castShadow distance={10} color='hotpink' position={[0, 0, -75]} intensity={on5 ? 0.4 : 0} />
+      <pointLight castShadow distance={10} color='blue' position={[0, 0, -90]} intensity={on6 ? 0.4 : 0} />
       <Instances>
         <boxGeometry />
         <meshPhongMaterial shininess={0} />
@@ -42,7 +42,7 @@ export function Hallway() {
         <Columns position={[0, 0, -90]} />
       </Instances>
       <Instances>
-        <sphereGeometry args={[1, 10, 10]} />
+        <boxGeometry args={[1, 1, 1]} />
         <meshBasicMaterial shininess={0} />
         <Instance onClick={() => setOn0(!on0)} color='red' position={[2.9, 0, 4.3]} scale={[0.04, 0.04, 0.04]} />
         <Instance
@@ -165,14 +165,6 @@ function Walls({ position, scale = [0.01, 2, 10] }) {
       <Instance position={[-2.9, 0, position[2]]} scale={scale} />
       <Instance position={[2.9, 0, position[2]]} scale={scale} />
       <Instance position={[-2.9, 0, position[2]]} scale={scale} />
-    </>
-  )
-}
-
-function Section({ Box, position = [0, 0, 0], scale = [10, 10, 10], thickness = 0.1, color }) {
-  return (
-    <>
-      <pointLight castShadow distance={15} color={color} position={position} intensity={0.4} />
     </>
   )
 }
