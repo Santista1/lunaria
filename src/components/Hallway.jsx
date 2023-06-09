@@ -106,15 +106,15 @@ export function Hallway() {
 function Roof() {
   return (
     <>
-      <Instance position={[2.9, 1.5, -45]} scale={[2, 0.1, 105]} />
+      <Instance position={[2.9, 1.5, -45]} scale={[1, 0.1, 105]} />
       <Instance position={[-2.9, 1.5, -45]} scale={[2, 0.1, 105]} />
       <Instance position={[0, 1.5, 6.5]} scale={[5, 0.1, 2]} />
-      <Instance position={[0, 1.5, -7.5]} scale={[5, 0.1, 6]} />
-      <Instance position={[0, 1.5, -22.5]} scale={[5, 0.1, 6]} />
-      <Instance position={[0, 1.5, -37.5]} scale={[5, 0.1, 6]} />
-      <Instance position={[0, 1.5, -52.5]} scale={[5, 0.1, 6]} />
-      <Instance position={[0, 1.5, -67.5]} scale={[5, 0.1, 6]} />
-      <Instance position={[0, 1.5, -62.5]} scale={[5, 0.1, 6]} />
+      <Instance position={[0, 1.5, -7.5]} scale={[5, 0.1, 4]} />
+      <Instance position={[0, 1.5, -22.5]} scale={[5, 0.1, 4]} />
+      <Instance position={[0, 1.5, -37.5]} scale={[5, 0.1, 4]} />
+      <Instance position={[0, 1.5, -52.5]} scale={[5, 0.1, 4]} />
+      <Instance position={[0, 1.5, -67.5]} scale={[5, 0.1, 4]} />
+      <Instance position={[0, 1.5, -62.5]} scale={[5, 0.1, 4]} />
       <Instance position={[0, 1.5, -96.5]} scale={[5, 0.1, 2]} />
     </>
   )

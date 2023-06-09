@@ -1,10 +1,11 @@
-import { Canvas, useThree } from "@react-three/fiber"
+import { Canvas } from "@react-three/fiber"
 import { OrthographicCamera, PointerLockControls, Hud, KeyboardControls, Html, CameraControls } from "@react-three/drei"
 import { DepthOfField, EffectComposer } from "@react-three/postprocessing"
 import { Physics } from "@react-three/rapier"
 import { Perf } from "r3f-perf"
 import { useRef } from "react"
 import { useFrame } from "@react-three/fiber"
+import ReactNipple from "react-nipple"
 
 import { Player } from "./Player"
 import { Starfield, Moon, Poster, Button, Sphere, Hallway } from "./components"
@@ -16,8 +17,15 @@ export default function Lunaria() {
     <>
       {touch && (
         <>
-          <div className='joystick' />
-          <div className='joystick2' />
+          <ReactNipple
+            options={{ mode: "static", position: { bottom: 75, right: 75 } }}
+            style={{
+              position: "absolute",
+              bottom: 75,
+              right: 75,
+            }}
+            onMove={(evt, data) => console.log(evt, data)}
+          />
         </>
       )}
       <div className='crosshair' />
@@ -39,7 +47,7 @@ export default function Lunaria() {
 function World() {
   return (
     <Canvas frameloop='demand' shadows>
-      {process.env.NODE_ENV === "development" && <Perf position='bottom-right' />}
+      {process.env.NODE_ENV === "development" && !touch && <Perf position='bottom-right' />}
       <Hud renderPriority={2}>
         <ambientLight intensity={1} />
         <OrthographicCamera makeDefault position={[0, 0, 200]} />
@@ -65,7 +73,7 @@ function World() {
       <Sphere position={[0, 0, -122]} />
       <pointLight distance={30} position={[0, 0, -122]} intensity={10} />
 
-      <Html
+      {/* <Html
         occlude
         zIndexRange={[0, 0]}
         scale={[0.12, 0.12, 1]}
@@ -77,7 +85,7 @@ function World() {
           style={{ width: "500px", height: "500px", border: "0px" }}
           src='https://www.youtube.com/embed/lTHWPvVka4M?rel=0?autoplay=1'
         />
-      </Html>
+      </Html> */}
 
       <group position={[0, 0, 0]}>
         <Poster
