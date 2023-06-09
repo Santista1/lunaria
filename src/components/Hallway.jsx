@@ -3,7 +3,7 @@ import { Instances, Instance } from "@react-three/drei"
 import { useState } from "react"
 
 export function Hallway() {
-  const [on0, setOn0] = useState(true)
+  const [switch0, setSwitch0] = useState(true)
   const [on1, setOn1] = useState(true)
   const [on2, setOn2] = useState(true)
   const [on3, setOn3] = useState(true)
@@ -13,13 +13,6 @@ export function Hallway() {
 
   return (
     <>
-      <pointLight castShadow distance={10} color='blue' position={[0, 0, 0]} intensity={on0 ? 0.4 : 0} />
-      <pointLight castShadow distance={10} color='hotpink' position={[0, 0, -15]} intensity={on1 ? 0.4 : 0} />
-      <pointLight castShadow distance={10} color='blue' position={[0, 0, -30]} intensity={on2 ? 0.4 : 0} />
-      <pointLight castShadow distance={10} color='hotpink' position={[0, 0, -45]} intensity={on3 ? 0.4 : 0} />
-      <pointLight castShadow distance={10} color='blue' position={[0, 0, -60]} intensity={on4 ? 0.4 : 0} />
-      <pointLight castShadow distance={10} color='hotpink' position={[0, 0, -75]} intensity={on5 ? 0.4 : 0} />
-      <pointLight castShadow distance={10} color='blue' position={[0, 0, -90]} intensity={on6 ? 0.4 : 0} />
       <Instances>
         <boxGeometry />
         <meshPhongMaterial shininess={0} />
@@ -41,13 +34,25 @@ export function Hallway() {
         <Columns position={[0, 0, -75]} />
         <Columns position={[0, 0, -90]} />
       </Instances>
+      <pointLight castShadow distance={10} color='blue' position={[0, 0, 0]} intensity={switch0 ? 0.4 : 0} />
+      <pointLight castShadow distance={10} color='hotpink' position={[0, 0, -15]} intensity={on1 ? 0.4 : 0} />
+      <pointLight castShadow distance={10} color='blue' position={[0, 0, -30]} intensity={on2 ? 0.4 : 0} />
+      <pointLight castShadow distance={10} color='hotpink' position={[0, 0, -45]} intensity={on3 ? 0.4 : 0} />
+      <pointLight castShadow distance={10} color='blue' position={[0, 0, -60]} intensity={on4 ? 0.4 : 0} />
+      <pointLight castShadow distance={10} color='hotpink' position={[0, 0, -75]} intensity={on5 ? 0.4 : 0} />
+      <pointLight castShadow distance={10} color='blue' position={[0, 0, -90]} intensity={on6 ? 0.4 : 0} />
       <Instances>
         <boxGeometry args={[1, 1, 1]} />
         <meshBasicMaterial shininess={0} />
-        <Instance onClick={() => setOn0(!on0)} color='red' position={[2.9, 0, 4.3]} scale={[0.04, 0.04, 0.04]} />
         <Instance
-          onClick={() => setOn0(!on0)}
-          color={on0 ? "white" : "black"}
+          onClick={() => setSwitch0(!switch0)}
+          color='red'
+          position={[2.9, 0, 4.3]}
+          scale={[0.04, 0.04, 0.04]}
+        />
+        <Instance
+          onClick={() => setSwitch0(!switch0)}
+          color={switch0 ? "white" : "black"}
           position={[2.9, 0, 4.3]}
           scale={[0.03, 0.065, 0.065]}
         />

@@ -11,8 +11,6 @@ import { Starfield, Moon, Poster, Button, Sphere, Hallway } from "./components"
 
 const touch = "ontouchstart" in document.documentElement
 
-console.log(touch)
-
 export default function Lunaria() {
   return (
     <>
@@ -82,11 +80,6 @@ function World() {
       </Html>
 
       <group position={[0, 0, 0]}>
-        <pointLight distance={0.95} position={[-2.5, 0, 3]} intensity={5} />
-        <pointLight distance={0.95} position={[-2.5, 0, 1]} intensity={5} />
-        <pointLight distance={0.95} position={[-2.5, 0, -1]} intensity={5} />
-        <pointLight distance={0.95} position={[-2.5, 0, -3]} intensity={5} />
-
         <Poster
           color='hotpink'
           position={[-2.89, 0, 3]}
@@ -113,10 +106,6 @@ function World() {
         />
       </group>
       <group position={[0, 0, -15]}>
-        <pointLight castShadow distance={1} position={[-2.5, 0, 3]} intensity={2} />
-        <pointLight castShadow distance={1} position={[-2.5, 0, 1]} intensity={2} />
-        <pointLight castShadow distance={1} position={[-2.5, 0, -1]} intensity={2} />
-        <pointLight castShadow distance={1} position={[-2.5, 0, -3]} intensity={2} />
         <Poster
           position={[-2.89, 0, 3]}
           map='https://res.cloudinary.com/dexin8o58/image/upload/v1685218397/FjLR2_eXEAAbI2J_os2zlu.jpg'
@@ -139,10 +128,6 @@ function World() {
         />
       </group>
       <group position={[0, 0, -45]}>
-        <pointLight castShadow distance={1} position={[-2.5, 0, 3]} intensity={2} />
-        <pointLight castShadow distance={1} position={[-2.5, 0, 1]} intensity={2} />
-        <pointLight castShadow distance={1} position={[-2.5, 0, -1]} intensity={2} />
-        <pointLight castShadow distance={1} position={[-2.5, 0, -3]} intensity={2} />
         <Poster
           position={[-2.89, 0, 3]}
           map='https://res.cloudinary.com/dexin8o58/image/upload/v1685998057/snake_gccjdp.png'
