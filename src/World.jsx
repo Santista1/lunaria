@@ -1,9 +1,8 @@
 import { RigidBody, CuboidCollider } from "@react-three/rapier"
-import { Instances, Instance, Html } from "@react-three/drei"
+import { Instances, Instance, Html, CubicBezierLine } from "@react-three/drei"
 import { useState } from "react"
-import { OrthographicCamera, CubicBezierLine } from "@react-three/drei"
 
-import { Button } from "./components"
+import { Button } from "./components/gui"
 import { ui } from "./Gui"
 
 export function World() {
@@ -42,16 +41,9 @@ function Hallway({ pos }) {
         <Columns position={[0, 0, -45]} />
       </Instances>
       <Lights />
-      <Html
-        occlude
-        zIndexRange={[0, 0]}
-        scale={[0.12, 0.12, 1]}
-        transform
-        rotation-y={-90 * (Math.PI / 180)}
-        position={[2.89, 0, 3]}
-      >
+      <Html occlude scale={[0.12, 0.12, 1]} transform rotation-y={-90 * (Math.PI / 180)} position={[2.89, 0, 3]}>
         <iframe
-          style={{ width: "500px", height: "500px", border: "0px" }}
+          style={{ width: "500px", height: "500px", border: "0px", zIndex: 0 }}
           src='https://www.youtube.com/embed/lTHWPvVka4M?rel=0?autoplay=1'
         />
       </Html>
@@ -75,8 +67,6 @@ function Floor({ pos, sc }) {
       />
       {gui && (
         <ui.In>
-          <ambientLight intensity={1} />
-          <OrthographicCamera makeDefault position={[0, 0, 200]} />
           <Button text='Floor' position={[0, 0, 0]} size={40} />
         </ui.In>
       )}
@@ -148,8 +138,6 @@ function Walls({ position, scale = [0.01, 2, 10] }) {
       />
       {gui && (
         <ui.In>
-          <ambientLight intensity={1} />
-          <OrthographicCamera makeDefault position={[0, 0, 200]} />
           <Button text='Wall' position={[0, 0, 0]} size={40} />
           <Button text='Width: 0.01' position={[-300, 100, 0]} size={40} />
           <Button text='Height: 2' position={[-300, 0, 0]} size={40} />

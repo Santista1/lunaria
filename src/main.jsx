@@ -66,16 +66,16 @@ function Scene() {
       </EffectComposer>
       <color attach='background' args={["black"]} />
 
+      <Physics gravity={[0, -3, 0]}>
+        <World />
+        <Player />
+      </Physics>
+
       {touch ? <TouchControls /> : <Controls />}
 
       <Starfield count={4000} factor={2} />
       <Moon scale={5} position={[40, 100, -160]} />
       <pointLight distance={70} position={[30, 80, -140]} intensity={10} />
-
-      <Physics gravity={[0, -3, 0]}>
-        <World />
-        <Player />
-      </Physics>
 
       <group position={[0, 0, 0]}>
         <Poster

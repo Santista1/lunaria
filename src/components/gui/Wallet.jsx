@@ -8,7 +8,7 @@ export function Wallet({ position, animate }) {
 
   if (animate) {
     useFrame((state, delta) => {
-      wallet.current.rotation.y -= delta * 1
+      wallet.current.rotation.y -= delta * 0.5
     })
   }
 
