@@ -77,20 +77,6 @@ function Scene() {
         <Player />
       </Physics>
 
-      {/* <Html
-        occlude
-        zIndexRange={[0, 0]}
-        scale={[0.12, 0.12, 1]}
-        transform
-        rotation-y={-90 * (Math.PI / 180)}
-        position={[2.89, 0, 3]}
-      >
-        <iframe
-          style={{ width: "500px", height: "500px", border: "0px" }}
-          src='https://www.youtube.com/embed/lTHWPvVka4M?rel=0?autoplay=1'
-        />
-      </Html> */}
-
       <group position={[0, 0, 0]}>
         <Poster
           color='hotpink'

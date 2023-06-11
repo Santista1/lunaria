@@ -1,7 +1,7 @@
 import { RigidBody, CuboidCollider } from "@react-three/rapier"
-import { Instances, Instance } from "@react-three/drei"
+import { Instances, Instance, Html } from "@react-three/drei"
 import { useState } from "react"
-import { OrthographicCamera, Hud, CubicBezierLine } from "@react-three/drei"
+import { OrthographicCamera, CubicBezierLine } from "@react-three/drei"
 
 import { Button } from "./components"
 import { ui } from "./Gui"
@@ -29,7 +29,7 @@ function Hallway({ pos }) {
         <Walls position={[0, 0, 45]} />
         <Walls position={[0, 0, 30]} />
         <Walls position={[0, 0, 15]} />
-        <Walls position={[0, 0, -0]} />
+        <Walls position={[0, 0, 0]} />
         <Walls position={[0, 0, -15]} />
         <Walls position={[0, 0, -30]} />
         <Walls position={[0, 0, -45]} />
@@ -42,6 +42,19 @@ function Hallway({ pos }) {
         <Columns position={[0, 0, -45]} />
       </Instances>
       <Lights />
+      <Html
+        occlude
+        zIndexRange={[0, 0]}
+        scale={[0.12, 0.12, 1]}
+        transform
+        rotation-y={-90 * (Math.PI / 180)}
+        position={[2.89, 0, 3]}
+      >
+        <iframe
+          style={{ width: "500px", height: "500px", border: "0px" }}
+          src='https://www.youtube.com/embed/lTHWPvVka4M?rel=0?autoplay=1'
+        />
+      </Html>
     </>
   )
 }
