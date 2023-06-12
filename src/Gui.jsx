@@ -1,6 +1,7 @@
 import { OrthographicCamera, Hud, Instances, Instance } from "@react-three/drei"
 import { Button, Wallet } from "./components/gui"
 import { useChain } from "@cosmos-kit/react"
+import { useThree } from "@react-three/fiber"
 
 import tunnel from "tunnel-rat"
 export const ui = tunnel()
@@ -17,17 +18,18 @@ export function Gui() {
 }
 
 function Main() {
-  const { connect, openView, status } = useChain("terra")
+  const { connect, status } = useChain("terra")
+  const { size } = useThree()
   return (
     <>
       <Button
         text={status === "Disconnected" ? "Connect" : status}
         onClick={(e) => connect()}
-        position={[720, 430, 0]}
+        position={[size.width / 2 - 220, size.height / 2 - 60, 0]}
         size={40}
       />
       <Button text='Inventory' position={[-780, 430, 0]} size={40} />
-      <Wallet animate position={[890, 430, 0]} />
+      <Wallet animate position={[size.width / 2 - 40, 430, 0]} />
     </>
   )
 }

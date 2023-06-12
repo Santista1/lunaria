@@ -14,6 +14,7 @@
     "@cosmos-kit/react": "^1.3.31",
     "@cosmos-kit/station": "^0.7.12",
     "@cosmos-kit/station-extension": "^0.7.11",
+    "@cosmos-kit/trust": "^0.14.36",
     "@react-three/csg": "^2.2.0",
     "@react-three/drei": "^9.70.3",
     "@react-three/fiber": "^8.13.0",

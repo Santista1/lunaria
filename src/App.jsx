@@ -16,6 +16,7 @@ import { ChainProvider } from "@cosmos-kit/react"
 import { chains, assets } from "chain-registry"
 import { wallets as station } from "@cosmos-kit/station"
 import { wallets as keplr } from "@cosmos-kit/keplr"
+import { wallets as trust } from "@cosmos-kit/trust"
 
 const touch = "ontouchstart" in document.documentElement
 
@@ -23,7 +24,12 @@ export function App() {
   return (
     <>
       <div className='crosshair' />
-      <ChainProvider chains={chains} assetLists={assets} wallets={[...station, ...keplr]} wrappedWithChakra={true}>
+      <ChainProvider
+        chains={chains}
+        assetLists={assets}
+        wallets={[...station, ...keplr, ...trust]}
+        wrappedWithChakra={true}
+      >
         {touch && (
           <>
             <ReactNipple

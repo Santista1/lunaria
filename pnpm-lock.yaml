@@ -13,6 +13,9 @@ dependencies:
   '@cosmos-kit/station-extension':
     specifier: ^0.7.11
     version: 0.7.11(@cosmjs/amino@0.30.1)(@cosmjs/cosmwasm-stargate@0.30.1)(@cosmjs/proto-signing@0.30.1)(@cosmjs/stargate@0.30.1)(@terra-money/terra.js@3.1.9)(cosmjs-types@0.8.0)
+  '@cosmos-kit/trust':
+    specifier: ^0.14.36
+    version: 0.14.36(@cosmjs/amino@0.30.1)(@cosmjs/cosmwasm-stargate@0.30.1)(@cosmjs/proto-signing@0.30.1)(@cosmjs/stargate@0.30.1)(cosmjs-types@0.8.0)
   '@react-three/csg':
     specifier: ^2.2.0
     version: 2.2.0(three-mesh-bvh@0.5.24)(three@0.153.0)
@@ -1730,6 +1733,47 @@ packages:
       - cosmjs-types
       - debug
       - lokijs
+    dev: false
+
+  /@cosmos-kit/trust-mobile@0.2.36(@cosmjs/amino@0.30.1)(@cosmjs/cosmwasm-stargate@0.30.1)(@cosmjs/proto-signing@0.30.1)(@cosmjs/stargate@0.30.1)(cosmjs-types@0.8.0):
+    resolution: {integrity: sha512-xKbr6LoLyXyXDL/XLqKdxrdbxrHBQMK1ubGdmYqpVjCB9W6GuveMg7ddjbA+ju543NrpXnN2avEWvEJcztsyaA==}
+    peerDependencies:
+      '@cosmjs/amino': '>= 0.28'
+      '@cosmjs/cosmwasm-stargate': '>= 0.28'
+      '@cosmjs/proto-signing': '>= 0.28'
+      '@cosmjs/stargate': '>= 0.28'
+      cosmjs-types: '>= 0.5'
+    dependencies:
+      '@cosmjs/amino': 0.30.1
+      '@cosmjs/cosmwasm-stargate': 0.30.1
+      '@cosmjs/proto-signing': 0.30.1
+      '@cosmjs/stargate': 0.30.1
+      '@cosmos-kit/core': 1.5.8(@cosmjs/amino@0.30.1)(@cosmjs/cosmwasm-stargate@0.30.1)(@cosmjs/proto-signing@0.30.1)(@cosmjs/stargate@0.30.1)(cosmjs-types@0.8.0)
+      '@cosmos-kit/walletconnect': 0.3.15(@cosmjs/amino@0.30.1)(@cosmjs/cosmwasm-stargate@0.30.1)(@cosmjs/proto-signing@0.30.1)(@cosmjs/stargate@0.30.1)(cosmjs-types@0.8.0)
+      cosmjs-types: 0.8.0
+    transitivePeerDependencies:
+      - '@react-native-async-storage/async-storage'
+      - bufferutil
+      - debug
+      - lokijs
+      - utf-8-validate
+    dev: false
+
+  /@cosmos-kit/trust@0.14.36(@cosmjs/amino@0.30.1)(@cosmjs/cosmwasm-stargate@0.30.1)(@cosmjs/proto-signing@0.30.1)(@cosmjs/stargate@0.30.1)(cosmjs-types@0.8.0):
+    resolution: {integrity: sha512-EeF32NWHsIPzYCbKoh5advKIFWQ2WicEpSdA+4NmbMYhP6gc+f5i3R9iGPvj2tN+Y5Lllu8waVOu8YzLteei3g==}
+    dependencies:
+      '@cosmos-kit/trust-mobile': 0.2.36(@cosmjs/amino@0.30.1)(@cosmjs/cosmwasm-stargate@0.30.1)(@cosmjs/proto-signing@0.30.1)(@cosmjs/stargate@0.30.1)(cosmjs-types@0.8.0)
+    transitivePeerDependencies:
+      - '@cosmjs/amino'
+      - '@cosmjs/cosmwasm-stargate'
+      - '@cosmjs/proto-signing'
+      - '@cosmjs/stargate'
+      - '@react-native-async-storage/async-storage'
+      - bufferutil
+      - cosmjs-types
+      - debug
+      - lokijs
+      - utf-8-validate
     dev: false
 
   /@cosmos-kit/walletconnect@0.3.15(@cosmjs/amino@0.30.1)(@cosmjs/cosmwasm-stargate@0.30.1)(@cosmjs/proto-signing@0.30.1)(@cosmjs/stargate@0.30.1)(cosmjs-types@0.8.0):
