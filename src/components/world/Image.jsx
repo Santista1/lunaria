@@ -1,8 +1,8 @@
 import { useState } from "react"
-import { useTexture, Box, Text, Plane } from "@react-three/drei"
+import { useTexture, Text, Plane } from "@react-three/drei"
 import { useThree } from "@react-three/fiber"
 
-export function Poster({
+export function Image({
   position = [0, 0, 0],
   scale = [1.5, 1.5],
   color = "white",
