@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Text } from "@react-three/drei"
 import { useGesture } from "@use-gesture/react"
 
@@ -15,6 +15,10 @@ export function Button({
   const [width, setWidth] = useState(0)
   const [x, setX] = useState(0)
   const [y, setY] = useState(0)
+
+  useEffect(() => {
+    document.body.style.cursor = hovered ? "pointer" : "auto"
+  }, [hovered])
 
   const bind = useGesture({
     onDrag: ({ event, offset: [x, y] }) => {
