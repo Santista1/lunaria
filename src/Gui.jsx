@@ -28,8 +28,8 @@ function Main() {
         position={[size.width / 2 - 220, size.height / 2 - 60, 0]}
         size={40}
       />
-      <Button text='Inventory' position={[-780, 430, 0]} size={40} />
-      <Wallet animate position={[size.width / 2 - 40, 430, 0]} />
+      <Button text='Inventory' position={[-780, size.height / 2 - 60, 0]} size={40} />
+      <Wallet animate position={[size.width / 2 - 40, size.height / 2 - 60, 0]} />
     </>
   )
 }
