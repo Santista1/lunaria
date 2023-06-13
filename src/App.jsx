@@ -23,9 +23,11 @@ const touch = "ontouchstart" in document.documentElement
 export function App() {
   return (
     <>
-      <audio style={{ position: "absolute", zIndex: "10", bottom: "15px", left: "15px" }} controls>
-        <source src='venus.mp3' type='audio/mpeg' />
-      </audio>
+      {!touch && (
+        <audio style={{ position: "absolute", zIndex: "10", bottom: "15px", left: "15px" }} controls>
+          <source src='venus.mp3' type='audio/mpeg' />
+        </audio>
+      )}
 
       <div className='crosshair' />
 
