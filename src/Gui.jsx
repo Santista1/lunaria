@@ -1,10 +1,9 @@
-import { OrthographicCamera, Hud, Instances, Instance } from "@react-three/drei"
+import { OrthographicCamera, Hud } from "@react-three/drei"
 import { Button, Wallet } from "./components/gui"
 import { useChain } from "@cosmos-kit/react"
 import { useThree } from "@react-three/fiber"
 
-import tunnel from "tunnel-rat"
-export const ui = tunnel()
+import { ui } from "./tunnel"
 
 export function Gui() {
   return (
@@ -24,7 +23,7 @@ function Main() {
     <>
       <Button
         text={status === "Disconnected" ? "Connect" : status}
-        onClick={(e) => connect()}
+        onClick={() => connect()}
         position={[size.width / 2 - 220, size.height / 2 - 60, 0]}
         size={40}
       />

@@ -4,7 +4,7 @@ import { useState } from "react"
 
 import { Starfield, Moon, Image } from "./components/world"
 import { Button } from "./components/gui"
-import { ui } from "./Gui"
+import { ui } from "./tunnel"
 
 export function World() {
   return (
@@ -16,11 +16,47 @@ export function World() {
       <Starfield count={4000} factor={2} />
       <Moon scale={5} position={[40, 100, -160]} />
       <pointLight distance={70} position={[30, 80, -140]} intensity={10} />
+      <Images />
     </>
   )
 }
 
-function Images({}) {
+function Hallway({ pos }) {
+  return (
+    <>
+      <Instances>
+        <boxGeometry />
+        <meshPhongMaterial shininess={0} />
+        <Floor pos={pos} />
+        <Roof position={[0, 1.5, 0]} />
+        <Rail />
+        <Walls position={[0, 0, 45]} />
+        <Walls position={[0, 0, 30]} />
+        <Walls position={[0, 0, 15]} />
+        <Walls position={[0, 0, 0]} />
+        <Walls position={[0, 0, -15]} />
+        <Walls position={[0, 0, -30]} />
+        <Walls position={[0, 0, -45]} />
+        <Columns position={[0, 0, 45]} />
+        <Columns position={[0, 0, 30]} />
+        <Columns position={[0, 0, 15]} />
+        <Columns position={[0, 0, 0]} />
+        <Columns position={[0, 0, -15]} />
+        <Columns position={[0, 0, -30]} />
+        <Columns position={[0, 0, -45]} />
+      </Instances>
+      <Lights />
+      <Html occlude scale={[0.12, 0.12, 1]} transform rotation-y={-90 * (Math.PI / 180)} position={[2.89, 0, 3]}>
+        <iframe
+          style={{ width: "500px", height: "500px", border: "0px", zIndex: 0 }}
+          src='https://www.youtube.com/embed/lTHWPvVka4M?rel=0?autoplay=1'
+        />
+      </Html>
+    </>
+  )
+}
+
+function Images() {
   return (
     <>
       <group position={[0, 0, 0]}>
@@ -97,42 +133,7 @@ function Images({}) {
   )
 }
 
-function Hallway({ pos }) {
-  return (
-    <>
-      <Instances>
-        <boxGeometry />
-        <meshPhongMaterial shininess={0} />
-        <Floor pos={pos} />
-        <Roof position={[0, 1.5, 0]} />
-        <Rail />
-        <Walls position={[0, 0, 45]} />
-        <Walls position={[0, 0, 30]} />
-        <Walls position={[0, 0, 15]} />
-        <Walls position={[0, 0, 0]} />
-        <Walls position={[0, 0, -15]} />
-        <Walls position={[0, 0, -30]} />
-        <Walls position={[0, 0, -45]} />
-        <Columns position={[0, 0, 45]} />
-        <Columns position={[0, 0, 30]} />
-        <Columns position={[0, 0, 15]} />
-        <Columns position={[0, 0, 0]} />
-        <Columns position={[0, 0, -15]} />
-        <Columns position={[0, 0, -30]} />
-        <Columns position={[0, 0, -45]} />
-      </Instances>
-      <Lights />
-      <Html occlude scale={[0.12, 0.12, 1]} transform rotation-y={-90 * (Math.PI / 180)} position={[2.89, 0, 3]}>
-        <iframe
-          style={{ width: "500px", height: "500px", border: "0px", zIndex: 0 }}
-          src='https://www.youtube.com/embed/lTHWPvVka4M?rel=0?autoplay=1'
-        />
-      </Html>
-    </>
-  )
-}
-
-function Floor({ pos, sc }) {
+function Floor({ pos }) {
   const [gui, setGui] = useState(false)
   const width = 11
   return (
@@ -144,7 +145,7 @@ function Floor({ pos, sc }) {
         position={[pos[0], pos[1] - 1.5, pos[2]]}
         scale={[width, 0.1, 100]}
         onClick={(e) => e.which == 3 && setGui(true)}
-        onPointerLeave={(e) => setGui(false)}
+        onPointerLeave={() => setGui(false)}
       />
       {gui && (
         <ui.In>
@@ -172,7 +173,7 @@ function Roof({ position }) {
   )
 }
 
-function Rail({ position }) {
+function Rail() {
   const separation = 6
   return (
     <>
@@ -209,13 +210,13 @@ function Walls({ position, scale = [0.01, 2, 10] }) {
         position={[-2.9, position[1], position[2]]}
         scale={scale}
         onClick={(e) => e.which == 3 && setGui(true)}
-        onPointerLeave={(e) => setGui(false)}
+        onPointerLeave={() => setGui(false)}
       />
       <Instance
         position={[2.9, position[1], position[2]]}
         scale={scale}
         onClick={(e) => e.which == 3 && setGui(true)}
-        onPointerLeave={(e) => setGui(false)}
+        onPointerLeave={() => setGui(false)}
       />
       {gui && (
         <ui.In>
@@ -340,27 +341,27 @@ function Ring({ pos }) {
   )
 }
 
-function Sphere({ position, color = 0xffd83d }) {
-  return (
-    <>
-      <group position={position}>
-        <mesh castShadow>
-          <sphereGeometry args={[25, 32, 2, 0, Math.PI * 2, 0, Math.PI * 0.2]} />
-          <meshPhongMaterial side={2} color={color} />
-        </mesh>
-        <mesh castShadow rotation={[0, 0, 0]}>
-          <sphereGeometry args={[25, 32, 2, 0, Math.PI * 2, Math.PI * 0.33, Math.PI * 0.15]} />
-          <meshPhongMaterial side={2} color={color} />
-        </mesh>
-        <mesh castShadow rotation={[0, 0, 0]}>
-          <sphereGeometry args={[25, 32, 2, 0, Math.PI * 2, Math.PI * 0.52, Math.PI * 0.2]} />
-          <meshPhongMaterial side={2} color={color} />
-        </mesh>
-        <mesh castShadow>
-          <sphereGeometry args={[25, 32, 2, 0, Math.PI * 2, Math.PI * 0.8, Math.PI * 0.2]} />
-          <meshPhongMaterial side={2} color={color} />
-        </mesh>
-      </group>
-    </>
-  )
-}
+// function Sphere({ position, color = 0xffd83d }) {
+//   return (
+//     <>
+//       <group position={position}>
+//         <mesh castShadow>
+//           <sphereGeometry args={[25, 32, 2, 0, Math.PI * 2, 0, Math.PI * 0.2]} />
+//           <meshPhongMaterial side={2} color={color} />
+//         </mesh>
+//         <mesh castShadow rotation={[0, 0, 0]}>
+//           <sphereGeometry args={[25, 32, 2, 0, Math.PI * 2, Math.PI * 0.33, Math.PI * 0.15]} />
+//           <meshPhongMaterial side={2} color={color} />
+//         </mesh>
+//         <mesh castShadow rotation={[0, 0, 0]}>
+//           <sphereGeometry args={[25, 32, 2, 0, Math.PI * 2, Math.PI * 0.52, Math.PI * 0.2]} />
+//           <meshPhongMaterial side={2} color={color} />
+//         </mesh>
+//         <mesh castShadow>
+//           <sphereGeometry args={[25, 32, 2, 0, Math.PI * 2, Math.PI * 0.8, Math.PI * 0.2]} />
+//           <meshPhongMaterial side={2} color={color} />
+//         </mesh>
+//       </group>
+//     </>
+//   )
+// }

@@ -6,11 +6,11 @@ import { Sphere } from "@react-three/drei"
 export function Wallet({ position, animate }) {
   const wallet = useRef()
 
-  if (animate) {
-    useFrame((state, delta) => {
+  useFrame((state, delta) => {
+    if (animate) {
       wallet.current.rotation.y -= delta * 0.5
-    })
-  }
+    }
+  })
 
   return (
     <>

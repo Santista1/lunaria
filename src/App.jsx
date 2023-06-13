@@ -61,7 +61,7 @@ export function App() {
 
 function Scene() {
   return (
-    <Canvas frameloop='demand' shadows>
+    <Canvas frameloop='demand' shadows style={{ background: "black" }}>
       {process.env.NODE_ENV === "development" && !touch && <Perf position='bottom-right' />}
 
       <Gui />
@@ -76,8 +76,6 @@ function Scene() {
       <EffectComposer>
         <DepthOfField focusDistance={0} focalLength={10} bokehScale={5} height={200} />
       </EffectComposer>
-
-      <color attach='background' args={["black"]} />
     </Canvas>
   )
 }
