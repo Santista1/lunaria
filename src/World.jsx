@@ -1,22 +1,24 @@
 import { RigidBody, CuboidCollider } from "@react-three/rapier"
-import { Instances, Instance, Html, CubicBezierLine } from "@react-three/drei"
+import { Instances, Instance, CubicBezierLine } from "@react-three/drei"
 import { useState } from "react"
 
-import { Starfield, Moon, Image } from "./components/world"
-import { Button } from "./components/gui"
+import { Starfield, Moon, Image, Fire } from "./components/world"
+
 import { ui } from "./tunnel"
+import { Button, Slider } from "./components/gui"
 
 export function World() {
   return (
     <>
       <Hallway pos={[0, 0, 0]} />
-      <Ring pos={[0, -1.2, 0]} />
+
       {/* <Sphere position={[0, 0, 0]} />
       <pointLight distance={20} position={[0, 20, 0]} intensity={1} /> */}
       <Starfield count={4000} factor={2} />
       <Moon scale={5} position={[40, 100, -160]} />
       <pointLight distance={70} position={[30, 80, -140]} intensity={10} />
       <Images />
+      <Fire />
     </>
   )
 }
@@ -46,12 +48,12 @@ function Hallway({ pos }) {
         <Columns position={[0, 0, -45]} />
       </Instances>
       <Lights />
-      <Html occlude scale={[0.12, 0.12, 1]} transform rotation-y={-90 * (Math.PI / 180)} position={[2.89, 0, 3]}>
+      {/* <Html occlude scale={[0.12, 0.12, 1]} transform rotation-y={-90 * (Math.PI / 180)} position={[2.88, 0, 3]}>
         <iframe
           style={{ width: "500px", height: "500px", border: "0px", zIndex: 0 }}
           src='https://www.youtube.com/embed/lTHWPvVka4M?rel=0?autoplay=1'
         />
-      </Html>
+      </Html> */}
     </>
   )
 }
@@ -220,10 +222,10 @@ function Walls({ position, scale = [0.01, 2, 10] }) {
       />
       {gui && (
         <ui.In>
-          <Button text='Wall' position={[0, 0, 0]} size={40} />
-          <Button text='Width: 0.01' position={[-300, 100, 0]} size={40} />
-          <Button text='Height: 2' position={[-300, 0, 0]} size={40} />
-          <Button text='Depth: 10' position={[-300, -100, 0]} size={40} />
+          <Button text='Walls' position={[0, 0, 0]} size={40} />
+          <Slider position={[-300, 100, 0]} scale={[250, 15, 5]} text={"Width: 0.01"} min={0.2} max={1} step={0.01} />
+          <Slider position={[-300, 0, 0]} scale={[250, 15, 5]} text={"Height: 3"} min={0.2} max={1} step={0.01} />
+          <Slider position={[-300, -100, 0]} scale={[250, 15, 5]} text={"Depth: 5"} min={0.2} max={1} step={0.01} />
           <CubicBezierLine
             start={[-70, 0, 0]}
             end={[-170, 100, 0]}
@@ -234,7 +236,7 @@ function Walls({ position, scale = [0.01, 2, 10] }) {
           />
           <CubicBezierLine
             start={[-70, 0, 0]}
-            end={[-185, 0, 0]}
+            end={[-170, 0, 0]}
             midA={[-70, 0, 0]}
             midB={[-70, 0, 0]}
             color='yellow'
@@ -242,7 +244,7 @@ function Walls({ position, scale = [0.01, 2, 10] }) {
           />
           <CubicBezierLine
             start={[-70, 0, 0]}
-            end={[-185, -100, 0]}
+            end={[-170, -100, 0]}
             midA={[-120, 0, 0]}
             midB={[-150, -100, 0]}
             color='yellow'
@@ -258,7 +260,7 @@ function Lights() {
   const [switch0, setSwitch0] = useState(true)
   const [on1, setOn1] = useState(true)
   const [on2, setOn2] = useState(true)
-  const [on3, setOn3] = useState(true)
+  const [on3, setOn3] = useState(false)
   const [on4, setOn4] = useState(true)
   const [on5, setOn5] = useState(true)
   const [on6, setOn6] = useState(true)
@@ -329,15 +331,6 @@ function Lights() {
         />
       </Instances>
     </>
-  )
-}
-
-function Ring({ pos }) {
-  return (
-    <mesh position={pos} rotation={[90 * (Math.PI / 180), 0, 0]}>
-      <ringGeometry args={[1, 2, 32]} />
-      <meshPhongMaterial side={2} />
-    </mesh>
   )
 }
 

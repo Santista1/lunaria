@@ -23,7 +23,12 @@ const touch = "ontouchstart" in document.documentElement
 export function App() {
   return (
     <>
+      <audio style={{ position: "absolute", zIndex: "10", bottom: "15px", left: "15px" }} controls>
+        <source src='venus.mp3' type='audio/mpeg' />
+      </audio>
+
       <div className='crosshair' />
+
       <ChainProvider
         chains={chains}
         assetLists={assets}
@@ -61,7 +66,7 @@ export function App() {
 
 function Scene() {
   return (
-    <Canvas frameloop='demand' shadows style={{ background: "black" }}>
+    <Canvas shadows style={{ background: "black" }}>
       {process.env.NODE_ENV === "development" && !touch && <Perf position='bottom-right' />}
 
       <Gui />

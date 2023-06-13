@@ -11,12 +11,8 @@ export const Moon = ({ ...props }) => {
   })
   useCursor(hovered)
   const mesh = useRef()
-  const { invalidate } = useThree()
   const { gl } = useThree()
-  useFrame((state, delta) => {
-    invalidate()
-    mesh.current.rotation.y += delta * 0.1
-  })
+  useFrame((state, delta) => (mesh.current.rotation.y += delta * 0.1))
 
   return (
     <mesh

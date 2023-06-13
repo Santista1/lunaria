@@ -1,15 +1,16 @@
-import { OrthographicCamera, Hud } from "@react-three/drei"
-import { Button, Wallet } from "./components/gui"
-import { useChain } from "@cosmos-kit/react"
 import { useThree } from "@react-three/fiber"
+import { OrthographicCamera, Hud } from "@react-three/drei"
+import { useChain } from "@cosmos-kit/react"
 
 import { ui } from "./tunnel"
+import { Button, Wallet } from "./components/gui"
 
 export function Gui() {
   return (
     <Hud renderPriority={2}>
       <OrthographicCamera makeDefault position={[0, 0, 200]} />
       <ambientLight intensity={1} />
+      <pointLight position={[100, 100, 100]} intensity={2} />
       <Main />
       <ui.Out />
     </Hud>

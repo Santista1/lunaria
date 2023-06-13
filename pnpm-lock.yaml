@@ -28,6 +28,9 @@ dependencies:
   '@react-three/fiber':
     specifier: ^8.13.0
     version: 8.13.0(react-dom@18.2.0)(react@18.2.0)(three@0.153.0)
+  '@react-three/flex':
+    specifier: ^1.0.1
+    version: 1.0.1(@react-three/fiber@8.13.0)(react@18.2.0)(three@0.153.0)
   '@react-three/postprocessing':
     specifier: ^2.14.7
     version: 2.14.7(@react-three/fiber@8.13.0)(@types/three@0.152.1)(react@18.2.0)(three@0.153.0)
@@ -55,6 +58,9 @@ dependencies:
   three:
     specifier: ^0.153.0
     version: 0.153.0
+  three-particle-fire:
+    specifier: ^0.1.0
+    version: 0.1.0
   tunnel-rat:
     specifier: ^0.1.2
     version: 0.1.2(react@18.2.0)
@@ -2636,6 +2642,12 @@ packages:
       react: 18.2.0
     dev: true
 
+  /@react-pdf/yoga@2.0.4:
+    resolution: {integrity: sha512-bsU48GQ8E4LEQ38AtyQPQZ9oEATMpolGPFewgI4sBXOZBNH2miLtoBTbyB/xEOMuBcyqtvJQwSNg2czSZjrlyQ==}
+    dependencies:
+      '@types/yoga-layout': 1.9.4
+    dev: false
+
   /@react-spring/animated@9.6.1(react@18.2.0):
     resolution: {integrity: sha512-ls/rJBrAqiAYozjLo5EPPLLOb1LM0lNVQcXODTC1SMtS6DbuBCPaKco5svFUQFMP2dso3O+qcC4k9FsKc0KxMQ==}
     peerDependencies:
@@ -2766,6 +2778,20 @@ packages:
       suspend-react: 0.0.8(react@18.2.0)
       three: 0.153.0
       zustand: 3.7.2(react@18.2.0)
+
+  /@react-three/flex@1.0.1(@react-three/fiber@8.13.0)(react@18.2.0)(three@0.153.0):
+    resolution: {integrity: sha512-m1zcuE0BWyUP6ASX09SGYZWHkyMS9GVcP4WGXjdSdxWi228D0p8hti9nHlnv+fpZvQO8v+Qz4EXmrf302mEzXQ==}
+    peerDependencies:
+      '@react-three/fiber': '>=8.0'
+      react: ^18.0.0
+      three: '>=0.137'
+    dependencies:
+      '@react-pdf/yoga': 2.0.4
+      '@react-three/fiber': 8.13.0(react-dom@18.2.0)(react@18.2.0)(three@0.153.0)
+      react: 18.2.0
+      react-merge-refs: 1.1.0
+      three: 0.153.0
+    dev: false
 
   /@react-three/postprocessing@2.14.7(@react-three/fiber@8.13.0)(@types/three@0.152.1)(react@18.2.0)(three@0.153.0):
     resolution: {integrity: sha512-e4m5jqOCslTST2k8/FtLRNQF52XGKVjwcFcfVgF0s75FgJDeS45ZJDQLDXKqHbTFN4V0w4EBl8FI+0Z0FLKBqw==}
@@ -3513,6 +3539,10 @@ packages:
     resolution: {integrity: sha512-JQbbmxZTZehdc2iszGKs5oC3NFnjeay7mtAWrdt7qNtAVK0g19muApzAy4bm9byz79xa2ZnO/BOBC2R8RC5Lww==}
     dependencies:
       '@types/node': 20.3.0
+    dev: false
+
+  /@types/yoga-layout@1.9.4:
+    resolution: {integrity: sha512-RRHc1+8Hc5mf/2lZKnom6kCnqcNS07s8keahniWTOva0KELF6RgDJmaEcvGEKUUJgN4UgessmEsWuidaOycIOw==}
     dev: false
 
   /@use-gesture/core@10.2.27:
@@ -7473,6 +7503,10 @@ packages:
       three: '>= 0.123.0'
     dependencies:
       three: 0.153.0
+
+  /three-particle-fire@0.1.0:
+    resolution: {integrity: sha512-2qwkPVZVjWQ3AI/Wl7NDClkru8OIwAT/ZK97NrYC2UEPuLZR0/qEry27LJ5xaooz74t7+7mWKgAQ37bR9hL42A==}
+    dev: false
 
   /three-stdlib@2.21.6(three@0.153.0):
     resolution: {integrity: sha512-J3DyCVKIpYJw7TWG4mQKKPpMgswq4pRRPMtxgipKedpUj8e4EgGtNLt623ws9RHvphPPamTHXacaEzOrm3dFsA==}
