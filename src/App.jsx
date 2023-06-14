@@ -14,6 +14,8 @@ import { wallets as keplr } from "@cosmos-kit/keplr"
 import { wallets as trust } from "@cosmos-kit/trust"
 import { wallets as web3auth } from "@cosmos-kit/web3auth"
 
+import { Analytics } from "@vercel/analytics/react"
+
 import { Player } from "./Player"
 import { World } from "./World"
 import { Gui } from "./Gui"
@@ -28,6 +30,8 @@ export function App() {
           <source src='venus.mp3' type='audio/mpeg' />
         </audio>
       )}
+
+      <Analytics />
 
       <div className='crosshair' />
 

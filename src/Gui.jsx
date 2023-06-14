@@ -5,6 +5,8 @@ import { useChain } from "@cosmos-kit/react"
 import { ui } from "./tunnel"
 import { Button, Wallet } from "./components/gui"
 
+// var audio = new Audio("venus.mp3")
+
 export function Gui() {
   return (
     <Hud renderPriority={2}>
@@ -28,7 +30,7 @@ function Main() {
         position={[size.width / 2 - 220, size.height / 2 - 60, 0]}
         size={40}
       />
-      <Button text='Inventory' position={[-780, size.height / 2 - 60, 0]} size={40} />
+      <Button text='Inventory' onClick={() => null} position={[-780, size.height / 2 - 60, 0]} size={40} />
       <Wallet animate position={[size.width / 2 - 40, size.height / 2 - 60, 0]} />
     </>
   )

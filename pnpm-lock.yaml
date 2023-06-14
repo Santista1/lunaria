@@ -43,6 +43,9 @@ dependencies:
   '@use-gesture/react':
     specifier: ^10.2.27
     version: 10.2.27(react@18.2.0)
+  '@vercel/analytics':
+    specifier: ^1.0.1
+    version: 1.0.1
   chain-registry:
     specifier: ^1.14.0
     version: 1.14.0
@@ -3567,6 +3570,10 @@ packages:
       eventemitter3: 4.0.7
       react: 18.2.0
     dev: true
+
+  /@vercel/analytics@1.0.1:
+    resolution: {integrity: sha512-Ux0c9qUfkcPqng3vrR0GTrlQdqNJ2JREn/2ydrVuKwM3RtMfF2mWX31Ijqo1opSjNAq6rK76PwtANw6kl6TAow==}
+    dev: false
 
   /@vitejs/plugin-react-swc@3.3.1(vite@4.3.9):
     resolution: {integrity: sha512-ZoYjGxMniXP7X+5ry/W1tpY7w0OeLUEsBF5RHFPmAhpgwwNWie8OF4056MRXRi9QgvYYoZPDzdOXGK3wlCoTfQ==}
