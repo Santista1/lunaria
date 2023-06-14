@@ -2,7 +2,7 @@ import { RigidBody, CuboidCollider } from "@react-three/rapier"
 import { Instances, Instance, CubicBezierLine } from "@react-three/drei"
 import { useState } from "react"
 
-import { Starfield, Moon, Image, Fire } from "./components/world"
+import { Starfield, Moon, Image } from "./components/world"
 
 import { ui } from "./tunnel"
 import { Button, Slider } from "./components/gui"
@@ -18,7 +18,6 @@ export function World() {
       <Moon scale={5} position={[40, 100, -160]} />
       <pointLight distance={70} position={[30, 80, -140]} intensity={10} />
       <Images />
-      <Fire />
     </>
   )
 }
@@ -260,7 +259,7 @@ function Lights() {
   const [switch0, setSwitch0] = useState(true)
   const [on1, setOn1] = useState(true)
   const [on2, setOn2] = useState(true)
-  const [on3, setOn3] = useState(false)
+  const [on3, setOn3] = useState(true)
   const [on4, setOn4] = useState(true)
   const [on5, setOn5] = useState(true)
   const [on6, setOn6] = useState(true)

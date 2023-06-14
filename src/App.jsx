@@ -1,10 +1,9 @@
-import { Canvas } from "@react-three/fiber"
+import { Canvas, useFrame, useThree } from "@react-three/fiber"
 import { PointerLockControls, KeyboardControls, CameraControls } from "@react-three/drei"
 import { DepthOfField, EffectComposer } from "@react-three/postprocessing"
 import { Physics } from "@react-three/rapier"
 import { Perf } from "r3f-perf"
 import { useRef } from "react"
-import { useFrame } from "@react-three/fiber"
 import ReactNipple from "react-nipple"
 
 import { ChainProvider } from "@cosmos-kit/react"
@@ -77,16 +76,16 @@ function Scene() {
 
       <Gui />
 
+      <EffectComposer>
+        <DepthOfField focusDistance={0} focalLength={10} bokehScale={5} height={200} />
+      </EffectComposer>
+
+      {touch ? <TouchControls /> : <DesktopControls />}
+
       <Physics gravity={[0, -3, 0]}>
         <World />
         <Player />
       </Physics>
-
-      {touch ? <TouchControls /> : <DesktopControls />}
-
-      <EffectComposer>
-        <DepthOfField focusDistance={0} focalLength={10} bokehScale={5} height={200} />
-      </EffectComposer>
     </Canvas>
   )
 }
@@ -97,14 +96,12 @@ function DesktopControls() {
 
 function TouchControls() {
   const ref = useRef()
-
+  const { camera, gl } = useThree()
   useFrame((state, delta) => {
-    var mouseX = state.mouse.x
-    var mouseY = state.mouse.y
-    ref.current.azimuthAngle = -mouseX
-    ref.current.polarAngle = Math.PI / 2 + mouseY
+    ref.current.azimuthAngle = -state.mouse.x
+    ref.current.polarAngle = Math.PI / 2 + state.mouse.y
     ref.current.update(delta)
   })
 
-  return <CameraControls ref={ref} />
+  return <CameraControls ref={ref} args={[camera, gl.domElement]} />
 }
