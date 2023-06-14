@@ -1,9 +1,9 @@
+import { useRef } from "react"
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
 import { PointerLockControls, KeyboardControls, CameraControls } from "@react-three/drei"
 import { DepthOfField, EffectComposer } from "@react-three/postprocessing"
 import { Physics } from "@react-three/rapier"
 import { Perf } from "r3f-perf"
-import { useRef } from "react"
 import ReactNipple from "react-nipple"
 
 import { ChainProvider } from "@cosmos-kit/react"
@@ -94,12 +94,22 @@ function DesktopControls() {
   return <PointerLockControls makeDefault />
 }
 
+var xy = [0, 0]
+var dif = [0, 0]
+
 function TouchControls() {
+  const { camera, gl, mouse } = useThree()
+
   const ref = useRef()
-  const { camera, gl } = useThree()
+
+  window.addEventListener("pointerdown", () => {
+    xy = [mouse.x, mouse.y]
+    dif = [ref.current.azimuthAngle + xy[0], xy[1] - ref.current.polarAngle + Math.PI / 2]
+  })
+
   useFrame((state, delta) => {
-    ref.current.azimuthAngle = -state.mouse.x
-    ref.current.polarAngle = Math.PI / 2 + state.mouse.y
+    ref.current.azimuthAngle = -(state.pointer.x - dif[0])
+    ref.current.polarAngle = Math.PI / 2 + state.pointer.y - dif[1]
     ref.current.update(delta)
   })
 
