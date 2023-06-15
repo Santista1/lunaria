@@ -4,4 +4,7 @@ import { nodePolyfills } from "vite-plugin-node-polyfills"
 
 export default defineConfig({
   plugins: [react(), nodePolyfills()],
+  resolve: {
+    alias: [{ find: "@", replacement: "/src" }],
+  },
 })

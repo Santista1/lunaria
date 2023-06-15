@@ -7,8 +7,6 @@ import { useChain } from "@cosmos-kit/react"
 import { ui, touch, lock } from "./global"
 import { Button, Wallet } from "./components/gui"
 
-// var audio = new Audio("venus.mp3")
-
 export function Gui() {
   return (
     <Hud renderPriority={touch ? 1 : 2}>
@@ -21,6 +19,9 @@ export function Gui() {
   )
 }
 
+var audio = new Audio("https://res.cloudinary.com/dexin8o58/video/upload/v1686867889/venus_ojwdxu.mp3")
+audio.volume = 0.3
+
 function Main() {
   const { connect, status } = useChain("terra")
   const { size } = useThree()
@@ -29,7 +30,7 @@ function Main() {
   const [welcome, setWelcome] = useState(true)
 
   document.addEventListener("pointerlockchange", function () {
-    document.pointerLockElement ? setEnter(false) : setEnter(true)
+    document.pointerLockElement ? setEnter(false) : (setEnter(true), audio.pause())
   })
 
   window.addEventListener("touchstart", function () {
@@ -44,7 +45,10 @@ function Main() {
           <Button
             onClick={() => {
               controls.lock()
-              setTimeout(() => setEnter(!controls.isLocked), 50)
+              setTimeout(() => {
+                setEnter(!controls.isLocked)
+                if (controls.isLocked) audio.play()
+              }, 50)
             }}
             text='Enter'
             position={[0, 0, 0]}

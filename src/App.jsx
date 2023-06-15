@@ -32,17 +32,22 @@ export function App() {
 
   return (
     <>
-      {!touch && (
-        <>
-          <audio style={{ position: "absolute", zIndex: "10", bottom: "15px", left: "15px" }} controls>
-            <source src='venus.mp3' type='audio/mpeg' />
-          </audio>
-        </>
-      )}
+      <Analytics />
 
       {crosshair && <div className='crosshair' />}
 
-      <Analytics />
+      {touch && (
+        <ReactNipple
+          options={{ mode: "static", position: { top: "50%", left: "50%" } }}
+          style={{
+            position: "absolute",
+            bottom: 175,
+            left: 75,
+          }}
+          onMove={(evt, data) => setJoystick(data)}
+          onEnd={(evt, data) => setJoystick(data)}
+        />
+      )}
 
       <ChainProvider
         chains={chains}
@@ -51,18 +56,6 @@ export function App() {
         wrappedWithChakra={true}
         walletConnectOptions={{ signClient: { projectId: "3f62067a65bd747c9b1f4b9c331b35eb" } }}
       >
-        {touch && (
-          <ReactNipple
-            options={{ mode: "static", position: { top: "50%", left: "50%" } }}
-            style={{
-              position: "absolute",
-              bottom: 175,
-              left: 75,
-            }}
-            onMove={(evt, data) => setJoystick(data)}
-            onEnd={(evt, data) => setJoystick(data)}
-          />
-        )}
         <KeyboardControls
           map={[
             { name: "forward", keys: ["ArrowUp", "w", "W"] },
