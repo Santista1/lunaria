@@ -32,7 +32,7 @@ function Main() {
     document.pointerLockElement ? setEnter(false) : setEnter(true)
   })
 
-  window.addEventListener("touchstart", function (e) {
+  window.addEventListener("touchstart", function () {
     setWelcome(false)
   })
 
