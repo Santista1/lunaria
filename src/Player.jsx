@@ -28,13 +28,19 @@ export function Player() {
 
     frontVector.set(0, 0, backward - forward)
     sideVector.set(left - right, 0, 0)
+
+    if (data.distance) {
+      frontVector.set(0, 0, -(Math.sin(data.angle.radian) * data.distance) / 50)
+      sideVector.set(-(Math.cos(data.angle.radian) * data.distance) / 50, 0, 0)
+    }
+
     direction.subVectors(frontVector, sideVector).normalize().applyEuler(state.camera.rotation)
 
     const max = shift ? run : walk
 
-    if (data.direction && Math.abs(velocity.z) + Math.abs(velocity.x) < max) {
-      impulse.z += (data.position.y - window.outerHeight + 175) / 5
-      impulse.x += (data.position.x - window.outerWidth + 75) / 5
+    if (data.distance && Math.abs(velocity.z) + Math.abs(velocity.x) < max) {
+      impulse.z += direction.z * speed
+      impulse.x += direction.x * speed
     }
 
     if (forward && Math.abs(velocity.z) + Math.abs(velocity.x) < max) {

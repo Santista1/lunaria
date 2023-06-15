@@ -72,14 +72,16 @@ export function App() {
 
 function Scene() {
   return (
-    <Canvas dpr={touch ? 2 : 1} style={{ background: "black" }}>
+    <Canvas style={{ background: "black" }}>
       {process.env.NODE_ENV === "development" && !touch && <Perf position='bottom-right' />}
 
       <Gui />
 
-      <EffectComposer>
-        <DepthOfField focusDistance={0} focalLength={10} bokehScale={5} height={200} />
-      </EffectComposer>
+      {!touch && (
+        <EffectComposer>
+          <DepthOfField focusDistance={0} focalLength={10} bokehScale={5} height={200} />
+        </EffectComposer>
+      )}
 
       {touch ? <TouchControls /> : <DesktopControls />}
 
@@ -95,7 +97,6 @@ function DesktopControls() {
   return <PointerLockControls makeDefault />
 }
 
-var xy = [0, 0]
 var dif = [0, 0]
 
 function TouchControls() {
@@ -104,8 +105,7 @@ function TouchControls() {
   const ref = useRef()
 
   window.addEventListener("pointerdown", () => {
-    xy = [pointer.x, pointer.y]
-    dif = [ref.current.azimuthAngle + xy[0], xy[1] - ref.current.polarAngle + Math.PI / 2]
+    if (ref.current) dif = [ref.current.azimuthAngle + pointer.x, pointer.y - ref.current.polarAngle + Math.PI / 2]
   })
 
   useFrame((state, delta) => {

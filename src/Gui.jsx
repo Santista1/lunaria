@@ -9,7 +9,7 @@ import { Button, Wallet } from "./components/gui"
 
 export function Gui() {
   return (
-    <Hud renderPriority={2}>
+    <Hud renderPriority={touch ? 1 : 2}>
       <OrthographicCamera makeDefault position={[0, 0, 200]} />
       <ambientLight intensity={1} />
       <pointLight position={[100, 100, 100]} intensity={2} />
