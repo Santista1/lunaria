@@ -40,7 +40,7 @@ export function App() {
         </>
       )}
 
-      {crosshair && <div id='ch' className='crosshair' />}
+      {crosshair && <div className='crosshair' />}
 
       <Analytics />
 
