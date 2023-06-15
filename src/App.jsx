@@ -72,7 +72,7 @@ export function App() {
 
 function Scene() {
   return (
-    <Canvas style={{ background: "black" }}>
+    <Canvas pixelRatio={window.devicePixelRatio} style={{ background: "black" }}>
       {process.env.NODE_ENV === "development" && !touch && <Perf position='bottom-right' />}
 
       <Gui />
