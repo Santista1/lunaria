@@ -30,8 +30,8 @@ export function Player() {
     sideVector.set(left - right, 0, 0)
 
     if (data.distance) {
-      frontVector.set(0, 0, -(Math.sin(data.angle.radian) * data.distance) / 50)
-      sideVector.set(-(Math.cos(data.angle.radian) * data.distance) / 50, 0, 0)
+      frontVector.set(0, 0, -(Math.sin(data.angle.radian) * data.distance))
+      sideVector.set(-(Math.cos(data.angle.radian) * data.distance), 0, 0)
     }
 
     direction.subVectors(frontVector, sideVector).normalize().applyEuler(state.camera.rotation)
@@ -39,8 +39,8 @@ export function Player() {
     const max = shift ? run : walk
 
     if (data.distance && Math.abs(velocity.z) + Math.abs(velocity.x) < max) {
-      impulse.z += direction.z * speed
-      impulse.x += direction.x * speed
+      impulse.z += direction.z * speed * 1.4
+      impulse.x += direction.x * speed * 1.4
     }
 
     if (forward && Math.abs(velocity.z) + Math.abs(velocity.x) < max) {
@@ -67,7 +67,13 @@ export function Player() {
   })
 
   return (
-    <RigidBody ref={ref} position={[0, 0, 7.5]} colliders={false} type='dynamic' enabledRotations={[false, false, false]}>
+    <RigidBody
+      ref={ref}
+      position={[0, 0, 7.5]}
+      colliders={false}
+      type='dynamic'
+      enabledRotations={[false, false, false]}
+    >
       <CapsuleCollider args={[0.75, 0.5]} />
     </RigidBody>
   )

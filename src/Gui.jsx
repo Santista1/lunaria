@@ -26,9 +26,14 @@ function Main() {
   const { size } = useThree()
   const controls = useAtomValue(lock)
   const [enter, setEnter] = useState(!touch)
+  const [welcome, setWelcome] = useState(true)
 
   document.addEventListener("pointerlockchange", function () {
     document.pointerLockElement ? setEnter(false) : setEnter(true)
+  })
+
+  window.addEventListener("touchstart", function (e) {
+    setWelcome(false)
   })
 
   return (
@@ -46,6 +51,9 @@ function Main() {
             size={40}
           />
         </>
+      )}
+      {touch && welcome && (
+        <Button capsule={false} text='welcome to lunaria' position={[0, size.height / 2 - 250, 0]} size={30} />
       )}
       {!touch && (
         <Button
