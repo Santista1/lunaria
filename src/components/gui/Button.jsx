@@ -11,6 +11,7 @@ export function Button({
   rotation = [0, 0, 0],
   visible,
   font = "./JuraBook.ttf",
+  capsule = true,
 }) {
   const [hovered, setHover] = useState(false)
   const [width, setWidth] = useState(0)
@@ -38,22 +39,24 @@ export function Button({
         position={[position[0] + x, position[1] + y, position[2]]}
         font={font}
         fontSize={size}
-        color='yellow'
+        color={0xfdf29f}
         onSync={(text) => setWidth(text.geometry.boundingBox.max.x * 2)}
       >
         {text}
       </Text>
-      <mesh
-        position={[position[0] + x, position[1] + y, position[2]]}
-        onClick={() => onClick()}
-        onPointerOver={() => setHover(true)}
-        onPointerOut={() => setHover(false)}
-        rotation={[rotation[0], rotation[1], rotation[2] + 90 * (Math.PI / 180)]}
-        {...(drag && bind())}
-      >
-        <capsuleGeometry args={[size * 0.7, width, 10, 10]} />
-        <meshStandardMaterial color='blue' transparent='true' opacity={hovered ? 0.1 : 0.2} depthWrite={false} />
-      </mesh>
+      {capsule && (
+        <mesh
+          position={[position[0] + x, position[1] + y, position[2]]}
+          onClick={() => onClick()}
+          onPointerOver={() => setHover(true)}
+          onPointerOut={() => setHover(false)}
+          rotation={[rotation[0], rotation[1], rotation[2] + 90 * (Math.PI / 180)]}
+          {...(drag && bind())}
+        >
+          <capsuleGeometry args={[size * 0.7, width, 10, 10]} />
+          <meshStandardMaterial color='darkblue' transparent='true' opacity={hovered ? 0.1 : 0.2} depthWrite={false} />
+        </mesh>
+      )}
     </group>
   )
 }

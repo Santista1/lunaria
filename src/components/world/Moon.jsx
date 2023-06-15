@@ -24,7 +24,7 @@ export const Moon = ({ ...props }) => {
       {...props}
     >
       <sphereGeometry args={[1, 16, 16]} />
-      <meshStandardMaterial {...texture} bumpScale={0.03} color={hovered ? "hotpink" : "white"} />
+      <meshStandardMaterial {...texture} bumpScale={0.03} color={hovered ? "hotpink" : 0xfdf29f} />
     </mesh>
   )
 }

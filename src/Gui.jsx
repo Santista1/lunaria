@@ -34,15 +34,18 @@ function Main() {
   return (
     <>
       {enter && (
-        <Button
-          onClick={() => {
-            controls.lock()
-            setTimeout(() => setEnter(!controls.isLocked), 50)
-          }}
-          text='Enter'
-          position={[0, 0, 0]}
-          size={40}
-        />
+        <>
+          <Button capsule={false} text='welcome to lunaria' position={[0, size.height / 2 - 200, 0]} size={40} />
+          <Button
+            onClick={() => {
+              controls.lock()
+              setTimeout(() => setEnter(!controls.isLocked), 50)
+            }}
+            text='Enter'
+            position={[0, 0, 0]}
+            size={40}
+          />
+        </>
       )}
       {!touch && (
         <Button
