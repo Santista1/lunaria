@@ -5,6 +5,7 @@ import { useGesture } from "@use-gesture/react"
 export function Button({
   position = [0, 0, 0],
   onClick,
+  drag,
   text,
   size = 0.2,
   rotation = [0, 0, 0],
@@ -44,11 +45,11 @@ export function Button({
       </Text>
       <mesh
         position={[position[0] + x, position[1] + y, position[2]]}
-        onClick={() => onClick && onClick()}
+        onClick={() => onClick()}
         onPointerOver={() => setHover(true)}
         onPointerOut={() => setHover(false)}
         rotation={[rotation[0], rotation[1], rotation[2] + 90 * (Math.PI / 180)]}
-        {...bind()}
+        {...(drag && bind())}
       >
         <capsuleGeometry args={[size * 0.7, width, 10, 10]} />
         <meshStandardMaterial color='blue' transparent='true' opacity={hovered ? 0.1 : 0.2} depthWrite={false} />

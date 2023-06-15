@@ -1,8 +1,10 @@
+import { useState } from "react"
+import { useAtomValue } from "jotai"
 import { useThree } from "@react-three/fiber"
 import { OrthographicCamera, Hud } from "@react-three/drei"
 import { useChain } from "@cosmos-kit/react"
 
-import { ui, touch } from "./global"
+import { ui, touch, lock } from "./global"
 import { Button, Wallet } from "./components/gui"
 
 // var audio = new Audio("venus.mp3")
@@ -22,8 +24,26 @@ export function Gui() {
 function Main() {
   const { connect, status } = useChain("terra")
   const { size } = useThree()
+  const controls = useAtomValue(lock)
+  const [enter, setEnter] = useState(!touch)
+
+  document.addEventListener("pointerlockchange", function () {
+    document.pointerLockElement ? setEnter(false) : setEnter(true)
+  })
+
   return (
     <>
+      {enter && (
+        <Button
+          onClick={() => {
+            controls.lock()
+            setTimeout(() => setEnter(!controls.isLocked), 50)
+          }}
+          text='Enter'
+          position={[0, 0, 0]}
+          size={40}
+        />
+      )}
       {!touch && (
         <Button
           text={status === "Disconnected" ? "Connect" : status}
@@ -32,7 +52,7 @@ function Main() {
           size={40}
         />
       )}
-      <Button text='Inventory' onClick={() => null} position={[-780, size.height / 2 - 60, 0]} size={40} />
+      <Button text='Inventory' position={[-780, size.height / 2 - 60, 0]} size={40} />
       <Wallet onClick={() => connect()} animate position={[size.width / 2 - 40, size.height / 2 - 60, 0]} />
     </>
   )

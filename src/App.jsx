@@ -1,6 +1,6 @@
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
-import { PointerLockControls, KeyboardControls, CameraControls } from "@react-three/drei"
+import { KeyboardControls, CameraControls, PointerLockControls } from "@react-three/drei"
 import { DepthOfField, EffectComposer } from "@react-three/postprocessing"
 import { Physics } from "@react-three/rapier"
 import { Perf } from "r3f-perf"
@@ -19,10 +19,17 @@ import { Analytics } from "@vercel/analytics/react"
 import { Player } from "./Player"
 import { World } from "./World"
 import { Gui } from "./Gui"
-import { touch, joystick } from "./global"
+import { touch, joystick, lock } from "./global"
 
 export function App() {
   const setJoystick = useSetAtom(joystick)
+
+  const [crosshair, setCrosshair] = useState(false)
+
+  document.addEventListener("pointerlockchange", function () {
+    document.pointerLockElement ? setCrosshair(true) : setCrosshair(false)
+  })
+
   return (
     <>
       {!touch && (
@@ -30,9 +37,10 @@ export function App() {
           <audio style={{ position: "absolute", zIndex: "10", bottom: "15px", left: "15px" }} controls>
             <source src='venus.mp3' type='audio/mpeg' />
           </audio>
-          <div className='crosshair' />
         </>
       )}
+
+      {crosshair && <div id='ch' className='crosshair' />}
 
       <Analytics />
 
@@ -41,6 +49,7 @@ export function App() {
         assetLists={assets}
         wallets={[...station, ...keplr, ...web3auth, ...trust]}
         wrappedWithChakra={true}
+        walletConnectOptions={{ signClient: { projectId: "3f62067a65bd747c9b1f4b9c331b35eb" } }}
       >
         {touch && (
           <ReactNipple
@@ -94,7 +103,10 @@ function Scene() {
 }
 
 function DesktopControls() {
-  return <PointerLockControls makeDefault />
+  const ref = useRef()
+  const setLock = useSetAtom(lock)
+  window.addEventListener("pointerdown", () => setLock(ref.current))
+  return <PointerLockControls ref={ref} selector='#none' makeDefault />
 }
 
 var dif = [0, 0]

@@ -1,6 +1,6 @@
-import { RigidBody, CuboidCollider } from "@react-three/rapier"
-import { Instances, Instance, CubicBezierLine } from "@react-three/drei"
 import { useState } from "react"
+import { Instances, Instance, CubicBezierLine } from "@react-three/drei"
+import { RigidBody, CuboidCollider } from "@react-three/rapier"
 
 import { Starfield, Moon, Image } from "./components/world"
 

@@ -6,3 +6,5 @@ export const touch = "ontouchstart" in document.documentElement
 export const ui = tunnel()
 
 export const joystick = atom({})
+
+export const lock = atom({ isLocked: false })
