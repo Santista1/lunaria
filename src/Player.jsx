@@ -3,6 +3,9 @@ import { useRef } from "react"
 import { useFrame } from "@react-three/fiber"
 import { useKeyboardControls } from "@react-three/drei"
 import { CapsuleCollider, RigidBody } from "@react-three/rapier"
+import { useAtomValue } from "jotai"
+
+import { nipple } from "./global"
 
 const walk = 3
 const run = 6
@@ -12,6 +15,8 @@ const frontVector = new THREE.Vector3()
 const sideVector = new THREE.Vector3()
 
 export function Player() {
+  const data = useAtomValue(nipple)
+
   const ref = useRef()
   const [, get] = useKeyboardControls()
 
@@ -26,6 +31,11 @@ export function Player() {
     direction.subVectors(frontVector, sideVector).normalize().applyEuler(state.camera.rotation)
 
     const max = shift ? run : walk
+
+    if (data.direction && Math.abs(velocity.z) + Math.abs(velocity.x) < max) {
+      impulse.z += (data.position.y - window.innerHeight + 75) / 5
+      impulse.x += (data.position.x - window.innerWidth + 75) / 5
+    }
 
     if (forward && Math.abs(velocity.z) + Math.abs(velocity.x) < max) {
       impulse.z += direction.z * speed

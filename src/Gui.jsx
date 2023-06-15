@@ -2,7 +2,7 @@ import { useThree } from "@react-three/fiber"
 import { OrthographicCamera, Hud } from "@react-three/drei"
 import { useChain } from "@cosmos-kit/react"
 
-import { ui } from "./tunnel"
+import { ui } from "./global"
 import { Button, Wallet } from "./components/gui"
 
 // var audio = new Audio("venus.mp3")

@@ -4,7 +4,7 @@ import { useState } from "react"
 
 import { Starfield, Moon, Image } from "./components/world"
 
-import { ui } from "./tunnel"
+import { ui } from "./global"
 import { Button, Slider } from "./components/gui"
 
 export function World() {

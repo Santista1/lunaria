@@ -5,6 +5,7 @@ import { DepthOfField, EffectComposer } from "@react-three/postprocessing"
 import { Physics } from "@react-three/rapier"
 import { Perf } from "r3f-perf"
 import ReactNipple from "react-nipple"
+import { useSetAtom } from "jotai"
 
 import { ChainProvider } from "@cosmos-kit/react"
 import { chains, assets } from "chain-registry"
@@ -18,21 +19,24 @@ import { Analytics } from "@vercel/analytics/react"
 import { Player } from "./Player"
 import { World } from "./World"
 import { Gui } from "./Gui"
+import { nipple } from "./global"
 
 const touch = "ontouchstart" in document.documentElement
 
 export function App() {
+  const setNipple = useSetAtom(nipple)
   return (
     <>
       {!touch && (
-        <audio style={{ position: "absolute", zIndex: "10", bottom: "15px", left: "15px" }} controls>
-          <source src='venus.mp3' type='audio/mpeg' />
-        </audio>
+        <>
+          <audio style={{ position: "absolute", zIndex: "10", bottom: "15px", left: "15px" }} controls>
+            <source src='venus.mp3' type='audio/mpeg' />
+          </audio>
+          <div className='crosshair' />
+        </>
       )}
 
       <Analytics />
-
-      <div className='crosshair' />
 
       <ChainProvider
         chains={chains}
@@ -41,17 +45,16 @@ export function App() {
         wrappedWithChakra={true}
       >
         {touch && (
-          <>
-            <ReactNipple
-              options={{ mode: "static", position: { bottom: 75, right: 75 } }}
-              style={{
-                position: "absolute",
-                bottom: 75,
-                right: 75,
-              }}
-              onMove={(evt, data) => console.log(evt, data)}
-            />
-          </>
+          <ReactNipple
+            options={{ mode: "static", position: { top: "50%", left: "50%" } }}
+            style={{
+              position: "absolute",
+              bottom: 75,
+              right: 75,
+            }}
+            onMove={(evt, data) => setNipple(data)}
+            onEnd={(evt, data) => setNipple(data)}
+          />
         )}
         <KeyboardControls
           map={[
@@ -98,12 +101,12 @@ var xy = [0, 0]
 var dif = [0, 0]
 
 function TouchControls() {
-  const { camera, gl, mouse } = useThree()
+  const { camera, gl, pointer } = useThree()
 
   const ref = useRef()
 
   window.addEventListener("pointerdown", () => {
-    xy = [mouse.x, mouse.y]
+    xy = [pointer.x, pointer.y]
     dif = [ref.current.azimuthAngle + xy[0], xy[1] - ref.current.polarAngle + Math.PI / 2]
   })
 
