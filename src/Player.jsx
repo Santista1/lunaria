@@ -33,8 +33,8 @@ export function Player() {
     const max = shift ? run : walk
 
     if (data.direction && Math.abs(velocity.z) + Math.abs(velocity.x) < max) {
-      impulse.z += (data.position.y - visualViewport.height + 175) / 5
-      impulse.x += (data.position.x - visualViewport.width + 75) / 5
+      impulse.z += (data.position.y - window.outerHeight + 175) / 5
+      impulse.x += (data.position.x - window.outerWidth + 75) / 5
     }
 
     if (forward && Math.abs(velocity.z) + Math.abs(velocity.x) < max) {
