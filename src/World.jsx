@@ -11,9 +11,6 @@ export function World() {
   return (
     <>
       <Hallway pos={[0, 0, 0]} />
-
-      {/* <Sphere position={[0, 0, 0]} />
-      <pointLight distance={20} position={[0, 20, 0]} intensity={1} /> */}
       <Starfield count={4000} factor={2} />
       <Moon scale={5} position={[40, 100, -160]} />
       <pointLight distance={70} position={[30, 80, -140]} intensity={10} />
@@ -269,13 +266,13 @@ function Lights() {
 
   return (
     <>
-      <pointLight castShadow distance={12} color='blue' position={[0, 0, 45]} intensity={switch0 ? 0.4 : 0} />
-      <pointLight castShadow distance={12} color='hotpink' position={[0, 0, 30]} intensity={on1 ? 0.4 : 0} />
-      <pointLight castShadow distance={12} color='blue' position={[0, 0, 15]} intensity={on2 ? 0.4 : 0} />
-      <pointLight castShadow distance={12} color='hotpink' position={[0, 0, 0]} intensity={on3 ? 0.4 : 0} />
-      <pointLight castShadow distance={12} color='blue' position={[0, 0, -15]} intensity={on4 ? 0.4 : 0} />
-      <pointLight castShadow distance={12} color='hotpink' position={[0, 0, -30]} intensity={on5 ? 0.4 : 0} />
-      <pointLight castShadow distance={12} color='blue' position={[0, 0, -45]} intensity={on6 ? 0.4 : 0} />
+      <pointLight distance={12} color='blue' position={[0, 0, 45]} intensity={switch0 ? 0.4 : 0} />
+      <pointLight distance={12} color='hotpink' position={[0, 0, 30]} intensity={on1 ? 0.4 : 0} />
+      <pointLight distance={12} color='blue' position={[0, 0, 15]} intensity={on2 ? 0.4 : 0} />
+      <pointLight distance={12} color='hotpink' position={[0, 0, 0]} intensity={on3 ? 0.4 : 0} />
+      <pointLight distance={12} color='blue' position={[0, 0, -15]} intensity={on4 ? 0.4 : 0} />
+      <pointLight distance={12} color='hotpink' position={[0, 0, -30]} intensity={on5 ? 0.4 : 0} />
+      <pointLight distance={12} color='blue' position={[0, 0, -45]} intensity={on6 ? 0.4 : 0} />
       <Instances>
         <boxGeometry args={[1, 1, 1]} />
         <meshBasicMaterial />
@@ -332,28 +329,3 @@ function Lights() {
     </>
   )
 }
-
-// function Sphere({ position, color = 0xffd83d }) {
-//   return (
-//     <>
-//       <group position={position}>
-//         <mesh castShadow>
-//           <sphereGeometry args={[25, 32, 2, 0, Math.PI * 2, 0, Math.PI * 0.2]} />
-//           <meshPhongMaterial side={2} color={color} />
-//         </mesh>
-//         <mesh castShadow rotation={[0, 0, 0]}>
-//           <sphereGeometry args={[25, 32, 2, 0, Math.PI * 2, Math.PI * 0.33, Math.PI * 0.15]} />
-//           <meshPhongMaterial side={2} color={color} />
-//         </mesh>
-//         <mesh castShadow rotation={[0, 0, 0]}>
-//           <sphereGeometry args={[25, 32, 2, 0, Math.PI * 2, Math.PI * 0.52, Math.PI * 0.2]} />
-//           <meshPhongMaterial side={2} color={color} />
-//         </mesh>
-//         <mesh castShadow>
-//           <sphereGeometry args={[25, 32, 2, 0, Math.PI * 2, Math.PI * 0.8, Math.PI * 0.2]} />
-//           <meshPhongMaterial side={2} color={color} />
-//         </mesh>
-//       </group>
-//     </>
-//   )
-// }

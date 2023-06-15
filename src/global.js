@@ -5,4 +5,4 @@ export const touch = "ontouchstart" in document.documentElement
 
 export const ui = tunnel()
 
-export const joystick = atom({ position: { x: screen.width - 75, y: screen.height - 175 } })
+export const joystick = atom({})
