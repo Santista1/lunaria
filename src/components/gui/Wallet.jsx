@@ -3,7 +3,7 @@ import { useRef } from "react"
 import { useFrame } from "@react-three/fiber"
 import { Sphere } from "@react-three/drei"
 
-export function Wallet({ position, animate }) {
+export function Wallet({ position, animate, onClick }) {
   const wallet = useRef()
 
   useFrame((state, delta) => {
@@ -14,7 +14,7 @@ export function Wallet({ position, animate }) {
 
   return (
     <>
-      <group position={position} scale={2.5} ref={wallet}>
+      <group onClick={onClick} position={position} scale={2.5} ref={wallet}>
         <Sphere position={[8, 0, 3]} scale={[2, 2, 0.5]} arg={[1, 32, 16]}>
           <meshStandardMaterial color='yellow' transparent='true' opacity={0.8} />
         </Sphere>

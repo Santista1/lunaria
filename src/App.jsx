@@ -19,9 +19,7 @@ import { Analytics } from "@vercel/analytics/react"
 import { Player } from "./Player"
 import { World } from "./World"
 import { Gui } from "./Gui"
-import { nipple } from "./global"
-
-const touch = "ontouchstart" in document.documentElement
+import { touch, nipple } from "./global"
 
 export function App() {
   const setNipple = useSetAtom(nipple)
@@ -49,7 +47,7 @@ export function App() {
             options={{ mode: "static", position: { top: "50%", left: "50%" } }}
             style={{
               position: "absolute",
-              bottom: 75,
+              bottom: 175,
               right: 75,
             }}
             onMove={(evt, data) => setNipple(data)}
