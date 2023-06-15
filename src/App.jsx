@@ -19,10 +19,10 @@ import { Analytics } from "@vercel/analytics/react"
 import { Player } from "./Player"
 import { World } from "./World"
 import { Gui } from "./Gui"
-import { touch, nipple } from "./global"
+import { touch, joystick } from "./global"
 
 export function App() {
-  const setNipple = useSetAtom(nipple)
+  const setJoystick = useSetAtom(joystick)
   return (
     <>
       {!touch && (
@@ -50,8 +50,8 @@ export function App() {
               bottom: 175,
               right: 75,
             }}
-            onMove={(evt, data) => setNipple(data)}
-            onEnd={(evt, data) => setNipple(data)}
+            onMove={(evt, data) => setJoystick(data)}
+            onEnd={(evt, data) => setJoystick(data)}
           />
         )}
         <KeyboardControls

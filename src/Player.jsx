@@ -5,7 +5,7 @@ import { useKeyboardControls } from "@react-three/drei"
 import { CapsuleCollider, RigidBody } from "@react-three/rapier"
 import { useAtomValue } from "jotai"
 
-import { nipple } from "./global"
+import { joystick } from "./global"
 
 const walk = 3
 const run = 6
@@ -15,7 +15,7 @@ const frontVector = new THREE.Vector3()
 const sideVector = new THREE.Vector3()
 
 export function Player() {
-  const data = useAtomValue(nipple)
+  const data = useAtomValue(joystick)
 
   const ref = useRef()
   const [, get] = useKeyboardControls()
@@ -33,8 +33,8 @@ export function Player() {
     const max = shift ? run : walk
 
     if (data.direction && Math.abs(velocity.z) + Math.abs(velocity.x) < max) {
-      impulse.z += (data.position.y - window.innerHeight + 175) / 5
-      impulse.x += (data.position.x - window.innerWidth + 75) / 5
+      impulse.z += (data.position.y - screen.height + 175) / 5
+      impulse.x += (data.position.x - screen.width + 75) / 5
     }
 
     if (forward && Math.abs(velocity.z) + Math.abs(velocity.x) < max) {
