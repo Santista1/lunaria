@@ -266,13 +266,13 @@ function Lights() {
 
   return (
     <>
-      <pointLight distance={11} color='hotpink' position={[0, 0, 45]} intensity={switch0 ? 0.5 : 0} />
-      <pointLight distance={11} color='blue' position={[0, 0, 30]} intensity={on1 ? 0.5 : 0} />
-      <pointLight distance={11} color='mediumorchid' position={[0, 0, 15]} intensity={on2 ? 0.5 : 0} />
-      <pointLight distance={11} color='hotpink' position={[0, 0, 0]} intensity={on3 ? 0.5 : 0} />
-      <pointLight distance={11} color='blue' position={[0, 0, -15]} intensity={on4 ? 0.5 : 0} />
-      <pointLight distance={11} color='mediumorchid' position={[0, 0, -30]} intensity={on5 ? 0.5 : 0} />
-      <pointLight distance={11} color='hotpink' position={[0, 0, -45]} intensity={on6 ? 0.5 : 0} />
+      <pointLight distance={12} color='hotpink' position={[0, 0, 45]} intensity={switch0 ? 0.4 : 0} />
+      <pointLight distance={12} color='blue' position={[0, 0, 30]} intensity={on1 ? 0.4 : 0} />
+      <pointLight distance={12} color='mediumorchid' position={[0, 0, 15]} intensity={on2 ? 0.4 : 0} />
+      <pointLight distance={12} color='hotpink' position={[0, 0, 0]} intensity={on3 ? 0.4 : 0} />
+      <pointLight distance={12} color='blue' position={[0, 0, -15]} intensity={on4 ? 0.4 : 0} />
+      <pointLight distance={12} color='mediumorchid' position={[0, 0, -30]} intensity={on5 ? 0.4 : 0} />
+      <pointLight distance={12} color='hotpink' position={[0, 0, -45]} intensity={on6 ? 0.4 : 0} />
       <Instances>
         <boxGeometry args={[1, 1, 1]} />
         <meshBasicMaterial />

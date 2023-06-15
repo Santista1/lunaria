@@ -57,7 +57,7 @@ export function App() {
             style={{
               position: "absolute",
               bottom: 175,
-              right: 75,
+              left: 75,
             }}
             onMove={(evt, data) => setJoystick(data)}
             onEnd={(evt, data) => setJoystick(data)}
