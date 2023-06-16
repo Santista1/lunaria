@@ -13,7 +13,8 @@ export default function Hallway({ pos }) {
         <boxGeometry />
         <meshPhongMaterial shininess={0} />
         <Floor pos={pos} />
-        <Roof position={[0, 1.5, 0]} />
+        <Roof2 position={[0, -1.5, 0]} />
+        <Roof position={[0, 3, 0]} />
         <Rail />
         <Walls pos={[0, 0, 45]} />
         <Walls pos={[0, 0, 30]} />
@@ -36,24 +37,35 @@ export default function Hallway({ pos }) {
 }
 
 function Floor({ pos }) {
-  const [gui, setGui] = useState(false)
   const width = 11
   return (
     <>
       <RigidBody colliders={false} type='fixed' friction={20}>
-        <CuboidCollider position={[pos[0], pos[1] - 1.5, pos[2]]} args={[width / 2, 0.1, 50]} />
+        <CuboidCollider position={[pos[0], pos[1] - 1.5, pos[2]]} args={[width / 2, 0.1, 100]} />
       </RigidBody>
-      <Instance
+      {/* <Instance
         position={[pos[0], pos[1] - 1.5, pos[2]]}
-        scale={[width, 0.1, 100]}
+        scale={[width, 0.1, 200]}
         onClick={(e) => e.which == 3 && setGui(true)}
         onPointerLeave={() => setGui(false)}
-      />
-      {gui && (
-        <ui.In>
-          <Button text='Floor' position={[0, 0, 0]} size={40} />
-        </ui.In>
-      )}
+      /> */}
+    </>
+  )
+}
+
+function Roof2({ position }) {
+  return (
+    <>
+      <Instance position={[0, position[1], 0]} scale={[3, 0.1, 200]} />
+      {/* <Instance position={[-2.9, position[1], 0]} scale={[1.4, 0.1, 200]} /> */}
+      <Instance position={[0, position[1], -49]} scale={[10, 0.1, 2]} />
+      <Instance position={[0, position[1], -37.5]} scale={[10, 0.1, 4]} />
+      <Instance position={[0, position[1], -22.5]} scale={[10, 0.1, 4]} />
+      <Instance position={[0, position[1], -7.5]} scale={[10, 0.1, 4]} />
+      <Instance position={[0, position[1], 7.5]} scale={[10, 0.1, 4]} />
+      <Instance position={[0, position[1], 22.5]} scale={[10, 0.1, 4]} />
+      <Instance position={[0, position[1], 37.5]} scale={[10, 0.1, 4]} />
+      <Instance position={[0, position[1], 49]} scale={[10, 0.1, 2]} />
     </>
   )
 }
@@ -61,8 +73,8 @@ function Floor({ pos }) {
 function Roof({ position }) {
   return (
     <>
-      <Instance position={[2.9, position[1], 0]} scale={[1.4, 0.1, 100]} />
-      <Instance position={[-2.9, position[1], 0]} scale={[1.4, 0.1, 100]} />
+      <Instance position={[2.9, position[1], 0]} scale={[1.4, 0.1, 200]} />
+      <Instance position={[-2.9, position[1], 0]} scale={[1.4, 0.1, 200]} />
       <Instance position={[0, position[1], -49]} scale={[6, 0.1, 2]} />
       <Instance position={[0, position[1], -37.5]} scale={[6, 0.1, 4]} />
       <Instance position={[0, position[1], -22.5]} scale={[6, 0.1, 4]} />
@@ -80,11 +92,11 @@ function Rail() {
   return (
     <>
       <RigidBody colliders={false} type='fixed'>
-        <CuboidCollider position={[separation, -1, 0]} args={[0.5, 0.1, 50]} />
-        <CuboidCollider position={[-separation, -1, 0]} args={[0.5, 0.1, 50]} />
+        <CuboidCollider position={[separation, -1, 0]} args={[0.5, 0.1, 100]} />
+        <CuboidCollider position={[-separation, -1, 0]} args={[0.5, 0.1, 100]} />
       </RigidBody>
-      <Instance position={[separation, -1, 0]} scale={[0.3, 0.1, 100]} />
-      <Instance position={[-separation, -1, 0]} scale={[0.3, 0.1, 100]} />
+      <Instance position={[separation, -1, 0]} scale={[0.3, 0.1, 200]} />
+      <Instance position={[-separation, -1, 0]} scale={[0.3, 0.1, 200]} />
     </>
   )
 }
@@ -92,10 +104,10 @@ function Rail() {
 function Columns({ position }) {
   return (
     <>
-      <Instance position={[2.9, position[1], position[2] + 4.5]} scale={[0.2, 3, 0.2]} />
-      <Instance position={[-2.9, position[1], position[2] + 4.5]} scale={[0.2, 3, 0.2]} />
-      <Instance position={[2.9, position[1], position[2] - 4.5]} scale={[0.2, 3, 0.2]} />
-      <Instance position={[-2.9, position[1], position[2] - 4.5]} scale={[0.2, 3, 0.2]} />
+      <Instance position={[2.9, position[1], position[2] + 4.5]} scale={[0.2, 6, 0.2]} />
+      <Instance position={[-2.9, position[1], position[2] + 4.5]} scale={[0.2, 6, 0.2]} />
+      <Instance position={[2.9, position[1], position[2] - 4.5]} scale={[0.2, 6, 0.2]} />
+      <Instance position={[-2.9, position[1], position[2] - 4.5]} scale={[0.2, 6, 0.2]} />
     </>
   )
 }

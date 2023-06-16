@@ -86,7 +86,7 @@ export default function Images() {
           owner='Santista'
         />
         <Image
-          map='https://res.cloudinary.com/dexin8o58/image/upload/v1686902344/rebels_016_dusqpi.avif'
+          map='https://res.cloudinary.com/dexin8o58/image/upload/v1686903850/FhJkCVmXoAAx0aO_ge7dvx.avif'
           position={[2.89, 0, 3]}
           rotation={[0, 270 * (Math.PI / 180), 0]}
           owner='Santista'
