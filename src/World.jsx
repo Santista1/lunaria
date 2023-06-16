@@ -1,5 +1,5 @@
 import { Lunaria } from "./Lunaria/Lunaria"
 
-export function World() {
+export default function World() {
   return <Lunaria />
 }

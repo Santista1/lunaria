@@ -14,10 +14,15 @@ import { wallets as keplr } from "@cosmos-kit/keplr"
 import { wallets as trust } from "@cosmos-kit/trust"
 import { wallets as web3auth } from "@cosmos-kit/web3auth"
 
+const terra = chains.filter((chain) => chain.chain_name === "terra")
+
 import { Analytics } from "@vercel/analytics/react"
 
+import { lazy, Suspense } from "react"
+
+const World = lazy(() => import("./World"))
+
 import { Player } from "./Player"
-import { World } from "./World"
 import { Gui } from "./Gui"
 import { touch, joystick, lock } from "./global"
 
@@ -50,7 +55,7 @@ export function App() {
       )}
 
       <ChainProvider
-        chains={chains}
+        chains={terra}
         assetLists={assets}
         wallets={[...station, ...keplr, ...web3auth, ...trust]}
         wrappedWithChakra={true}
@@ -88,7 +93,9 @@ function Scene() {
       {touch ? <TouchControls /> : <DesktopControls />}
 
       <Physics gravity={[0, -3, 0]}>
-        <World />
+        <Suspense>
+          <World />
+        </Suspense>
         <Player />
       </Physics>
     </Canvas>

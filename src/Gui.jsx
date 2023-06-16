@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useAtomValue } from "jotai"
 import { useThree } from "@react-three/fiber"
 import { OrthographicCamera, Hud } from "@react-three/drei"
@@ -23,19 +23,19 @@ var audio = new Audio("https://res.cloudinary.com/dexin8o58/video/upload/v168686
 audio.volume = 0.3
 
 function Main() {
-  const { connect, status } = useChain("terra")
   const { size } = useThree()
   const controls = useAtomValue(lock)
   const [enter, setEnter] = useState(!touch)
   const [welcome, setWelcome] = useState(true)
 
-  document.addEventListener("pointerlockchange", function () {
-    document.pointerLockElement ? setEnter(false) : (setEnter(true), audio.pause())
-  })
-
-  window.addEventListener("touchstart", function () {
-    setWelcome(false)
-  })
+  useEffect(() => {
+    document.addEventListener("pointerlockchange", function () {
+      document.pointerLockElement ? setEnter(false) : (setEnter(true), audio.pause())
+    })
+    window.addEventListener("touchstart", function () {
+      setWelcome(false)
+    })
+  }, [])
 
   return (
     <>
@@ -46,8 +46,8 @@ function Main() {
             onClick={() => {
               controls.lock()
               setTimeout(() => {
-                setEnter(!controls.isLocked)
-                if (controls.isLocked) audio.play()
+                setEnter(!document.pointerLockElement)
+                if (document.pointerLockElement) audio.play()
               }, 50)
             }}
             text='Enter'
@@ -59,6 +59,17 @@ function Main() {
       {touch && welcome && (
         <Button capsule={false} text='welcome to lunaria' position={[0, size.height / 2 - 250, 0]} size={30} />
       )}
+      <Button text='Inventory' position={[-780, size.height / 2 - 60, 0]} size={40} />
+
+      <Connect size={size} />
+    </>
+  )
+}
+
+export function Connect({ size }) {
+  const { connect, status } = useChain("terra")
+  return (
+    <>
       {!touch && (
         <Button
           text={status === "Disconnected" ? "Connect" : status}

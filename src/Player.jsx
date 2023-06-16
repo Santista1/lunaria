@@ -74,7 +74,7 @@ export function Player() {
       type='dynamic'
       enabledRotations={[false, false, false]}
     >
-      <CapsuleCollider args={[0.75, 0.5]} />
+      <CapsuleCollider args={[0.75, 0.6]} />
     </RigidBody>
   )
 }
