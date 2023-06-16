@@ -8,6 +8,7 @@ export function Image({
   color = "white",
   map = "https://res.cloudinary.com/dexin8o58/image/upload/v1676239383/5B758959-5682-4A83-AA20-A429C53AF854_exp9da.jpg",
   owner = "-",
+  rotation = [0, 90 * (Math.PI / 180), 0],
 }) {
   const [hovered, setHover] = useState(false)
   const texture = useTexture({
@@ -18,8 +19,8 @@ export function Image({
   return (
     <>
       <Text
-        rotation={[0, 90 * (Math.PI / 180), 0]}
-        position={[position[0] + 0.01, position[1] - 0.87, position[2]]}
+        rotation={rotation}
+        position={[position[0], position[1] - 0.87, position[2]]}
         font={"./JuraBook.ttf"}
         fontSize={0.1}
         color='yellow'
@@ -33,7 +34,7 @@ export function Image({
           camera.position.set(0, 0, 0)
         }}
         args={scale}
-        rotation={[0, 90 * (Math.PI / 180), 0]}
+        rotation={rotation}
         onPointerOver={() => setHover(true)}
         onPointerOut={() => setHover(false)}
         position={position}

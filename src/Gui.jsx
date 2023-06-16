@@ -4,7 +4,7 @@ import { useThree } from "@react-three/fiber"
 import { OrthographicCamera, Hud } from "@react-three/drei"
 import { useChain } from "@cosmos-kit/react"
 
-import { ui, touch, lock } from "./global"
+import { ui, touch, lock, audio, hud } from "./global"
 import { Button, Wallet } from "./components/gui"
 
 export function Gui() {
@@ -19,14 +19,12 @@ export function Gui() {
   )
 }
 
-var audio = new Audio("https://res.cloudinary.com/dexin8o58/video/upload/v1686867889/venus_ojwdxu.mp3")
-audio.volume = 0.3
-
 function Main() {
   const { size } = useThree()
   const controls = useAtomValue(lock)
   const [enter, setEnter] = useState(!touch)
   const [welcome, setWelcome] = useState(true)
+  const subHud = useAtomValue(hud)
 
   useEffect(() => {
     document.addEventListener("pointerlockchange", function () {
@@ -39,7 +37,7 @@ function Main() {
 
   return (
     <>
-      {enter && (
+      {enter && !subHud && (
         <>
           <Button capsule={false} text='welcome to lunaria' position={[0, size.height / 2 - 200, 0]} size={40} />
           <Button

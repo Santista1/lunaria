@@ -14,8 +14,6 @@ import { wallets as keplr } from "@cosmos-kit/keplr"
 import { wallets as trust } from "@cosmos-kit/trust"
 import { wallets as web3auth } from "@cosmos-kit/web3auth"
 
-const terra = chains.filter((chain) => chain.chain_name === "terra")
-
 import { Analytics } from "@vercel/analytics/react"
 
 import { lazy, Suspense } from "react"
@@ -55,7 +53,7 @@ export function App() {
       )}
 
       <ChainProvider
-        chains={terra}
+        chains={chains}
         assetLists={assets}
         wallets={[...station, ...keplr, ...web3auth, ...trust]}
         wrappedWithChakra={true}

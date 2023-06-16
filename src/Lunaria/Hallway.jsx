@@ -1,9 +1,9 @@
 import { useState } from "react"
-import { useAtomValue } from "jotai"
+import { useAtomValue, useSetAtom } from "jotai"
 import { Instances, Instance, CubicBezierLine } from "@react-three/drei"
 import { RigidBody, CuboidCollider } from "@react-three/rapier"
 
-import { ui, lock } from "@/global"
+import { ui, lock, audio, hud } from "@/global"
 import { Button, Slider } from "@/components/gui"
 
 export default function Hallway({ pos }) {
@@ -92,32 +92,33 @@ function Rail() {
 function Columns({ position }) {
   return (
     <>
-      <Instance position={[2.9, position[1], position[2] + 5]} scale={[0.2, 3, 0.2]} />
-      <Instance position={[-2.9, position[1], position[2] + 5]} scale={[0.2, 3, 0.2]} />
-      <Instance position={[2.9, position[1], position[2] - 5]} scale={[0.2, 3, 0.2]} />
-      <Instance position={[-2.9, position[1], position[2] - 5]} scale={[0.2, 3, 0.2]} />
+      <Instance position={[2.9, position[1], position[2] + 4.5]} scale={[0.2, 3, 0.2]} />
+      <Instance position={[-2.9, position[1], position[2] + 4.5]} scale={[0.2, 3, 0.2]} />
+      <Instance position={[2.9, position[1], position[2] - 4.5]} scale={[0.2, 3, 0.2]} />
+      <Instance position={[-2.9, position[1], position[2] - 4.5]} scale={[0.2, 3, 0.2]} />
     </>
   )
 }
 
-function Walls({ pos, scale = [0.01, 2, 10] }) {
+function Walls({ pos, scale = [0.01, 2, 9] }) {
   const [gui, setGui] = useState(false)
   const controls = useAtomValue(lock)
+  const setSubHud = useSetAtom(hud)
   return (
     <>
       <RigidBody colliders={false} type='fixed'>
-        <CuboidCollider position={[-2.9, pos[1], pos[2]]} args={[0.01, 3, 5]} />
-        <CuboidCollider position={[2.9, pos[1], pos[2]]} args={[0.01, 3, 5]} />
+        <CuboidCollider position={[-2.9, pos[1], pos[2]]} args={[0.01, 3, 4.5]} />
+        <CuboidCollider position={[2.9, pos[1], pos[2]]} args={[0.01, 3, 4.5]} />
       </RigidBody>
       <Instance
         position={[-2.9, pos[1], pos[2]]}
         scale={scale}
-        onClick={(e) => e.which == 3 && (setGui(true), controls.unlock())}
+        onClick={(e) => e.which == 3 && (setSubHud(true), setGui(true), controls.unlock())}
       />
       <Instance
         position={[2.9, pos[1], pos[2]]}
         scale={scale}
-        onClick={(e) => e.which == 3 && (setGui(true), controls.unlock())}
+        onClick={(e) => e.which == 3 && (setSubHud(true), setGui(true), controls.unlock())}
       />
       {gui && (
         <ui.In>
@@ -127,6 +128,8 @@ function Walls({ pos, scale = [0.01, 2, 10] }) {
             onClick={() => {
               setGui(false)
               controls.lock()
+              audio.play()
+              setSubHud(false)
             }}
             position={[100, 100, 0]}
             size={40}
