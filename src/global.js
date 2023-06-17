@@ -4,7 +4,7 @@ import tunnel from "tunnel-rat"
 export const audio = new Audio(
   "https://res.cloudinary.com/dexin8o58/video/upload/v1686900150/The_Police_-_Message_In_A_Bottle_tabtrn.mp3"
 )
-audio.volume = 0.7
+audio.volume = 0.1
 
 export const touch = "ontouchstart" in document.documentElement
 

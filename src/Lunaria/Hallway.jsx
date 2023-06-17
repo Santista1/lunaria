@@ -46,30 +46,30 @@ function Walls() {
       <Wall pos={[2.9, y, 15]} />
       <Wall pos={[2.9, 0, 0]} />
       <Wall pos={[2.9, 0, -15]} />
-      <Wall pos={[2.9, 0, -30]} />
-      <Wall pos={[2.9, 0, -45]} />
-      <Wall pos={[-2.9, 0, 45]} />
-      <Wall pos={[-2.9, 0, 30]} />
-      <Wall pos={[-2.9, 0, 15]} />
+      <Wall pos={[2.9, y, -30]} />
+      <Wall pos={[2.9, y, -45]} />
+      <Wall pos={[-2.9, y, 45]} />
+      <Wall pos={[-2.9, y, 30]} />
+      <Wall pos={[-2.9, y, 15]} />
       <Wall pos={[-2.9, 0, 0]} />
       <Wall pos={[-2.9, 0, -15]} />
-      <Wall pos={[-2.9, 0, -30]} />
-      <Wall pos={[-2.9, 0, -45]} />
+      <Wall pos={[-2.9, y, -30]} />
+      <Wall pos={[-2.9, y, -45]} />
       <group position={[0, 3, 0]}>
         <Wall pos={[2.9, y, 45]} />
         <Wall pos={[2.9, y, 30]} />
         <Wall pos={[2.9, y, 15]} />
         <Wall pos={[2.9, 0, 0]} />
         <Wall pos={[2.9, 0, -15]} />
-        <Wall pos={[2.9, 0, -30]} />
-        <Wall pos={[2.9, 0, -45]} />
-        <Wall pos={[-2.9, 0, 45]} />
-        <Wall pos={[-2.9, 0, 30]} />
-        <Wall pos={[-2.9, 0, 15]} />
+        <Wall pos={[2.9, y, -30]} />
+        <Wall pos={[2.9, y, -45]} />
+        <Wall pos={[-2.9, y, 45]} />
+        <Wall pos={[-2.9, y, 30]} />
+        <Wall pos={[-2.9, y, 15]} />
         <Wall pos={[-2.9, 0, 0]} />
         <Wall pos={[-2.9, 0, -15]} />
-        <Wall pos={[-2.9, 0, -30]} />
-        <Wall pos={[-2.9, 0, -45]} />
+        <Wall pos={[-2.9, y, -30]} />
+        <Wall pos={[-2.9, y, -45]} />
       </group>
       <group position={[0, -3, 0]}>
         <Wall pos={[2.9, y, 45]} />
@@ -77,15 +77,15 @@ function Walls() {
         <Wall pos={[2.9, y, 15]} />
         <Wall pos={[2.9, 0, 0]} />
         <Wall pos={[2.9, 0, -15]} />
-        <Wall pos={[2.9, 0, -30]} />
-        <Wall pos={[2.9, 0, -45]} />
-        <Wall pos={[-2.9, 0, 45]} />
-        <Wall pos={[-2.9, 0, 30]} />
-        <Wall pos={[-2.9, 0, 15]} />
+        <Wall pos={[2.9, y, -30]} />
+        <Wall pos={[2.9, y, -45]} />
+        <Wall pos={[-2.9, y, 45]} />
+        <Wall pos={[-2.9, y, 30]} />
+        <Wall pos={[-2.9, y, 15]} />
         <Wall pos={[-2.9, 0, 0]} />
         <Wall pos={[-2.9, 0, -15]} />
-        <Wall pos={[-2.9, 0, -30]} />
-        <Wall pos={[-2.9, 0, -45]} />
+        <Wall pos={[-2.9, y, -30]} />
+        <Wall pos={[-2.9, y, -45]} />
       </group>
     </>
   )

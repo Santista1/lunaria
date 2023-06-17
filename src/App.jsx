@@ -90,7 +90,6 @@ function Scene() {
 
       <Physics gravity={[0, -3, 0]}>
         <World />
-
         <Player />
       </Physics>
     </Canvas>

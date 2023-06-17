@@ -50,7 +50,7 @@ function Main() {
             }}
             text='Enter'
             position={[0, 0, 0]}
-            size={40}
+            size={45}
           />
         </>
       )}
@@ -77,7 +77,7 @@ export function Connect({ size }) {
         />
       )}
       <Button text='Inventory' position={[-780, size.height / 2 - 60, 0]} size={40} />
-      <Wallet onClick={() => connect()} animate position={[size.width / 2 - 40, size.height / 2 - 60, 0]} />
+      <Wallet animate position={[size.width / 2 - 40, size.height / 2 - 60, 0]} />
     </>
   )
 }
