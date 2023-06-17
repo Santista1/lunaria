@@ -16,13 +16,11 @@ import { wallets as web3auth } from "@cosmos-kit/web3auth"
 
 import { Analytics } from "@vercel/analytics/react"
 
-import { lazy, Suspense } from "react"
+import World from "@/World"
 
-const World = lazy(() => import("./World"))
-
-import { Player } from "./Player"
-import { Gui } from "./Gui"
-import { touch, joystick, lock } from "./global"
+import { Player } from "@/Player"
+import { Gui } from "@/Gui"
+import { touch, joystick, lock } from "@/global"
 
 export function App() {
   const setJoystick = useSetAtom(joystick)
@@ -91,9 +89,8 @@ function Scene() {
       {touch ? <TouchControls /> : <DesktopControls />}
 
       <Physics gravity={[0, -3, 0]}>
-        <Suspense>
-          <World />
-        </Suspense>
+        <World />
+
         <Player />
       </Physics>
     </Canvas>

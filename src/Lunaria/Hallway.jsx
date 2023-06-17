@@ -1,10 +1,10 @@
 import { useState } from "react"
-import { useAtomValue, useSetAtom } from "jotai"
-import { Instances, Instance, CubicBezierLine } from "@react-three/drei"
+import * as THREE from "three"
+import { Instances, Instance } from "@react-three/drei"
 import { RigidBody, CuboidCollider } from "@react-three/rapier"
+import { useFrame } from "@react-three/fiber"
 
-import { ui, lock, audio, hud } from "@/global"
-import { Button, Slider } from "@/components/gui"
+import { Wall } from "./Wall"
 
 export default function Hallway({ pos }) {
   return (
@@ -16,13 +16,7 @@ export default function Hallway({ pos }) {
         <Roof2 position={[0, -1.5, 0]} />
         <Roof position={[0, 3, 0]} />
         <Rail />
-        <Walls pos={[0, 0, 45]} />
-        <Walls pos={[0, 0, 30]} />
-        <Walls pos={[0, 0, 15]} />
-        <Walls pos={[0, 0, 0]} />
-        <Walls pos={[0, 0, -15]} />
-        <Walls pos={[0, 0, -30]} />
-        <Walls pos={[0, 0, -45]} />
+        <Walls />
         <Columns position={[0, 0, 45]} />
         <Columns position={[0, 0, 30]} />
         <Columns position={[0, 0, 15]} />
@@ -32,6 +26,35 @@ export default function Hallway({ pos }) {
         <Columns position={[0, 0, -45]} />
       </Instances>
       <Lights />
+    </>
+  )
+}
+
+var clock = new THREE.Clock()
+
+function Walls() {
+  const [y, setY] = useState(0)
+  useFrame(() => {
+    var time = clock.getElapsedTime()
+    setY(Math.sin(time * 1) * 2)
+  })
+
+  return (
+    <>
+      <Wall pos={[2.9, y, 45]} />
+      <Wall pos={[2.9, y, 30]} />
+      <Wall pos={[2.9, y, 15]} />
+      <Wall pos={[2.9, 0, 0]} />
+      <Wall pos={[2.9, 0, -15]} />
+      <Wall pos={[2.9, 0, -30]} />
+      <Wall pos={[2.9, 0, -45]} />
+      <Wall pos={[-2.9, 0, 45]} />
+      <Wall pos={[-2.9, 0, 30]} />
+      <Wall pos={[-2.9, 0, 15]} />
+      <Wall pos={[-2.9, 0, 0]} />
+      <Wall pos={[-2.9, 0, -15]} />
+      <Wall pos={[-2.9, 0, -30]} />
+      <Wall pos={[-2.9, 0, -45]} />
     </>
   )
 }
@@ -108,73 +131,6 @@ function Columns({ position }) {
       <Instance position={[-2.9, position[1], position[2] + 4.5]} scale={[0.2, 6, 0.2]} />
       <Instance position={[2.9, position[1], position[2] - 4.5]} scale={[0.2, 6, 0.2]} />
       <Instance position={[-2.9, position[1], position[2] - 4.5]} scale={[0.2, 6, 0.2]} />
-    </>
-  )
-}
-
-function Walls({ pos, scale = [0.01, 2, 9] }) {
-  const [gui, setGui] = useState(false)
-  const controls = useAtomValue(lock)
-  const setSubHud = useSetAtom(hud)
-  return (
-    <>
-      <RigidBody colliders={false} type='fixed'>
-        <CuboidCollider position={[-2.9, pos[1], pos[2]]} args={[0.01, 3, 4.5]} />
-        <CuboidCollider position={[2.9, pos[1], pos[2]]} args={[0.01, 3, 4.5]} />
-      </RigidBody>
-      <Instance
-        position={[-2.9, pos[1], pos[2]]}
-        scale={scale}
-        onClick={(e) => e.which == 3 && (setSubHud(true), setGui(true), controls.unlock())}
-      />
-      <Instance
-        position={[2.9, pos[1], pos[2]]}
-        scale={scale}
-        onClick={(e) => e.which == 3 && (setSubHud(true), setGui(true), controls.unlock())}
-      />
-      {gui && (
-        <ui.In>
-          <Button text='Walls' position={[0, 0, 0]} size={40} />
-          <Button
-            text='X'
-            onClick={() => {
-              setGui(false)
-              controls.lock()
-              audio.play()
-              setSubHud(false)
-            }}
-            position={[100, 100, 0]}
-            size={40}
-          />
-          <Slider position={[-300, 100, 0]} scale={[250, 15, 5]} text={"Width: 0.01"} min={0.2} max={1} step={0.01} />
-          <Slider position={[-300, 0, 0]} scale={[250, 15, 5]} text={"Height: 3"} min={0.2} max={1} step={0.01} />
-          <Slider position={[-300, -100, 0]} scale={[250, 15, 5]} text={"Depth: 5"} min={0.2} max={1} step={0.01} />
-          <CubicBezierLine
-            start={[-70, 0, 0]}
-            end={[-170, 100, 0]}
-            midA={[-120, 0, 0]}
-            midB={[-150, 100, 0]}
-            color='yellow'
-            lineWidth={3}
-          />
-          <CubicBezierLine
-            start={[-70, 0, 0]}
-            end={[-170, 0, 0]}
-            midA={[-70, 0, 0]}
-            midB={[-70, 0, 0]}
-            color='yellow'
-            lineWidth={3}
-          />
-          <CubicBezierLine
-            start={[-70, 0, 0]}
-            end={[-170, -100, 0]}
-            midA={[-120, 0, 0]}
-            midB={[-150, -100, 0]}
-            color='yellow'
-            lineWidth={3}
-          />
-        </ui.In>
-      )}
     </>
   )
 }
