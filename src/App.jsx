@@ -1,6 +1,6 @@
 import { useRef, useState } from "react"
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
-import { KeyboardControls, CameraControls, PointerLockControls, Html } from "@react-three/drei"
+import { KeyboardControls, CameraControls, PointerLockControls } from "@react-three/drei"
 import { DepthOfField, EffectComposer } from "@react-three/postprocessing"
 import { Physics } from "@react-three/rapier"
 import { Perf } from "r3f-perf"
@@ -17,6 +17,7 @@ import { wallets as web3auth } from "@cosmos-kit/web3auth"
 import { Analytics } from "@vercel/analytics/react"
 
 import World from "@/World"
+import Images from "@/Html"
 
 import { Player } from "@/Player"
 import { Gui } from "@/Gui"
@@ -92,20 +93,8 @@ function Scene() {
         <World />
         <Player />
       </Physics>
-      <group>
-        <Html
-          onClick={() => console.log("click")}
-          scale={[0.1, 0.1, 1]}
-          rotation={[0, 90 * (Math.PI / 180), 0]}
-          position={[-2.89, 0, 3]}
-          transform
-          occlude='blending'
-          zIndexRange={[2, 0]}
-          pointerEvents='none'
-        >
-          <img src='https://res.cloudinary.com/dexin8o58/image/upload/v1676239383/5B758959-5682-4A83-AA20-A429C53AF854_exp9da.avif' />
-        </Html>
-      </group>
+
+      <Images />
     </Canvas>
   )
 }

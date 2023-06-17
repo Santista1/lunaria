@@ -1,6 +1,6 @@
-import { lazy, Suspense } from "react"
+// import { lazy, Suspense } from "react"
 // import Image from "@/components/world"
-const Image = lazy(() => import("@/components/world/Image"))
+// const Image = lazy(() => import("@/components/world/Image"))
 
 // import { Html, Plane } from "@react-three/drei"
 
@@ -17,8 +17,8 @@ export default function Images() {
         </Suspense>
       </group> */}
 
-      <group position={[0, 0, 0]}>
-        {/* <Suspense>
+      {/* <group position={[0, 0, 0]}> */}
+      {/* <Suspense>
           <Image
             color='hotpink'
             position={[-2.89, 0, 3]}
@@ -26,7 +26,7 @@ export default function Images() {
             owner='OG'
           />
         </Suspense> */}
-        <Suspense>
+      {/* <Suspense>
           <Image
             color='hotpink'
             map='https://res.cloudinary.com/dexin8o58/image/upload/v1676239388/IMG_5638_vqwa7h.avif'
@@ -49,8 +49,8 @@ export default function Images() {
             position={[-2.89, 0, -3]}
             owner='OG'
           />
-        </Suspense>
-        <Suspense>
+        </Suspense> */}
+      {/* <Suspense>
           <Image
             color='lightgrey'
             map='https://res.cloudinary.com/dexin8o58/image/upload/v1686903135/Screenshot_20230608-155159_Twitter_ww309n.avif'
@@ -135,7 +135,7 @@ export default function Images() {
             owner='Santista'
           />
         </group>
-      </Suspense>
+      </Suspense> */}
       {/* <Suspense>
         <group position={[0, 0, -30]}>
           <Image
