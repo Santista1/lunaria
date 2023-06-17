@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react"
 // import Image from "@/components/world"
 const Image = lazy(() => import("@/components/world/Image"))
 
-import { Html } from "@react-three/drei"
+// import { Html, Plane } from "@react-three/drei"
 
 export default function Images() {
   return (
@@ -16,64 +16,6 @@ export default function Images() {
           />
         </Suspense>
       </group> */}
-
-      <Html
-        scale={[0.1, 0.1, 1]}
-        transform
-        occlude='blending'
-        rotation-y={90 * (Math.PI / 180)}
-        position={[-2.89, 0, 3]}
-        zIndexRange={[2, 0]}
-        style={{
-          userSelect: "none",
-          pointerEvents: "none",
-          display: "block",
-        }}
-      >
-        <img src='https://res.cloudinary.com/dexin8o58/image/upload/v1676239383/5B758959-5682-4A83-AA20-A429C53AF854_exp9da.avif' />
-      </Html>
-      {/* <Html
-        scale={[0.1, 0.1, 1]}
-        transform
-        occlude='blending'
-        rotation-y={90 * (Math.PI / 180)}
-        position={[-2.89, 0, 1]}
-        zIndexRange={[2, 0]}
-        style={{
-          userSelect: "none",
-          pointerEvents: "none",
-        }}
-      >
-        <img src='https://res.cloudinary.com/dexin8o58/image/upload/v1676239388/IMG_5638_vqwa7h.avif' />
-      </Html>
-      <Html
-        scale={[0.1, 0.1, 1]}
-        transform
-        occlude='blending'
-        rotation-y={90 * (Math.PI / 180)}
-        position={[-2.89, 0, -1]}
-        zIndexRange={[2, 0]}
-        style={{
-          userSelect: "none",
-          pointerEvents: "none",
-        }}
-      >
-        <img src='https://res.cloudinary.com/dexin8o58/image/upload/v1676239389/IMG_5667_fhvrbt.avif' />
-      </Html>
-      <Html
-        scale={[0.1, 0.1, 1]}
-        transform
-        occlude='blending'
-        rotation-y={90 * (Math.PI / 180)}
-        position={[-2.89, 0, -3]}
-        zIndexRange={[2, 0]}
-        style={{
-          userSelect: "none",
-          pointerEvents: "none",
-        }}
-      >
-        <img src='https://res.cloudinary.com/dexin8o58/image/upload/v1676239388/AACABEAC-F96C-46D9-8AC5-83C5994C7F4E_grnioz.avif' />
-      </Html> */}
 
       <group position={[0, 0, 0]}>
         {/* <Suspense>
@@ -194,7 +136,7 @@ export default function Images() {
           />
         </group>
       </Suspense>
-      <Suspense>
+      {/* <Suspense>
         <group position={[0, 0, -30]}>
           <Image
             position={[-2.89, 0, 3]}
@@ -229,7 +171,7 @@ export default function Images() {
             owner='Pholuna'
           />
         </group>
-      </Suspense>
+      </Suspense> */}
     </>
   )
 }
