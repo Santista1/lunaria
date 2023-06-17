@@ -1,6 +1,6 @@
 import { Lunaria } from "./Lunaria/Lunaria"
 import { Instances } from "@react-three/drei"
-import { boxes } from "@/global"
+import { cubes } from "@/global"
 
 function Cubes() {
   return (
@@ -8,7 +8,7 @@ function Cubes() {
       <Instances>
         <boxGeometry />
         <meshPhongMaterial shininess={0} />
-        <boxes.Out />
+        <cubes.Out />
       </Instances>
     </>
   )

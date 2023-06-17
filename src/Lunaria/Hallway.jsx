@@ -3,16 +3,15 @@ import * as THREE from "three"
 import { Instances, Instance } from "@react-three/drei"
 import { RigidBody, CuboidCollider } from "@react-three/rapier"
 import { useFrame } from "@react-three/fiber"
+import { cubes } from "@/global"
 
 import { Wall } from "./Wall"
 
-export default function Hallway({ pos }) {
+export default function Hallway() {
   return (
     <>
-      <Instances>
-        <boxGeometry />
-        <meshPhongMaterial shininess={0} />
-        <Floor pos={pos} />
+      <cubes.In>
+        <Floor pos={[0, 0, 0]} />
         <Roof2 position={[0, -1.5, 0]} />
         <Roof position={[0, 3, 0]} />
         <Rail />
@@ -24,7 +23,7 @@ export default function Hallway({ pos }) {
         <Columns position={[0, 0, -15]} />
         <Columns position={[0, 0, -30]} />
         <Columns position={[0, 0, -45]} />
-      </Instances>
+      </cubes.In>
       <Lights />
     </>
   )

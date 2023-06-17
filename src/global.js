@@ -9,7 +9,7 @@ audio.volume = 0.7
 export const touch = "ontouchstart" in document.documentElement
 
 export const ui = tunnel()
-export const boxes = tunnel()
+export const cubes = tunnel()
 
 export const joystick = atom({})
 export const lock = atom()

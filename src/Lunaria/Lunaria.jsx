@@ -1,8 +1,8 @@
 import { lazy, Suspense } from "react"
 import { Starfield } from "@/components/world"
 const Moon = lazy(() => import("@/components/world/Moon"))
-const Hallway = lazy(() => import("./Hallway"))
-const Images = lazy(() => import("./Images"))
+const Hallway = lazy(() => import("@/Lunaria/Hallway"))
+const Images = lazy(() => import("@/Lunaria/Images"))
 
 export function Lunaria() {
   return (

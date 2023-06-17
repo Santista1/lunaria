@@ -3,7 +3,7 @@ import { useAtomValue, useSetAtom } from "jotai"
 import { Instance, CubicBezierLine } from "@react-three/drei"
 import { RigidBody, CuboidCollider } from "@react-three/rapier"
 
-import { ui, lock, audio, hud, boxes } from "@/global"
+import { ui, lock, audio, hud } from "@/global"
 import { Button, Slider } from "@/components/gui"
 
 export function Wall({ pos, scale = [0.01, 2, 9] }) {
@@ -16,13 +16,11 @@ export function Wall({ pos, scale = [0.01, 2, 9] }) {
       <RigidBody colliders={false} type='fixed'>
         <CuboidCollider position={[pos[0], pos[1], pos[2]]} args={[0.01, 3, 4.5]} />
       </RigidBody>
-      <boxes.In>
-        <Instance
-          position={[pos[0], pos[1], pos[2]]}
-          scale={scale}
-          onClick={(e) => e.which == 3 && (setSubHud(true), setGui(true), controls.unlock())}
-        />
-      </boxes.In>
+      <Instance
+        position={[pos[0], pos[1], pos[2]]}
+        scale={scale}
+        onClick={(e) => e.which == 3 && (setSubHud(true), setGui(true), controls.unlock())}
+      />
       {gui && (
         <ui.In>
           <Button text='Wall' position={[0, 0, 0]} size={40} />
