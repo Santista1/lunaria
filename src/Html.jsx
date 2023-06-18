@@ -54,6 +54,8 @@ export default function Images() {
           src='https://res.cloudinary.com/dexin8o58/image/upload/v1686902344/rebels_016_dusqpi.avif'
         />
       </group>
+      <Pholuna />
+      <Michi />
     </>
   )
 }
@@ -120,6 +122,73 @@ function LuncMonkeys() {
   )
 }
 
+function Pholuna() {
+  const x = 3.99
+  return (
+    <>
+      <group position={[x, 0, -15]}>
+        <Html position={[0, 1.5, 0]} rotation={[0, 270 * (Math.PI / 180), 0]} occlude transform pointerEvents='none'>
+          <div class='marquee'>
+            <p>Pholuna</p>
+          </div>
+        </Html>
+        <Image
+          pos={[0, 0, 3]}
+          rotation={[0, 270 * (Math.PI / 180), 0]}
+          src='https://res.cloudinary.com/dexin8o58/image/upload/v1685998057/Nfts/snake_gccjdp.avif'
+        />
+        <Image
+          pos={[0, 0, 1]}
+          rotation={[0, 270 * (Math.PI / 180), 0]}
+          src='https://res.cloudinary.com/dexin8o58/image/upload/v1685998056/Nfts/got_lunc_oo6kot.avif'
+        />
+        <Image
+          pos={[0, 0, -1]}
+          rotation={[0, 270 * (Math.PI / 180), 0]}
+          src='https://res.cloudinary.com/dexin8o58/image/upload/v1685998057/Nfts/Lunc_for_his_and_her_pleasure_Final_p5u5jd.avif'
+        />
+        <Image
+          pos={[0, 0, -3]}
+          rotation={[0, 270 * (Math.PI / 180), 0]}
+          src='https://res.cloudinary.com/dexin8o58/image/upload/v1685998056/Nfts/got_lunc_2_puf4la.avif'
+        />
+      </group>
+      <group position={[x, 3, -15]}>
+        <Image
+          pos={[0, 0, 3]}
+          rotation={[0, 270 * (Math.PI / 180), 0]}
+          src='https://res.cloudinary.com/dexin8o58/image/upload/v1686902417/Nfts/try_lunc_today_final_yn2pq0.avif'
+        />
+        <Image
+          pos={[0, 0, 1]}
+          rotation={[0, 270 * (Math.PI / 180), 0]}
+          src='https://res.cloudinary.com/dexin8o58/image/upload/v1686902421/Nfts/Lunc_Miracle_Tonic_Final_hac9b0.avif'
+        />
+      </group>
+    </>
+  )
+}
+
+function Michi() {
+  const x = 3.99
+  return (
+    <>
+      <group position={[-x, 0, -15]}>
+        <Html position={[0, 1.5, 0]} rotation={[0, 90 * (Math.PI / 180), 0]} occlude transform pointerEvents='none'>
+          <div class='marquee'>
+            <p>Michi</p>
+          </div>
+        </Html>
+        <Image
+          pos={[0, 0, 3]}
+          rotation={[0, 90 * (Math.PI / 180), 0]}
+          src='https://res.cloudinary.com/dexin8o58/image/upload/v1686904079/Nfts/FfxJphNWYAIUUVQ_bafg0h.avif'
+        />
+      </group>
+    </>
+  )
+}
+
 function Image({ src, pos, rotation }) {
   return (
     <>
@@ -141,7 +210,7 @@ function Image({ src, pos, rotation }) {
       >
         <img
           style={{
-            filter: "contrast(1.4)",
+            filter: "contrast(1.2)",
           }}
           src={src}
         />
