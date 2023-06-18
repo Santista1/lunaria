@@ -6,7 +6,6 @@ import { useFrame } from "@react-three/fiber"
 import { cubes } from "@/global"
 
 import { Wall } from "@/Lunaria/Wall"
-import { Lights } from "@/Lunaria/Lights"
 
 export default function Hallway() {
   return (
@@ -25,7 +24,6 @@ export default function Hallway() {
         <Columns position={[0, 0, -30]} />
         <Columns position={[0, 0, -45]} />
       </cubes.In>
-      <Lights />
     </>
   )
 }
@@ -38,54 +36,55 @@ function Walls() {
     var time = clock.getElapsedTime()
     setY(Math.sin(time * 1) * 2)
   })
+  const x = 4
 
   return (
     <>
-      <Wall pos={[2.9, y, 45]} />
-      <Wall pos={[2.9, y, 30]} />
-      <Wall pos={[2.9, y, 15]} />
-      <Wall pos={[2.9, 0, 0]} />
-      <Wall pos={[2.9, 0, -15]} />
-      <Wall pos={[2.9, y, -30]} />
-      <Wall pos={[2.9, y, -45]} />
-      <Wall pos={[-2.9, y, 45]} />
-      <Wall pos={[-2.9, y, 30]} />
-      <Wall pos={[-2.9, y, 15]} />
-      <Wall pos={[-2.9, 0, 0]} />
-      <Wall pos={[-2.9, 0, -15]} />
-      <Wall pos={[-2.9, y, -30]} />
-      <Wall pos={[-2.9, y, -45]} />
+      <Wall pos={[x, y, 45]} />
+      <Wall pos={[x, y, 30]} />
+      <Wall pos={[x, y, 15]} />
+      <Wall pos={[x, 0, 0]} />
+      <Wall pos={[x, 0, -15]} />
+      <Wall pos={[x, y, -30]} />
+      <Wall pos={[x, y, -45]} />
+      <Wall pos={[-x, y, 45]} />
+      <Wall pos={[-x, y, 30]} />
+      <Wall pos={[-x, y, 15]} />
+      <Wall pos={[-x, 0, 0]} />
+      <Wall pos={[-x, 0, -15]} />
+      <Wall pos={[-x, y, -30]} />
+      <Wall pos={[-x, y, -45]} />
       <group position={[0, 3, 0]}>
-        <Wall pos={[2.9, y, 45]} />
-        <Wall pos={[2.9, y, 30]} />
-        <Wall pos={[2.9, y, 15]} />
-        <Wall pos={[2.9, 0, 0]} />
-        <Wall pos={[2.9, 0, -15]} />
-        <Wall pos={[2.9, y, -30]} />
-        <Wall pos={[2.9, y, -45]} />
-        <Wall pos={[-2.9, y, 45]} />
-        <Wall pos={[-2.9, y, 30]} />
-        <Wall pos={[-2.9, y, 15]} />
-        <Wall pos={[-2.9, 0, 0]} />
-        <Wall pos={[-2.9, 0, -15]} />
-        <Wall pos={[-2.9, y, -30]} />
-        <Wall pos={[-2.9, y, -45]} />
+        <Wall pos={[x, y, 45]} />
+        <Wall pos={[x, y, 30]} />
+        <Wall pos={[x, y, 15]} />
+        <Wall pos={[x, 0, 0]} />
+        <Wall pos={[x, 0, -15]} />
+        <Wall pos={[x, y, -30]} />
+        <Wall pos={[x, y, -45]} />
+        <Wall pos={[-x, y, 45]} />
+        <Wall pos={[-x, y, 30]} />
+        <Wall pos={[-x, y, 15]} />
+        <Wall pos={[-x, 0, 0]} />
+        <Wall pos={[-x, 0, -15]} />
+        <Wall pos={[-x, y, -30]} />
+        <Wall pos={[-x, y, -45]} />
       </group>
       <group position={[0, -3, 0]}>
-        <Wall pos={[2.9, y, 45]} />
-        <Wall pos={[2.9, y, 30]} />
-        <Wall pos={[2.9, y, 15]} />
-        <Wall pos={[2.9, 0, 0]} />
-        <Wall pos={[2.9, 0, -15]} />
-        <Wall pos={[2.9, y, -30]} />
-        <Wall pos={[2.9, y, -45]} />
-        <Wall pos={[-2.9, y, 45]} />
-        <Wall pos={[-2.9, y, 30]} />
-        <Wall pos={[-2.9, y, 15]} />
-        <Wall pos={[-2.9, 0, 0]} />
-        <Wall pos={[-2.9, 0, -15]} />
-        <Wall pos={[-2.9, y, -30]} />
-        <Wall pos={[-2.9, y, -45]} />
+        <Wall pos={[x, y, 45]} />
+        <Wall pos={[x, y, 30]} />
+        <Wall pos={[x, y, 15]} />
+        <Wall pos={[x, 0, 0]} />
+        <Wall pos={[x, 0, -15]} />
+        <Wall pos={[x, y, -30]} />
+        <Wall pos={[x, y, -45]} />
+        <Wall pos={[-x, y, 45]} />
+        <Wall pos={[-x, y, 30]} />
+        <Wall pos={[-x, y, 15]} />
+        <Wall pos={[-x, 0, 0]} />
+        <Wall pos={[-x, 0, -15]} />
+        <Wall pos={[-x, y, -30]} />
+        <Wall pos={[-x, y, -45]} />
       </group>
     </>
   )
@@ -134,15 +133,15 @@ function Floor2({ position }) {
 // }
 
 function Rail() {
-  const separation = 6
+  const separation = 2
   return (
     <>
       <RigidBody colliders={false} type='fixed'>
-        <CuboidCollider position={[separation, -1, 0]} args={[0.5, 0.1, 100]} />
-        <CuboidCollider position={[-separation, -1, 0]} args={[0.5, 0.1, 100]} />
+        <CuboidCollider position={[separation, -1, 0]} args={[0.1, 0.1, 100]} />
+        <CuboidCollider position={[-separation, -1, 0]} args={[0.1, 0.1, 100]} />
       </RigidBody>
-      <Instance position={[separation, -1, 0]} scale={[0.3, 0.1, 200]} />
-      <Instance position={[-separation, -1, 0]} scale={[0.3, 0.1, 200]} />
+      <Instance position={[separation, -1, 0]} scale={[0.1, 0.1, 200]} />
+      <Instance position={[-separation, -1, 0]} scale={[0.1, 0.1, 200]} />
     </>
   )
 }
@@ -150,10 +149,10 @@ function Rail() {
 function Columns({ position }) {
   return (
     <>
-      <Instance position={[2.9, position[1], position[2] + 4.5]} scale={[0.2, 30, 0.2]} />
-      <Instance position={[-2.9, position[1], position[2] + 4.5]} scale={[0.2, 30, 0.2]} />
-      <Instance position={[2.9, position[1], position[2] - 4.5]} scale={[0.2, 30, 0.2]} />
-      <Instance position={[-2.9, position[1], position[2] - 4.5]} scale={[0.2, 30, 0.2]} />
+      <Instance position={[4, position[1], position[2] + 4.5]} scale={[0.2, 30, 0.2]} />
+      <Instance position={[-4, position[1], position[2] + 4.5]} scale={[0.2, 30, 0.2]} />
+      <Instance position={[4, position[1], position[2] - 4.5]} scale={[0.2, 30, 0.2]} />
+      <Instance position={[-4, position[1], position[2] - 4.5]} scale={[0.2, 30, 0.2]} />
     </>
   )
 }

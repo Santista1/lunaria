@@ -25,53 +25,53 @@ export function Lights() {
       <Instances>
         <boxGeometry args={[1, 1, 1]} />
         <meshBasicMaterial />
-        <Instance onClick={() => setSwitch0(!switch0)} color='red' position={[2.8, 0, 4.5 + 45]} scale={buttonScale} />
+        <Instance onClick={() => setSwitch0(!switch0)} color='red' position={[3.9, 0, 4.5 + 45]} scale={buttonScale} />
         <Instance
           onClick={() => setSwitch0(!switch0)}
           color={switch0 ? "white" : "black"}
-          position={[2.8, 0, 4.5 + 45]}
+          position={[3.9, 0, 4.5 + 45]}
           scale={coverScale}
         />
-        <Instance onClick={() => setOn1(!on1)} color='red' position={[2.8, 0, 4.5 + 30]} scale={buttonScale} />
+        <Instance onClick={() => setOn1(!on1)} color='red' position={[3.9, 0, 4.5 + 30]} scale={buttonScale} />
         <Instance
           onClick={() => setOn1(!on1)}
           color={on1 ? "white" : "black"}
-          position={[2.8, 0, 4.5 + 30]}
+          position={[3.9, 0, 4.5 + 30]}
           scale={coverScale}
         />
-        <Instance onClick={() => setOn2(!on2)} color='red' position={[2.8, 0, 4.5 + 15]} scale={buttonScale} />
+        <Instance onClick={() => setOn2(!on2)} color='red' position={[3.9, 0, 4.5 + 15]} scale={buttonScale} />
         <Instance
           onClick={() => setOn2(!on2)}
           color={on2 ? "white" : "black"}
-          position={[2.8, 0, 4.5 + 15]}
+          position={[3.9, 0, 4.5 + 15]}
           scale={coverScale}
         />
-        <Instance onClick={() => setOn3(!on3)} color='red' position={[2.8, 0, 4.5]} scale={buttonScale} />
+        <Instance onClick={() => setOn3(!on3)} color='red' position={[3.9, 0, 4.5]} scale={buttonScale} />
         <Instance
           onClick={() => setOn3(!on3)}
           color={on3 ? "white" : "black"}
-          position={[2.8, 0, 4.5]}
+          position={[3.9, 0, 4.5]}
           scale={coverScale}
         />
-        <Instance onClick={() => setOn4(!on4)} color='red' position={[2.8, 0, 4.5 - 15]} scale={buttonScale} />
+        <Instance onClick={() => setOn4(!on4)} color='red' position={[3.9, 0, 4.5 - 15]} scale={buttonScale} />
         <Instance
           onClick={() => setOn4(!on4)}
           color={on4 ? "white" : "black"}
-          position={[2.8, 0, 4.5 - 15]}
+          position={[3.9, 0, 4.5 - 15]}
           scale={coverScale}
         />
-        <Instance onClick={() => setOn5(!on5)} color='red' position={[2.8, 0, 4.5 - 30]} scale={buttonScale} />
+        <Instance onClick={() => setOn5(!on5)} color='red' position={[3.9, 0, 4.5 - 30]} scale={buttonScale} />
         <Instance
           onClick={() => setOn5(!on5)}
           color={on5 ? "white" : "black"}
-          position={[2.8, 0, 4.5 - 30]}
+          position={[3.9, 0, 4.5 - 30]}
           scale={coverScale}
         />
-        <Instance onClick={() => setOn6(!on6)} color='red' position={[2.8, 0, 4.5 - 45]} scale={buttonScale} />
+        <Instance onClick={() => setOn6(!on6)} color='red' position={[3.9, 0, 4.5 - 45]} scale={buttonScale} />
         <Instance
           onClick={() => setOn6(!on6)}
           color={on6 ? "white" : "black"}
-          position={[2.8, 0, 4.5 - 45]}
+          position={[3.9, 0, 4.5 - 45]}
           scale={coverScale}
         />
       </Instances>
