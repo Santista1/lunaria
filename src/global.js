@@ -2,9 +2,9 @@ import { atom } from "jotai"
 import tunnel from "tunnel-rat"
 
 export const audio = new Audio(
-  "https://res.cloudinary.com/dexin8o58/video/upload/v1686900150/The_Police_-_Message_In_A_Bottle_tabtrn.mp3"
+  "https://res.cloudinary.com/dexin8o58/video/upload/v1687051197/Music/The_Police_-_Walking_On_The_Moon_fjmxz2.mp3"
 )
-audio.volume = 0.1
+audio.volume = 1
 
 export const touch = "ontouchstart" in document.documentElement
 
