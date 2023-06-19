@@ -4,7 +4,6 @@ import { useFrame } from "@react-three/fiber"
 import { useKeyboardControls } from "@react-three/drei"
 import { CapsuleCollider, RigidBody } from "@react-three/rapier"
 import { useAtomValue } from "jotai"
-
 import { joystick } from "./global"
 
 const walk = 3

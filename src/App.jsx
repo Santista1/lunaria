@@ -2,7 +2,7 @@ import { useRef, useState } from "react"
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
 import { KeyboardControls, CameraControls, PointerLockControls } from "@react-three/drei"
 import { DepthOfField, EffectComposer } from "@react-three/postprocessing"
-import { Physics } from "@react-three/rapier"
+// import { Physics } from "@react-three/rapier"
 import { Perf } from "r3f-perf"
 import ReactNipple from "react-nipple"
 import { useSetAtom } from "jotai"
@@ -16,10 +16,8 @@ import { wallets as web3auth } from "@cosmos-kit/web3auth"
 
 import { Analytics } from "@vercel/analytics/react"
 
-import World from "@/World"
-import Images from "@/Html"
+import { World } from "@/World"
 
-import { Player } from "@/Player"
 import { Gui } from "@/Gui"
 import { touch, joystick, lock } from "@/global"
 
@@ -89,12 +87,7 @@ function Scene() {
 
       {touch ? <TouchControls /> : <DesktopControls />}
 
-      <Physics gravity={[0, -3, 0]}>
-        <World />
-        <Player />
-      </Physics>
-
-      <Images />
+      <World />
     </Canvas>
   )
 }

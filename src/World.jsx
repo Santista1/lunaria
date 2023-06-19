@@ -1,23 +1,8 @@
-import { Lunaria } from "./Lunaria/Lunaria"
-import { Instances } from "@react-three/drei"
-import { cubes } from "@/global"
+import { Lunaria } from "@/Lunaria/Lunaria"
 
-function Cubes() {
+export function World() {
   return (
     <>
-      <Instances>
-        <boxGeometry />
-        <meshPhongMaterial shininess={0} />
-        <cubes.Out />
-      </Instances>
-    </>
-  )
-}
-
-export default function World() {
-  return (
-    <>
-      <Cubes />
       <Lunaria />
     </>
   )

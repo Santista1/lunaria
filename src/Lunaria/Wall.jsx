@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { useAtomValue, useSetAtom } from "jotai"
 import { Instance, CubicBezierLine } from "@react-three/drei"
-import { RigidBody, CuboidCollider } from "@react-three/rapier"
 
 import { ui, lock, audio, hud } from "@/global"
 import { Button, Slider } from "@/components/gui"
@@ -13,9 +12,6 @@ export function Wall({ pos, scale = [0.01, 2, 9] }) {
 
   return (
     <>
-      <RigidBody colliders={false} type='fixed'>
-        <CuboidCollider position={[pos[0], pos[1], pos[2]]} args={[0.01, 3, 4.5]} />
-      </RigidBody>
       <Instance
         position={[pos[0], pos[1], pos[2]]}
         scale={scale}
