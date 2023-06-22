@@ -20,8 +20,8 @@ export function Lunaria() {
         <Player />
       </Physics>
       <Suspense>
-        <Moon scale={5} position={[40, 100, -160]} />
-        <pointLight distance={70} position={[30, 80, -140]} intensity={10} />
+        <Moon scale={5} position={[0, 5, 0]} />
+        <pointLight color='hotpink' distance={20} position={[0, -10, 0]} intensity={2} />
       </Suspense>
       <Lights />
       <Images />

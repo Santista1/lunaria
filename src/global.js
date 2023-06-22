@@ -1,8 +1,9 @@
 import { atom } from "jotai"
 import tunnel from "tunnel-rat"
+import { Clock } from "three"
 
 export const audio = new Audio(
-  "https://res.cloudinary.com/dexin8o58/video/upload/v1687051197/Music/The_Police_-_Walking_On_The_Moon_fjmxz2.mp3"
+  "https://res.cloudinary.com/dexin8o58/video/upload/v1687157753/Music/Daft_Punk_-_Instant_Crush_Video_ft._Julian_Casablancas_wxruis.mp3"
 )
 audio.volume = 1
 
@@ -14,3 +15,5 @@ export const cubes = tunnel()
 export const joystick = atom({})
 export const lock = atom()
 export const hud = atom(false)
+
+export const clock = new Clock()

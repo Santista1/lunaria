@@ -39,7 +39,7 @@ function Main() {
     <>
       {enter && !subHud && (
         <>
-          <Button capsule={false} text='welcome to lunaria' position={[0, size.height / 2 - 200, 0]} size={40} />
+          <Button capsule={false} text='welcome to lunaria' position={[0, size.height / 2 - 200, 0]} size={55} />
           <Button
             onClick={() => {
               controls.lock()
@@ -77,7 +77,7 @@ export function Connect({ size }) {
         />
       )}
       <Button text='Inventory' position={[-780, size.height / 2 - 60, 0]} size={40} />
-      <Wallet animate position={[size.width / 2 - 40, size.height / 2 - 60, 0]} />
+      <Wallet animate position={[size.width / 2 - 40, size.height / 2 - 60, 0]} onClick={() => connect()} />
     </>
   )
 }
