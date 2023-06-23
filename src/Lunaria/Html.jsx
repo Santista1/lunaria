@@ -7,6 +7,7 @@ export default function Images() {
       <LSA />
       {/* <Pholuna />
       <Michi /> */}
+      <Rabbi />
     </>
   )
 }
@@ -151,6 +152,39 @@ function LuncMonkeys() {
   )
 }
 
+function Rabbi() {
+  return (
+    <>
+      <group position={[14.99, 0, 0]}>
+        <Html
+          position={[0, 1.5, 10]}
+          rotation={[0, 270 * (Math.PI / 180), 0]}
+          occlude='blending'
+          zIndexRange={[2, 0]}
+          transform
+          pointerEvents='none'
+        >
+          <div class='marquee'>
+            <p
+              style={{
+                fontFamily: "Jura",
+              }}
+            >
+              Rabbi
+            </p>
+          </div>
+        </Html>
+        <Image
+          pos={[0, 0, 3 + 4]}
+          rotation={[0, 270 * (Math.PI / 180), 0]}
+          src='https://res.cloudinary.com/dexin8o58/image/upload/v1687547914/Nfts/Griftlands_LUNC_L1_mfkx8x.avif'
+        />
+        <Text text='Owner: Rabbi' pos={[0, -0.9, 7]} rot={[0, 270 * (Math.PI / 180), 0]} />
+      </group>
+    </>
+  )
+}
+
 // function Pholuna() {
 //   const x = 3.99
 //   return (
@@ -262,17 +296,17 @@ function Image({ src, pos, rotation, bgcolor }) {
   )
 }
 
-// function Text({ text, pos, rot }) {
-//   return (
-//     <Html position={pos} rotation={rot} occlude transform pointerEvents='none'>
-//       <p
-//         style={{
-//           fontSize: "5px",
-//           color: "#fdf29f",
-//         }}
-//       >
-//         {text}
-//       </p>
-//     </Html>
-//   )
-// }
+function Text({ text, pos, rot }) {
+  return (
+    <Html position={pos} rotation={rot} transform pointerEvents='none'>
+      <p
+        style={{
+          fontSize: "5px",
+          color: "#fdf29f",
+        }}
+      >
+        {text}
+      </p>
+    </Html>
+  )
+}
