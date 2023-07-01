@@ -27,13 +27,16 @@ export function Lunaria() {
       <Cubes />
       <Hallway />
       <Lights />
+      {/* <Cylinder args={[21, 21, 2, 100, 1, true]} position={[0, 0, 0]}>
+        <meshNormalMaterial side={1}  />
+      </Cylinder> */}
     </>
   )
 }
 
 function Floor() {
   return (
-    <Ring rotation={[270 * (Math.PI / 180), 0, 0]} args={[6, 20, 64]} position={[0, -1.5, 0]}>
+    <Ring rotation={[270 * (Math.PI / 180), 0, 0]} args={[6, 15, 64]} position={[0, -1.5, 0]}>
       <meshPhongMaterial shininess={0} />
     </Ring>
   )

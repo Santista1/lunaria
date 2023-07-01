@@ -3,9 +3,9 @@ import tunnel from "tunnel-rat"
 import { Clock } from "three"
 
 export const audio = new Audio(
-  "https://res.cloudinary.com/dexin8o58/video/upload/v1688160059/Music/Romance_del_Enamorado_y_la_Muerte_spddet.mp3"
+  "https://res.cloudinary.com/dexin8o58/video/upload/v1688226200/Music/Bomba_Est%C3%A9reo_-_Pajaros_civkjo.mp3"
 )
-audio.volume = 1
+audio.volume = 0.5
 
 export const touch = "ontouchstart" in document.documentElement
 

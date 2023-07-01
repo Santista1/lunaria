@@ -17,7 +17,7 @@ export default function Moon({ ...props }) {
   useFrame((state, delta) => {
     var time = clock.getElapsedTime()
     mesh.current.rotation.y += delta * 0.1
-    mesh.current.position.y = Math.sin(time * 0.1 - 1) * 10
+    // mesh.current.position.y = Math.sin(time * 0.1 - 1) * 10
   })
 
   // const [y, setY] = useState(0)
@@ -33,6 +33,7 @@ export default function Moon({ ...props }) {
       onClick={() => {}}
       onPointerOver={() => hover(true)}
       onPointerOut={() => hover(false)}
+    position-y={10}
       {...props}
     >
       <sphereGeometry args={[1, 64, 32]} />
