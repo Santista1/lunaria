@@ -3,7 +3,7 @@ import tunnel from "tunnel-rat"
 import { Clock } from "three"
 
 export const audio = new Audio(
-  "https://res.cloudinary.com/dexin8o58/video/upload/v1687157753/Music/Daft_Punk_-_Instant_Crush_Video_ft._Julian_Casablancas_wxruis.mp3"
+  "https://res.cloudinary.com/dexin8o58/video/upload/v1688160059/Music/Romance_del_Enamorado_y_la_Muerte_spddet.mp3"
 )
 audio.volume = 1
 

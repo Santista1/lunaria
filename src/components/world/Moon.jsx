@@ -36,7 +36,7 @@ export default function Moon({ ...props }) {
       {...props}
     >
       <sphereGeometry args={[1, 64, 32]} />
-      <meshStandardMaterial {...texture} bumpScale={0.2} color={0xfdf29f} />
+      <meshStandardMaterial {...texture} bumpScale={0.2} color='white' />
     </mesh>
   )
 }
