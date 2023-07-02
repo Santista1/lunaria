@@ -9,6 +9,14 @@ export default function Hallway() {
 }
 
 const urls = [
+  "https://res.cloudinary.com/dexin8o58/image/upload/v1688310760/Nfts/imageonline-co-watermarkedimage_5_ynvlsv.avif",
+  "https://res.cloudinary.com/dexin8o58/image/upload/v1688310761/Nfts/imageonline-co-watermarkedimage_7_ijveha.avif",
+  "https://res.cloudinary.com/dexin8o58/image/upload/v1688310761/Nfts/imageonline-co-watermarkedimage_6_epmcj9.avif",
+  "https://res.cloudinary.com/dexin8o58/image/upload/v1688310760/Nfts/imageonline-co-watermarkedimage_4_ud1onj.avif",
+  "https://res.cloudinary.com/dexin8o58/image/upload/v1688310760/Nfts/imageonline-co-watermarkedimage_9_xgwk6t.avif",
+  "https://res.cloudinary.com/dexin8o58/image/upload/v1688310761/Nfts/imageonline-co-watermarkedimage_8_nkmfbk.avif",
+  "https://res.cloudinary.com/dexin8o58/image/upload/v1688310762/Nfts/imageonline-co-watermarkedimage_11_dzelcj.avif",
+  "https://res.cloudinary.com/dexin8o58/image/upload/v1688310761/Nfts/imageonline-co-watermarkedimage_12_a6jpic.avif",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1687057979/Nfts/revival_iilit9.avif",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1685221048/Nfts/three_j414x5.gif",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1686904474/Nfts/Fg2oTqhWQAIXEmk_xylcip.avif",
@@ -39,18 +47,11 @@ const urls = [
   "https://res.cloudinary.com/dexin8o58/image/upload/v1676239388/Nfts/IMG_5638_vqwa7h.avif",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1676239389/Nfts/IMG_5667_fhvrbt.avif",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1676239388/Nfts/AACABEAC-F96C-46D9-8AC5-83C5994C7F4E_grnioz.avif",
-  "https://res.cloudinary.com/dexin8o58/image/upload/v1688018385/simplelady25_n2mznk.png",
-  "https://res.cloudinary.com/dexin8o58/image/upload/v1688018667/simplelady22_zu4ofc.png",
-  "https://res.cloudinary.com/dexin8o58/image/upload/v1688018411/simplelady24_dxghcp.png",
-  "https://res.cloudinary.com/dexin8o58/image/upload/v1688018385/simplelady25_n2mznk.png",
-  "https://res.cloudinary.com/dexin8o58/image/upload/v1686904079/Nfts/FfxJphNWYAIUUVQ_bafg0h.avif",
-  "https://res.cloudinary.com/dexin8o58/image/upload/v1686904079/Nfts/FfxJphNWYAIUUVQ_bafg0h.avif",
-  "https://res.cloudinary.com/dexin8o58/image/upload/v1686904079/Nfts/FfxJphNWYAIUUVQ_bafg0h.avif",
-  "https://res.cloudinary.com/dexin8o58/image/upload/v1686904079/Nfts/FfxJphNWYAIUUVQ_bafg0h.avif",
-  "https://res.cloudinary.com/dexin8o58/image/upload/v1686904079/Nfts/FfxJphNWYAIUUVQ_bafg0h.avif",
-  "https://res.cloudinary.com/dexin8o58/image/upload/v1686904079/Nfts/FfxJphNWYAIUUVQ_bafg0h.avif",
-  "https://res.cloudinary.com/dexin8o58/image/upload/v1686904079/Nfts/FfxJphNWYAIUUVQ_bafg0h.avif",
-  "https://res.cloudinary.com/dexin8o58/image/upload/v1686904079/Nfts/FfxJphNWYAIUUVQ_bafg0h.avif",
+  "https://res.cloudinary.com/dexin8o58/image/upload/v1688018385/simplelady25_n2mznk.avif",
+  "https://res.cloudinary.com/dexin8o58/image/upload/v1688018667/simplelady22_zu4ofc.avif",
+  "https://res.cloudinary.com/dexin8o58/image/upload/v1688018411/simplelady24_dxghcp.avif",
+  "https://res.cloudinary.com/dexin8o58/image/upload/v1688018385/simplelady25_n2mznk.avif",
+
   "https://res.cloudinary.com/dexin8o58/image/upload/v1686904079/Nfts/FfxJphNWYAIUUVQ_bafg0h.avif",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1686904079/Nfts/FfxJphNWYAIUUVQ_bafg0h.avif",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1686904079/Nfts/FfxJphNWYAIUUVQ_bafg0h.avif",
@@ -69,11 +70,31 @@ function Images() {
   const array = []
 
   for (let i = 0; i < urls.length; i++) {
-    array.push(<Image angle={i * (360 / urls.length)} imageAngle={270} distance={19} src={urls[i]} />)
+    array.push(
+      <Image
+        angle={i * (360 / urls.length)}
+        height={0}
+        imageAngle={270}
+        distance={19}
+        src={urls[i]}
+        size='300px'
+        text='Lunc Monkeys'
+      />
+    )
   }
 
-  for (let i = 0; i < urls.length / 3; i++) {
-    array.push(<Image angle={i * (1080 / urls.length)} imageAngle={90} distance={8} src={urls[i]} />)
+  for (let i = 0; i < urls.length / 4 -1; i++) {
+    array.push(
+      <Image
+        angle={i * (1440 / urls.length)}
+        height={5}
+        imageAngle={90}
+        distance={8}
+        src={urls[i]}
+        size='400px'
+        text={null}
+      />
+    )
   }
   return <>{array}</>
 }
@@ -84,7 +105,7 @@ function Image(p) {
       <group
         position={[
           Math.cos(p.angle * (Math.PI / 180)) * p.distance,
-          0,
+          p.height,
           Math.sin(p.angle * (Math.PI / 180)) * p.distance,
         ]}
         rotation={[0, -p.angle * (Math.PI / 180), 0]}
@@ -98,8 +119,8 @@ function Image(p) {
           occlude='blending'
           pointerEvents='none'
           style={{
-            width: "300px",
-            height: "300px",
+            width: p.size,
+            height: p.size,
             display: "flex",
             justifyContent: "center",
             backgroundColor: "black",
@@ -112,12 +133,12 @@ function Image(p) {
             }}
             src={p.src}
           />
-          <p style={{ position: "absolute", bottom: "300px", fontFamily: "Jura", color: "#fdf29f", fontSize: 30 }}>
-            Lunc Monkeys
+          {/* <p style={{ position: "absolute", bottom: "300px", fontFamily: "Jura", color: "#fdf29f", fontSize: 30 }}>
+            {p.text}
           </p>
           <p style={{ position: "absolute", top: "300px", fontFamily: "Jura", color: "#fdf29f", fontSize: 30 }}>
-            Monkey 1
-          </p>
+            {p.text}
+          </p> */}
         </Html>
       </group>
     </>
