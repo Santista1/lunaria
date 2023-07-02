@@ -40,6 +40,7 @@ export function App() {
         <ReactNipple
           options={{ mode: "static", position: { top: "50%", left: "50%" } }}
           style={{
+            zIndex: 16777272,
             position: "absolute",
             bottom: 175,
             left: 75,

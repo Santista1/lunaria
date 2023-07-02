@@ -108,7 +108,6 @@ function Images() {
     <>
       {array1}
       <group ref={group} rotation={[0, 10 * (Math.PI / 180), 0]}>
-        {" "}
         {array2}
       </group>
     </>
