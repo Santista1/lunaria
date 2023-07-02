@@ -5,7 +5,7 @@ const Moon = lazy(() => import("@/components/world/Moon"))
 import { Lights } from "@/Lunaria/Lights"
 import { Physics } from "@react-three/rapier"
 import { Player } from "@/Player"
-import { Ring, Extrude } from "@react-three/drei"
+import { Ring } from "@react-three/drei"
 import { RigidBody } from "@react-three/rapier"
 
 export function Lunaria() {
@@ -18,6 +18,16 @@ export function Lunaria() {
             <meshPhongMaterial shininess={0} />
           </Ring>
         </RigidBody>
+        <RigidBody colliders='trimesh' type='fixed' friction={1}>
+          <Ring rotation={[270 * (Math.PI / 180), 0, 0]} args={[15.8, 16, 64]} position={[0, -1, 0]}>
+            <meshPhongMaterial shininess={0} />
+          </Ring>
+        </RigidBody>
+        <RigidBody colliders='trimesh' type='fixed' friction={1}>
+          <Ring rotation={[270 * (Math.PI / 180), 0, 0]} args={[8.8, 9, 64]} position={[0, -1, 0]}>
+            <meshPhongMaterial shininess={0} />
+          </Ring>
+        </RigidBody>
         <Player />
       </Physics>
       <Suspense>
@@ -26,15 +36,6 @@ export function Lunaria() {
       </Suspense>
       <Hallway />
       <Lights />
-      {/* <Extrude rotation={[-Math.PI / 2, 0, 0]} args={[shapeLine, extrudeSettings]} DoubleSide={false}>
-        <meshPhysicalMaterial />
-      </Extrude> */}
-      <Ring rotation={[270 * (Math.PI / 180), 0, 0]} args={[15.8, 16, 64]} position={[0, -1, 0]}>
-        <meshPhongMaterial shininess={0} />
-      </Ring>
-      <Ring rotation={[270 * (Math.PI / 180), 0, 0]} args={[8.8, 9 , 64]} position={[0, -1, 0]}>
-        <meshPhongMaterial shininess={0} />
-      </Ring>
     </>
   )
 }
