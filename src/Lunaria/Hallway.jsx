@@ -69,7 +69,11 @@ function Images() {
   const array = []
 
   for (let i = 0; i < urls.length; i++) {
-    array.push(<Image angle={i * (360 / urls.length)} src={urls[i]} />)
+    array.push(<Image angle={i * (360 / urls.length)} imageAngle={270} distance={19} src={urls[i]} />)
+  }
+
+  for (let i = 0; i < urls.length / 3; i++) {
+    array.push(<Image angle={i * (1080 / urls.length)} imageAngle={90} distance={8} src={urls[i]} />)
   }
   return <>{array}</>
 }
@@ -78,15 +82,19 @@ function Image(p) {
   return (
     <>
       <group
-        position={[Math.cos(p.angle * (Math.PI / 180)) * 19, 0, Math.sin(p.angle * (Math.PI / 180)) * 19]}
+        position={[
+          Math.cos(p.angle * (Math.PI / 180)) * p.distance,
+          0,
+          Math.sin(p.angle * (Math.PI / 180)) * p.distance,
+        ]}
         rotation={[0, -p.angle * (Math.PI / 180), 0]}
       >
         <Html
           onClick={() => null}
           distanceFactor={2}
-          rotation={[0, 270 * (Math.PI / 180), 0]}
+          rotation={[0, p.imageAngle * (Math.PI / 180), 0]}
           transform
-          zIndexRange={[2, 0]}
+          // zIndexRange={[2, 0]}
           occlude='blending'
           pointerEvents='none'
           style={{
@@ -94,7 +102,7 @@ function Image(p) {
             height: "300px",
             display: "flex",
             justifyContent: "center",
-            backgroundColor: p.bgcolor,
+            backgroundColor: "black",
             userSelect: "none",
           }}
         >
