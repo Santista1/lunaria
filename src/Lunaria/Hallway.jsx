@@ -1,3 +1,5 @@
+import { useRef } from "react"
+import { useFrame } from "@react-three/fiber"
 import { Html } from "@react-three/drei"
 
 export default function Hallway() {
@@ -51,7 +53,6 @@ const urls = [
   "https://res.cloudinary.com/dexin8o58/image/upload/v1688018667/simplelady22_zu4ofc.avif",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1688018411/simplelady24_dxghcp.avif",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1688018385/simplelady25_n2mznk.avif",
-
   "https://res.cloudinary.com/dexin8o58/image/upload/v1686904079/Nfts/FfxJphNWYAIUUVQ_bafg0h.avif",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1686904079/Nfts/FfxJphNWYAIUUVQ_bafg0h.avif",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1686904079/Nfts/FfxJphNWYAIUUVQ_bafg0h.avif",
@@ -67,10 +68,11 @@ const urls = [
 ]
 
 function Images() {
-  const array = []
+  const array1 = []
+  const array2 = []
 
   for (let i = 0; i < urls.length; i++) {
-    array.push(
+    array1.push(
       <Image
         angle={i * (360 / urls.length)}
         height={0}
@@ -83,8 +85,14 @@ function Images() {
     )
   }
 
-  for (let i = 0; i < urls.length / 4 -1; i++) {
-    array.push(
+  const group = useRef()
+
+  useFrame((state, delta) => {
+    group.current.rotation.y += delta * 0.1
+  })
+
+  for (let i = 0; i < urls.length / 4 - 1; i++) {
+    array2.push(
       <Image
         angle={i * (1440 / urls.length)}
         height={5}
@@ -96,7 +104,15 @@ function Images() {
       />
     )
   }
-  return <>{array}</>
+  return (
+    <>
+      {array1}
+      <group ref={group} rotation={[0, 10 * (Math.PI / 180), 0]}>
+        {" "}
+        {array2}
+      </group>
+    </>
+  )
 }
 
 function Image(p) {
