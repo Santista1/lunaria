@@ -132,7 +132,7 @@ function Image(p) {
           distanceFactor={2}
           rotation={[0, p.imageAngle * (Math.PI / 180), 0]}
           transform
-          // zIndexRange={[2, 0]}
+          zIndexRange={[2000, 0]}
           occlude='blending'
           pointerEvents='none'
           style={{
