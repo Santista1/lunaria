@@ -11,6 +11,7 @@ export default function Hallway() {
 }
 
 const urls = [
+  "https://res.cloudinary.com/dexin8o58/image/upload/v1688402146/Nfts/F0HwlQXXgAAa1bw_u6dhgo",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1688310760/Nfts/imageonline-co-watermarkedimage_5_ynvlsv",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1688310761/Nfts/imageonline-co-watermarkedimage_7_ijveha",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1688310761/Nfts/imageonline-co-watermarkedimage_6_epmcj9",
@@ -57,7 +58,7 @@ const urls = [
   "https://res.cloudinary.com/dexin8o58/image/upload/v1688326028/Nfts/IMG_7473_kcoqi8",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1688326031/Nfts/IMG_0139_1_d9u78i",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1688326033/Nfts/coming-soon_ynyj87",
-  "https://res.cloudinary.com/dexin8o58/image/upload/v1686904079/Nfts/FfxJphNWYAIUUVQ_bafg0h",
+
   "https://res.cloudinary.com/dexin8o58/image/upload/v1686904079/Nfts/FfxJphNWYAIUUVQ_bafg0h",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1686904079/Nfts/FfxJphNWYAIUUVQ_bafg0h",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1686904079/Nfts/FfxJphNWYAIUUVQ_bafg0h",

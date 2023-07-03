@@ -5,7 +5,7 @@ const Moon = lazy(() => import("@/components/world/Moon"))
 import { Lights } from "@/Lunaria/Lights"
 import { Physics } from "@react-three/rapier"
 import { Player } from "@/Player"
-import { Ring } from "@react-three/drei"
+import { Ring, Cylinder } from "@react-three/drei"
 import { RigidBody } from "@react-three/rapier"
 
 export function Lunaria() {
@@ -14,19 +14,24 @@ export function Lunaria() {
       <Starfield count={4000} factor={2} />
       <Physics gravity={[0, -3, 0]}>
         <RigidBody type='fixed' friction={20}>
-          <Ring rotation={[270 * (Math.PI / 180), 0, 0]} args={[10, 15, 64]} position={[0, -1.5, 0]}>
+          <Ring rotation={[270 * (Math.PI / 180), 0, 0]} args={[10, 15, 64]} position={[0, -1.6, 0]}>
             <meshPhongMaterial shininess={0} />
           </Ring>
         </RigidBody>
         <RigidBody colliders='trimesh' type='fixed' friction={1}>
+          <Cylinder args={[15.5, 15.5, 0.1, 64, 1, true]} position={[0, -1, 0]}>
+            <meshPhongMaterial side={2} shininess={0} />
+          </Cylinder>
+        </RigidBody>
+        {/* <RigidBody colliders='trimesh' type='fixed' friction={1}>
           <Ring rotation={[270 * (Math.PI / 180), 0, 0]} args={[15.8, 16, 64]} position={[0, -1, 0]}>
             <meshPhongMaterial shininess={0} />
           </Ring>
-        </RigidBody>
+        </RigidBody> */}
         <RigidBody colliders='trimesh' type='fixed' friction={1}>
-          <Ring rotation={[270 * (Math.PI / 180), 0, 0]} args={[8.8, 9, 64]} position={[0, -1, 0]}>
-            <meshPhongMaterial shininess={0} />
-          </Ring>
+          <Cylinder args={[9.5, 9.5, 0.1, 64, 1, true]} position={[0, -1, 0]}>
+            <meshPhongMaterial side={2} shininess={0} />
+          </Cylinder>
         </RigidBody>
         <Player />
       </Physics>
