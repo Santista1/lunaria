@@ -2,6 +2,7 @@ import { useState, useRef } from "react"
 import { useCursor, useTexture } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
 import { useThree } from "@react-three/fiber"
+
 import { clock } from "@/global"
 
 export default function Moon({ ...props }) {
@@ -17,6 +18,7 @@ export default function Moon({ ...props }) {
   useFrame((state, delta) => {
     var time = clock.getElapsedTime()
     mesh.current.rotation.y += delta * 0.1
+    mesh.current.rotation.z += delta * 0.1
     mesh.current.position.y = Math.sin(time * 0.1) * 10 + 2
   })
 

@@ -4,8 +4,10 @@ import { useThree } from "@react-three/fiber"
 import { OrthographicCamera, Hud } from "@react-three/drei"
 import { useChain } from "@cosmos-kit/react"
 
-import { ui, touch, lock, audio, hud } from "./global"
-import { Button, Wallet } from "./components/gui"
+import { ui, touch, lock, audio, hud } from "@/global"
+
+import { Button } from "./Button"
+import { Wallet } from "./Wallet"
 
 export function Gui() {
   return (

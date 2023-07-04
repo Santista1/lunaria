@@ -21,7 +21,6 @@ const urls = [
   "https://res.cloudinary.com/dexin8o58/image/upload/v1688310762/Nfts/imageonline-co-watermarkedimage_11_dzelcj",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1688310761/Nfts/imageonline-co-watermarkedimage_12_a6jpic",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1687057979/Nfts/revival_iilit9",
-  // "https://res.cloudinary.com/dexin8o58/image/upload/v1685221048/Nfts/three_j414x5.gif",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1686904474/Nfts/Fg2oTqhWQAIXEmk_xylcip",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1686904436/Nfts/FgrgsABXkAMnxoG_skxqik",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1685218397/Nfts/FjLR2_eXEAAbI2J_os2zlu",
@@ -58,7 +57,6 @@ const urls = [
   "https://res.cloudinary.com/dexin8o58/image/upload/v1688326028/Nfts/IMG_7473_kcoqi8",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1688326031/Nfts/IMG_0139_1_d9u78i",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1688326033/Nfts/coming-soon_ynyj87",
-
   "https://res.cloudinary.com/dexin8o58/image/upload/v1686904079/Nfts/FfxJphNWYAIUUVQ_bafg0h",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1686904079/Nfts/FfxJphNWYAIUUVQ_bafg0h",
   "https://res.cloudinary.com/dexin8o58/image/upload/v1686904079/Nfts/FfxJphNWYAIUUVQ_bafg0h",
@@ -95,7 +93,7 @@ function Images() {
   for (let i = 0; i < urls.length / 4; i++) {
     array2.push(
       <Image
-        angle={i * (1390 / urls.length)}
+        angle={i * (1350 / urls.length)}
         height={5}
         imageAngle={90}
         distance={8}

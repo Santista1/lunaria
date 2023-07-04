@@ -1,12 +1,13 @@
 import { lazy, Suspense } from "react"
-import { Starfield } from "@/components/world"
-import Hallway from "@/Lunaria/Hallway"
-const Moon = lazy(() => import("@/components/world/Moon"))
-import { Lights } from "@/Lunaria/Lights"
 import { Physics } from "@react-three/rapier"
-import { Player } from "@/Player"
 import { Ring, Cylinder } from "@react-three/drei"
 import { RigidBody } from "@react-three/rapier"
+
+import { Starfield } from "./Starfield"
+import Hallway from "./Hallway"
+const Moon = lazy(() => import("./Moon"))
+import { Lights } from "./Lights"
+import { Player } from "./Player"
 
 export function Lunaria() {
   return (

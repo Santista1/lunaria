@@ -2,10 +2,10 @@ import { useRef, useState } from "react"
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
 import { KeyboardControls, CameraControls, PointerLockControls } from "@react-three/drei"
 import { DepthOfField, EffectComposer } from "@react-three/postprocessing"
-// import { Physics } from "@react-three/rapier"
 import { Perf } from "r3f-perf"
 import ReactNipple from "react-nipple"
 import { useSetAtom } from "jotai"
+import { Analytics } from "@vercel/analytics/react"
 
 import { ChainProvider } from "@cosmos-kit/react"
 import { chains, assets } from "chain-registry"
@@ -14,12 +14,10 @@ import { wallets as keplr } from "@cosmos-kit/keplr"
 import { wallets as trust } from "@cosmos-kit/trust"
 import { wallets as web3auth } from "@cosmos-kit/web3auth"
 
-import { Analytics } from "@vercel/analytics/react"
-
-import { World } from "@/World"
-
-import { Gui } from "@/Gui"
 import { touch, joystick, lock } from "@/global"
+
+import { Lunaria } from "./Lunaria/Lunaria"
+import { Gui } from "./Gui/Gui"
 
 export function App() {
   const setJoystick = useSetAtom(joystick)
@@ -88,7 +86,7 @@ function Scene() {
 
       {touch ? <TouchControls /> : <DesktopControls />}
 
-      <World />
+      <Lunaria />
     </Canvas>
   )
 }
